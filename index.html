@@ -5,34 +5,222 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Name</title>
   <style>
+    :root {
+      --bg-light: #f5f5f5;
+      --bg-dark: #222;
+      --text-light: #fff;
+      --text-dark: #333;
+      --accent: #444;
+    }
+
     body {
       margin: 0;
-      padding: 0;
       font-family: sans-serif;
-      background: #f5f5f5;
-      color: #333;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+    }
+
+    header {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #ccc;
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+
+    header .left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
-    p {
-      max-width: 600px;
+
+    header .right {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .button, .circle-button {
+      background-color: var(--accent);
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .circle-button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
       text-align: center;
-      line-height: 1.5;
+      line-height: 40px;
+      margin: 0 0.25rem;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .hero {
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero .button-group {
+      margin-top: 1rem;
+    }
+
+    .split {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .split > div {
+      flex: 1 1 45%;
+      min-height: 200px;
+      background: #e0e0e0;
+      padding: 1rem;
+    }
+
+    .center-box {
+      text-align: center;
+    }
+
+    .circles {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .text-grid {
+      background: repeating-dotted-pattern; /* Optional, mimic your layout background */
+      text-align: center;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .project-card {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 1rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+      border-top: 1px solid #ccc;
+      gap: 1rem;
+    }
+
+    .arrow-down {
+      font-size: 2rem;
+      margin-top: 2rem;
+    }
+
+    /* Simple dotted background for bottom sections */
+    .dots {
+      background-image: radial-gradient(#ccc 1px, transparent 1px);
+      background-size: 20px 20px;
     }
   </style>
 </head>
 <body>
-  <h1>Your Name</h1>
-  <p>
-    A quiet space for structured thinking. Projects that walk through decisions,
-    data, and the stories behind them.
-  </p>
+
+  <!-- Header -->
+  <header>
+    <div class="left">
+      <button class="button">dark theme</button>
+      <div><strong>name</strong></div>
+    </div>
+    <div class="right">
+      <div>▢</div>
+      <div>▢</div>
+      <div>▢</div>
+      <div>▢</div>
+      <div>▢</div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Lorem ipsum dolor sit amet</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <div class="button-group">
+      <button class="button">Button One</button>
+      <button class="button">Button Two</button>
+    </div>
+  </section>
+
+  <!-- Image + Text Rows -->
+  <section class="split">
+    <div>Image Placeholder</div>
+    <div><p>Lorem ipsum dolor sit amet.</p></div>
+  </section>
+
+  <section class="split">
+    <div><p>Lorem ipsum dolor sit amet.</p></div>
+    <div>Image Placeholder</div>
+  </section>
+
+  <!-- Centered Section with Circles -->
+  <section class="center-box">
+    <p>Lorem ipsum dolor sit amet.</p>
+    <div class="circles">
+      <div class="circle-button">●</div>
+      <div class="circle-button">●</div>
+      <div class="circle-button">●</div>
+      <div class="circle-button">●</div>
+    </div>
+  </section>
+
+  <!-- Side-by-Side Image + Text -->
+  <section class="split">
+    <div>Image Placeholder</div>
+    <div>
+      <h3>Lorem ipsum</h3>
+      <h4>More lorem</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod dolor ut tincidunt porttitor.</p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="dots text-grid">
+    <h2>Lorem ipsum dolor sit</h2>
+    <p>Lorem ipsum. Lorem ipsum. a lot more text right here its just gonna be here as text because there is text here</p>
+    <div class="project-grid">
+      <div class="project-card">Project 1</div>
+      <div class="project-card">Project 2</div>
+      <div class="project-card">Project 3</div>
+      <div class="project-card">Project 4</div>
+      <div class="project-card">Project 5</div>
+      <div class="project-card">Project 6</div>
+    </div>
+    <div class="arrow-down">⬇</div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div>⚫</div>
+    <div>⚫</div>
+    <div>⚫</div>
+  </footer>
+
 </body>
 </html>
+
