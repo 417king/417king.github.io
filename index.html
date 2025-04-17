@@ -7,8 +7,6 @@
   <style>
     :root {
       --bg-light: #f5f5f5;
-      --bg-dark: #222;
-      --text-light: #fff;
       --text-dark: #333;
       --accent: #444;
     }
@@ -21,41 +19,31 @@
     }
 
     header {
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
       border-bottom: 1px solid #ccc;
     }
 
-    header .left {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    header .right {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .button, .circle-button {
+    .dark-toggle {
+      padding: 0.5rem 1rem;
       background-color: var(--accent);
       color: white;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
       border: none;
-      border-radius: 4px;
-      cursor: pointer;
+      border-radius: 6px;
     }
 
-    .circle-button {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 40px;
-      margin: 0 0.25rem;
+    .name {
+      text-align: left;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 1rem 2rem;
+    }
+
+    .right-icons {
+      display: flex;
+      gap: 1rem;
     }
 
     section {
@@ -64,79 +52,96 @@
     }
 
     .hero {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .hero-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      transform: translateX(-100px);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
 
-    .hero h1 {
-      font-size: 2rem;
+    .hero-box h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
     }
 
-    .hero .button-group {
-      margin-top: 1rem;
+    .hero-box p {
+      margin-bottom: 1.5rem;
     }
 
-    .split {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
+    .button {
+      background-color: var(--accent);
+      color: white;
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
     }
 
-    .split > div {
-      flex: 1 1 45%;
-      min-height: 200px;
+    .grid-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 200px 200px;
+      gap: 0;
+    }
+
+    .grid-2x2 > div {
       background: #e0e0e0;
       padding: 1rem;
-    }
-
-    .center-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
     }
 
-    .circles {
+    .center-card {
+      background: white;
+      max-width: 500px;
+      margin: 0 auto;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .circle-buttons {
       display: flex;
       justify-content: center;
       gap: 1rem;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
     }
 
-    .text-grid {
-      background: repeating-dotted-pattern; /* Optional, mimic your layout background */
-      text-align: center;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .project-card {
-      background: white;
-      border: 1px solid #ccc;
-      padding: 1rem;
+    .circle {
+      width: 40px;
+      height: 40px;
+      background: black;
+      border-radius: 50%;
     }
 
     footer {
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid #ccc;
+    }
+
+    .footer-icons {
       display: flex;
       justify-content: center;
-      padding: 2rem;
-      border-top: 1px solid #ccc;
       gap: 1rem;
     }
 
     .arrow-down {
-      font-size: 2rem;
       margin-top: 2rem;
-    }
-
-    /* Simple dotted background for bottom sections */
-    .dots {
-      background-image: radial-gradient(#ccc 1px, transparent 1px);
-      background-size: 20px 20px;
+      font-size: 1.5rem;
     }
   </style>
 </head>
@@ -144,11 +149,8 @@
 
   <!-- Header -->
   <header>
-    <div class="left">
-      <button class="button">dark theme</button>
-      <div><strong>name</strong></div>
-    </div>
-    <div class="right">
+    <button class="dark-toggle">dark theme</button>
+    <div class="right-icons">
       <div>▢</div>
       <div>▢</div>
       <div>▢</div>
@@ -157,70 +159,51 @@
     </div>
   </header>
 
+  <!-- Name (now under header) -->
+  <div class="name">name</div>
+
   <!-- Hero Section -->
   <section class="hero">
-    <h1>Lorem ipsum dolor sit amet</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <div class="button-group">
+    <div class="hero-box">
+      <h1>Lorem ipsum dolor sit amet</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       <button class="button">Button One</button>
       <button class="button">Button Two</button>
     </div>
   </section>
 
-  <!-- Image + Text Rows -->
-  <section class="split">
-    <div>Image Placeholder</div>
-    <div><p>Lorem ipsum dolor sit amet.</p></div>
+  <!-- Grid of 4 -->
+  <section class="grid-2x2">
+    <div>Image / Text</div>
+    <div>Image / Text</div>
+    <div>Image / Text</div>
+    <div>Image / Text</div>
   </section>
 
-  <section class="split">
-    <div><p>Lorem ipsum dolor sit amet.</p></div>
-    <div>Image Placeholder</div>
-  </section>
-
-  <!-- Centered Section with Circles -->
-  <section class="center-box">
-    <p>Lorem ipsum dolor sit amet.</p>
-    <div class="circles">
-      <div class="circle-button">●</div>
-      <div class="circle-button">●</div>
-      <div class="circle-button">●</div>
-      <div class="circle-button">●</div>
+  <!-- Centered Card with Circles -->
+  <section>
+    <div class="center-card">
+      <p>Lorem ipsum dolor sit amet.</p>
+      <div class="circle-buttons">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
     </div>
-  </section>
-
-  <!-- Side-by-Side Image + Text -->
-  <section class="split">
-    <div>Image Placeholder</div>
-    <div>
-      <h3>Lorem ipsum</h3>
-      <h4>More lorem</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod dolor ut tincidunt porttitor.</p>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section class="dots text-grid">
-    <h2>Lorem ipsum dolor sit</h2>
-    <p>Lorem ipsum. Lorem ipsum. a lot more text right here its just gonna be here as text because there is text here</p>
-    <div class="project-grid">
-      <div class="project-card">Project 1</div>
-      <div class="project-card">Project 2</div>
-      <div class="project-card">Project 3</div>
-      <div class="project-card">Project 4</div>
-      <div class="project-card">Project 5</div>
-      <div class="project-card">Project 6</div>
-    </div>
-    <div class="arrow-down">⬇</div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <div>⚫</div>
-    <div>⚫</div>
-    <div>⚫</div>
+    <div class="footer-icons">
+      <div>⚫</div>
+      <div>⚫</div>
+      <div>⚫</div>
+    </div>
+    <div class="arrow-down">⬇</div>
   </footer>
 
 </body>
 </html>
+
 
