@@ -44,6 +44,48 @@
     .right-icons {
       display: flex;
       gap: 1rem;
+      align-items: center;
+    }
+
+    .icon-box {
+      width: 40px;
+      height: 40px;
+      background: #ccc;
+      border-radius: 4px;
+    }
+
+    .survey-box {
+      position: relative;
+      height: 40px;
+      padding-left: 40px;
+      overflow: hidden;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .survey-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 40px;
+      width: 40px;
+      background: #37424A;
+      z-index: 1;
+    }
+
+    .survey-box:hover::before {
+      width: 160px;
+    }
+
+    .survey-box span {
+      position: relative;
+      z-index: 2;
+      line-height: 40px;
+      padding-left: 0.5rem;
+      color: white;
+      font-weight: bold;
+      white-space: nowrap;
     }
 
     section {
@@ -183,11 +225,13 @@
   <header>
     <button class="dark-toggle">dark theme</button>
     <div class="right-icons">
-      <div>▢</div>
-      <div>▢</div>
-      <div>▢</div>
-      <div>▢</div>
-      <div>▢</div>
+      <div class="icon-box" style="background:#FFA02F;"></div>
+      <div class="icon-box" style="background:#00C7B2;"></div>
+      <div class="icon-box" style="background:#5B1B93;"></div>
+      <div class="icon-box" style="background:#007B69;"></div>
+      <div class="survey-box">
+        <span>Survey Designs</span>
+      </div>
     </div>
   </header>
 
