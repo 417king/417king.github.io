@@ -18,6 +18,7 @@
       color: var(--text-dark);
     }
 
+    /* === Header Styles === */
     header {
       padding: 1rem 2rem;
       display: flex;
@@ -72,6 +73,7 @@
       width: 40px;
       background: #37424A;
       z-index: 1;
+      transition: width 0.3s ease-in-out;
     }
 
     .survey-box:hover::before {
@@ -88,11 +90,7 @@
       white-space: nowrap;
     }
 
-    section {
-      padding: 4rem 2rem;
-      border-bottom: 1px solid #ccc;
-    }
-
+    /* === Hero Section === */
     .hero {
       display: flex;
       justify-content: flex-start;
@@ -129,6 +127,7 @@
       cursor: pointer;
     }
 
+    /* === Grid of 4 === */
     .grid-2x2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -145,6 +144,7 @@
       text-align: center;
     }
 
+    /* === Centered Circles === */
     .center-card {
       background: white;
       max-width: 500px;
@@ -169,6 +169,7 @@
       border-radius: 50%;
     }
 
+    /* === Side-by-side Section === */
     .side-image-text {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -181,6 +182,7 @@
       padding: 2rem;
     }
 
+    /* === Project Grid === */
     .project-section {
       background: #f0f0f0;
       text-align: center;
@@ -206,6 +208,7 @@
       margin-top: 2rem;
     }
 
+    /* === Footer === */
     footer {
       padding: 2rem;
       text-align: center;
@@ -221,7 +224,7 @@
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- === Header Module === -->
   <header>
     <button class="dark-toggle">dark theme</button>
     <div class="right-icons">
@@ -235,10 +238,10 @@
     </div>
   </header>
 
-  <!-- Name -->
+  <!-- === Name Module === -->
   <div class="name">name</div>
 
-  <!-- Hero Section -->
+  <!-- === Hero Section Module === -->
   <section class="hero">
     <div class="hero-box">
       <h1>Lorem ipsum dolor sit amet</h1>
@@ -248,7 +251,7 @@
     </div>
   </section>
 
-  <!-- Grid of 4 -->
+  <!-- === Grid of 4 Module === -->
   <section class="grid-2x2">
     <div>Image / Text</div>
     <div>Image / Text</div>
@@ -256,7 +259,7 @@
     <div>Image / Text</div>
   </section>
 
-  <!-- Centered Card with Circles -->
+  <!-- === Centered Circle Section Module === -->
   <section>
     <div class="center-card">
       <p>Lorem ipsum dolor sit amet.</p>
@@ -269,7 +272,7 @@
     </div>
   </section>
 
-  <!-- Side-by-side Image + Text -->
+  <!-- === Side-by-side Module === -->
   <section class="side-image-text">
     <div>Image Placeholder</div>
     <div>
@@ -279,7 +282,7 @@
     </div>
   </section>
 
-  <!-- Project Section -->
+  <!-- === Project Grid Section Module === -->
   <section class="project-section">
     <h2>Some text. Some text</h2>
     <p>Some text. Some text. a lot more text right here its just gonna be here as text because there is text here</p>
@@ -294,7 +297,7 @@
     <div class="arrow-down">⬇</div>
   </section>
 
-  <!-- Footer -->
+  <!-- === Footer Module === -->
   <footer>
     <div class="footer-icons">
       <div>⚫</div>
@@ -305,3 +308,5 @@
 
 </body>
 </html>
+
+
