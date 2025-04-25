@@ -127,6 +127,43 @@
       border-radius: 50%;
     }
 
+    .side-image-text {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .side-image-text > div {
+      background: #e0e0e0;
+      padding: 2rem;
+    }
+
+    .project-section {
+      background: #f0f0f0;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+      max-width: 800px;
+      margin: 2rem auto;
+    }
+
+    .project-card {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      background: white;
+    }
+
+    .arrow-down {
+      font-size: 2rem;
+      margin-top: 2rem;
+    }
+
     footer {
       padding: 2rem;
       text-align: center;
@@ -137,11 +174,6 @@
       display: flex;
       justify-content: center;
       gap: 1rem;
-    }
-
-    .arrow-down {
-      margin-top: 2rem;
-      font-size: 1.5rem;
     }
   </style>
 </head>
@@ -159,7 +191,7 @@
     </div>
   </header>
 
-  <!-- Name (now under header) -->
+  <!-- Name -->
   <div class="name">name</div>
 
   <!-- Hero Section -->
@@ -193,6 +225,31 @@
     </div>
   </section>
 
+  <!-- Side-by-side Image + Text -->
+  <section class="side-image-text">
+    <div>Image Placeholder</div>
+    <div>
+      <h3>Lorem ipsum</h3>
+      <h4>More lorem</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod dolor ut tincidunt porttitor.</p>
+    </div>
+  </section>
+
+  <!-- Project Section -->
+  <section class="project-section">
+    <h2>Some text. Some text</h2>
+    <p>Some text. Some text. a lot more text right here its just gonna be here as text because there is text here</p>
+    <div class="project-grid">
+      <div class="project-card">Project 1</div>
+      <div class="project-card">Project 2</div>
+      <div class="project-card">Project 3</div>
+      <div class="project-card">Project 4</div>
+      <div class="project-card">Project 5</div>
+      <div class="project-card">Project 6</div>
+    </div>
+    <div class="arrow-down">⬇</div>
+  </section>
+
   <!-- Footer -->
   <footer>
     <div class="footer-icons">
@@ -200,10 +257,7 @@
       <div>⚫</div>
       <div>⚫</div>
     </div>
-    <div class="arrow-down">⬇</div>
   </footer>
 
 </body>
 </html>
-
-
