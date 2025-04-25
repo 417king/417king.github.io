@@ -209,12 +209,23 @@
 
     .grid-item {
       background: #e0e0e0;
-      padding: 1rem;
       height: 300px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
+    }
+
+    .image-top-left {
+      background-image: url('indeximage1.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .image-bottom-right {
+      background-image: url('indeximage2.jpg');
+      background-size: cover;
+      background-position: center;
     }
 
     .grid-2x2 > div {
@@ -356,14 +367,10 @@
   <!-- === Grid Section === -->
   <section class="image-grid-section">
     <div class="grid-2x2">
-      <div class="grid-item top-left">
-        <img src="indeximage1.jpg" alt="Top left image" />
-      </div>
+      <div class="grid-item image-top-left"></div>
       <div class="grid-item">Image / Text</div>
       <div class="grid-item">Image / Text</div>
-      <div class="grid-item bottom-right">
-        <img src="indeximage2.jpg" alt="Bottom right image" />
-      </div>
+      <div class="grid-item image-bottom-right"></div>
     </div>
   </section>
 
