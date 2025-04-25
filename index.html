@@ -28,15 +28,15 @@
       background: #f5f5f5;
     }
 
-    .header-left, .header-right {
+    .header-left {
       display: flex;
       align-items: center;
     }
 
-    .header-text {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: #333;
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .dark-toggle-switch {
@@ -68,12 +68,18 @@
       left: 27px;
     }
 
-    .color-bar {
+    .survey-link-box {
       display: flex;
-      padding: 0.25rem 2rem;
+      align-items: center;
       gap: 0.5rem;
-      background: #f5f5f5;
-      border-bottom: 1px solid #ccc;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .survey-link-box:hover {
+      text-decoration: underline;
     }
 
     .color-rect {
@@ -225,7 +231,7 @@
 </head>
 <body>
 
-  <!-- === Header Module (Updated) === -->
+  <!-- === Header (Updated) === -->
   <header class="new-header">
     <div class="header-left">
       <div class="dark-toggle-switch" onclick="toggleSwitch(this)">
@@ -233,26 +239,17 @@
       </div>
     </div>
     <div class="header-right">
-      <span class="header-text">Lorem Ipsum</span>
+      <a href="https://417king.github.io/survey.html" class="survey-link-box">
+        <div class="color-rect" style="background:#37424A;"></div>
+        <span>Survey Designs</span>
+      </a>
     </div>
   </header>
 
-  <!-- Color Bar Below Header with Link on Right -->
-  <div class="color-bar" style="justify-content: space-between;">
-    <div class="color-group" style="display: flex; gap: 0.5rem;">
-      <div class="color-rect" style="background:#FFA02F;"></div>
-      <div class="color-rect" style="background:#00C7B2;"></div>
-      <div class="color-rect" style="background:#5B1B93;"></div>
-      <div class="color-rect" style="background:#007B69;"></div>
-      <div class="color-rect" style="background:#37424A;"></div>
-    </div>
-    <a href="survey.html" class="https://417king.github.io/survey.html">Survey Designs</a>
-  </div>
-
-  <!-- === Name Module === -->
+  <!-- === Name Section === -->
   <div class="name">name</div>
 
-  <!-- === Hero Section Module === -->
+  <!-- === Hero Section === -->
   <section class="hero">
     <div class="hero-box">
       <h1>Lorem ipsum dolor sit amet</h1>
@@ -262,7 +259,7 @@
     </div>
   </section>
 
-  <!-- === Grid of 4 Module === -->
+  <!-- === Grid Section === -->
   <section class="grid-2x2">
     <div>Image / Text</div>
     <div>Image / Text</div>
@@ -270,7 +267,7 @@
     <div>Image / Text</div>
   </section>
 
-  <!-- === Centered Circle Section Module === -->
+  <!-- === Center Section === -->
   <section>
     <div class="center-card">
       <p>Lorem ipsum dolor sit amet.</p>
@@ -283,7 +280,7 @@
     </div>
   </section>
 
-  <!-- === Side-by-side Module === -->
+  <!-- === Side-by-side Section === -->
   <section class="side-image-text">
     <div>Image Placeholder</div>
     <div>
@@ -293,7 +290,7 @@
     </div>
   </section>
 
-  <!-- === Project Grid Section Module === -->
+  <!-- === Project Grid Section === -->
   <section class="project-section">
     <h2>Some text. Some text</h2>
     <p>Some text. Some text. a lot more text right here its just gonna be here as text because there is text here</p>
@@ -308,7 +305,7 @@
     <div class="arrow-down">⬇</div>
   </section>
 
-  <!-- === Footer Module === -->
+  <!-- === Footer === -->
   <footer>
     <div class="footer-icons">
       <div>⚫</div>
@@ -317,6 +314,7 @@
     </div>
   </footer>
 
+  <!-- === Toggle Script === -->
   <script>
     function toggleSwitch(el) {
       el.classList.toggle('active');
@@ -325,6 +323,7 @@
 
 </body>
 </html>
+
 
 
 
