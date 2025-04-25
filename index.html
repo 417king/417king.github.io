@@ -42,6 +42,7 @@
       transform: translateY(0);
     }
 
+    /* === Header === */
     .new-header {
       position: fixed;
       top: 0;
@@ -191,6 +192,7 @@
       margin-bottom: 1.5rem;
     }
 
+    /* === Grid Section === */
     .grid-2x2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -209,6 +211,7 @@
       text-align: center;
     }
 
+    /* === Center Section (4 Circles) === */
     .center-card {
       background: white;
       max-width: 500px;
@@ -233,6 +236,7 @@
       border-radius: 50%;
     }
 
+    /* === Side-by-Side Section === */
     .side-image-text {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -246,6 +250,7 @@
       padding: 2rem;
     }
 
+    /* === Project Section === */
     .project-section {
       background: white;
       text-align: center;
@@ -301,25 +306,111 @@
     }
   </style>
 </head>
+
 <body onload="animateOnLoad()">
 
-<!-- === Rest of your HTML content remains unchanged === -->
+  <!-- === Header === -->
+  <header class="new-header fade-in-top">
+    <div class="header-left">
+      <div class="dark-toggle-switch" onclick="toggleSwitch(this)">
+        <div class="circle"></div>
+      </div>
+      <div class="site-name">
+        <a href="index.html">Christopher King</a>
+      </div>
+    </div>
+    <div class="header-right">
+      <a href="https://417king.github.io/survey.html" class="survey-link-box">
+        <div class="color-rect"></div>
+        <span>Survey Designs</span>
+      </a>
+    </div>
+  </header>
 
-<script>
-  function toggleSwitch(el) {
-    el.classList.toggle('active');
-    document.body.classList.toggle('dark-mode');
-  }
+  <!-- === Hero Section === -->
+  <section class="hero fade-in-banner">
+    <div class="hero-box slide-up-delayed">
+      <h1>Hi, I'm Christopher King</h1>
+      <p>I design and build a variety of solutions that are suited for policy professionals and program managers. Explore these solutions on my online portfolio to see how I have helped push systems toward smarter outcomes.</p>
+      <button class="button">Button One</button>
+      <button class="button">Button Two</button>
+    </div>
+  </section>
 
-  function animateOnLoad() {
-    document.querySelector('.new-header').classList.add('animate-in');
-    document.querySelector('.hero').classList.add('animate-in');
-    document.querySelector('.hero-box').classList.add('animate-in');
-  }
-</script>
+  <!-- === Grid Section === -->
+  <section class="image-grid-section">
+    <div class="grid-2x2">
+      <div>Image / Text</div>
+      <div>Image / Text</div>
+      <div>Image / Text</div>
+      <div>Image / Text</div>
+    </div>
+  </section>
+
+  <!-- === Center Section (4 Circles) === -->
+  <section class="center-section">
+    <div class="center-card">
+      <p>Lorem ipsum dolor sit amet.</p>
+      <div class="circle-buttons">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === Side-by-Side Section === -->
+  <section class="side-image-text">
+    <div>Image Placeholder</div>
+    <div>
+      <h3>Lorem ipsum</h3>
+      <h4>More lorem</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod dolor ut tincidunt porttitor.</p>
+    </div>
+  </section>
+
+  <!-- === Project Section === -->
+  <section class="project-section">
+    <h2>Some text. Some text</h2>
+    <p>Some text. Some text. a lot more text right here its just gonna be here as text because there is text here</p>
+    <div class="project-grid">
+      <div class="project-card">Project 1</div>
+      <div class="project-card">Project 2</div>
+      <div class="project-card">Project 3</div>
+      <div class="project-card">Project 4</div>
+      <div class="project-card">Project 5</div>
+      <div class="project-card">Project 6</div>
+    </div>
+    <div class="arrow-down">⬇</div>
+  </section>
+
+  <!-- === Footer === -->
+  <footer>
+    <div class="footer-icons">
+      <div>⚫</div>
+      <div>⚫</div>
+      <div>⚫</div>
+    </div>
+  </footer>
+
+  <!-- === Scripts === -->
+  <script>
+    function toggleSwitch(el) {
+      el.classList.toggle('active');
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function animateOnLoad() {
+      document.querySelector('.new-header').classList.add('animate-in');
+      document.querySelector('.hero').classList.add('animate-in');
+      document.querySelector('.hero-box').classList.add('animate-in');
+    }
+  </script>
 
 </body>
 </html>
+
 
 
 
