@@ -68,6 +68,7 @@
     }
 
     .survey-link-box {
+      position: relative;
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -75,17 +76,42 @@
       font-size: 1.1rem;
       font-weight: 600;
       color: #333;
+      overflow: hidden;
     }
 
-    .survey-link-box:hover {
-      text-decoration: underline;
+    .survey-link-box::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 100%;
+      background-color: #37424A;
+      transition: width 0.3s ease;
+      z-index: 0;
+    }
+
+    .survey-link-box:hover::before {
+      width: 100%;
+    }
+
+    .survey-link-box span {
+      position: relative;
+      z-index: 1;
+      transition: color 0.3s ease;
+      color: #333;
+    }
+
+    .survey-link-box:hover span {
+      color: white;
     }
 
     .color-rect {
-      width: 6px;
+      width: 8px;
       height: 36px;
       border-radius: 3px;
       background-color: #37424A;
+      z-index: 1;
     }
 
     /* === Hero Section === */
