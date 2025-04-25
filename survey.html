@@ -3,23 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Christopher King</title>
+  <title>Survey Designs</title>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-light: #f5f5f5;
-      --text-dark: #333;
-      --accent: #37424A;
-    }
-
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-dark);
+      background-color: #f5f5f5;
+      color: #333;
     }
 
-    /* === Header Styles === */
     .new-header {
       padding: 0.75rem 2rem;
       display: flex;
@@ -88,7 +81,7 @@
       background-color: #37424A;
     }
 
-    /* === Hero Section === */
+    /* Hero Section with top-left name */
     .hero {
       position: relative;
       display: flex;
@@ -132,104 +125,55 @@
       margin-bottom: 1.5rem;
     }
 
-    .button {
-      background-color: var(--accent);
-      color: white;
-      padding: 0.5rem 1rem;
-      margin: 0 0.5rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .grid-2x2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 200px 200px;
-      gap: 0;
-    }
-
-    .grid-2x2 > div {
-      background: #e0e0e0;
-      padding: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .center-card {
-      background: white;
-      max-width: 500px;
+    .image-placeholder {
+      background: #d0e0d0;
+      height: 150px;
       margin: 2rem auto;
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 700px;
     }
 
-    .circle-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .circle {
-      width: 40px;
-      height: 40px;
-      background: black;
-      border-radius: 50%;
-    }
-
-    .side-image-text {
+    .two-column {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      align-items: center;
       gap: 2rem;
-      padding: 2rem;
+      max-width: 900px;
+      margin: 3rem auto;
+      align-items: start;
     }
 
-    .side-image-text > div {
-      background: #e0e0e0;
-      padding: 2rem;
-    }
-
-    .project-section {
-      background: #f0f0f0;
-      text-align: center;
-      padding: 4rem 2rem;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 1rem;
-      max-width: 800px;
-      margin: 2rem auto;
-    }
-
-    .project-card {
-      border: 1px solid #ccc;
+    .text-box, .survey-embed {
+      border: 2px solid black;
       padding: 1rem;
       background: white;
     }
 
-    .arrow-down {
-      font-size: 2rem;
-      margin-top: 2rem;
+    .expand-container {
+      max-width: 900px;
+      margin: 3rem auto;
     }
 
-    footer {
-      padding: 2rem;
-      text-align: center;
-      border-top: 1px solid #ccc;
-    }
-
-    .footer-icons {
+    .expand-toggle {
       display: flex;
-      justify-content: center;
+      align-items: center;
       gap: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .expand-box {
+      margin-top: 1rem;
+      border: 2px dashed #333;
+      padding: 1rem;
+      background: white;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+
+    .expand-box.open {
+      max-height: 500px;
+      opacity: 1;
     }
   </style>
 </head>
@@ -243,83 +187,57 @@
       </div>
     </div>
     <div class="header-right">
-      <a href="https://417king.github.io/survey.html" class="survey-link-box">
+      <a href="survey.html" class="survey-link-box">
         <div class="color-rect"></div>
         <span>Survey Designs</span>
       </a>
     </div>
   </header>
 
-  <!-- === Hero Section === -->
+  <!-- === Hero Section with Name and Box === -->
   <section class="hero">
     <div class="name">
       <a href="index.html" style="color: inherit; text-decoration: none;">Christopher King</a>
     </div>
     <div class="hero-box">
-      <h1>Lorem ipsum dolor sit amet</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      <button class="button">Button One</button>
-      <button class="button">Button Two</button>
+      <h1>Survey Page</h1>
+      <p>Intro paragraph here—brief context or framing for this page.</p>
     </div>
   </section>
 
-  <!-- === Grid Section === -->
-  <section class="grid-2x2">
-    <div>Image / Text</div>
-    <div>Image / Text</div>
-    <div>Image / Text</div>
-    <div>Image / Text</div>
-  </section>
-
-  <!-- === Center Section === -->
+  <!-- === Main Survey Section === -->
   <section>
-    <div class="center-card">
-      <p>Lorem ipsum dolor sit amet.</p>
-      <div class="circle-buttons">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
+    <div class="image-placeholder"></div>
+
+    <div class="two-column">
+      <div class="text-box">
+        <p>some text some text some text some text</p>
+      </div>
+      <div class="survey-embed">
+        <p>This will be an embedded Qualtrics survey</p>
+        <!-- <iframe src="QUALTRICS_LINK_HERE" width="100%" height="400" style="border:none;"></iframe> -->
       </div>
     </div>
   </section>
 
-  <!-- === Side-by-side Section === -->
-  <section class="side-image-text">
-    <div>Image Placeholder</div>
-    <div>
-      <h3>Lorem ipsum</h3>
-      <h4>More lorem</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod dolor ut tincidunt porttitor.</p>
+  <!-- === Expandable Section === -->
+  <section class="expand-container">
+    <div class="expand-toggle" onclick="toggleExpandBox()">
+      <div style="font-size: 1.5rem;">+</div>
+      <div>Click to expand for more text</div>
+    </div>
+    <div class="expand-box" id="expandBox">
+      <p>some text some text some text some text some text some text some text</p>
     </div>
   </section>
 
-  <!-- === Project Grid Section === -->
-  <section class="project-section">
-    <h2>Some text. Some text</h2>
-    <p>Some text. Some text. a lot more text right here its just gonna be here as text because there is text here</p>
-    <div class="project-grid">
-      <div class="project-card">Project 1</div>
-      <div class="project-card">Project 2</div>
-      <div class="project-card">Project 3</div>
-      <div class="project-card">Project 4</div>
-      <div class="project-card">Project 5</div>
-      <div class="project-card">Project 6</div>
-    </div>
-    <div class="arrow-down">⬇</div>
-  </section>
-
-  <!-- === Footer === -->
-  <footer>
-    <div class="footer-icons">
-      <div>⚫</div>
-      <div>⚫</div>
-      <div>⚫</div>
-    </div>
-  </footer>
-
-  <!-- === Toggle Script === -->
+  <!-- === Scripts === -->
   <script>
+    function toggleExpandBox() {
+      const box = document.getElementById('expandBox');
+      box.classList.toggle('open');
+    }
+
     function toggleSwitch(el) {
       el.classList.toggle('active');
     }
@@ -327,6 +245,7 @@
 
 </body>
 </html>
+
 
 
 
