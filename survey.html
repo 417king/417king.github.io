@@ -77,15 +77,42 @@
       white-space: nowrap;
     }
 
-    /* === Content === */
-    section {
-      padding: 4rem 2rem;
+    .name {
+      text-align: left;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 1rem 2rem;
     }
 
-    .intro-text {
+    /* === Off-Center Hero === */
+    .hero {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .hero-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      transform: translateX(-100px);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       text-align: center;
-      max-width: 700px;
-      margin: 0 auto 2rem auto;
+    }
+
+    .hero-box h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-box p {
+      margin-bottom: 1.5rem;
+    }
+
+    section {
+      padding: 4rem 2rem;
     }
 
     .image-placeholder {
@@ -129,7 +156,15 @@
       border: 2px dashed #333;
       padding: 1rem;
       background: white;
-      display: none;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+
+    .expand-box.open {
+      max-height: 500px;
+      opacity: 1;
     }
   </style>
 </head>
@@ -149,30 +184,33 @@
     </div>
   </header>
 
-  <!-- Intro Text -->
-  <section>
-    <div class="intro-text">
-      <h2>Some text. Some text</h2>
-      <p>Some text. Some text. a lot more text right here its just gonna be here as text because there is text here</p>
-    </div>
+  <!-- Name -->
+  <div class="name">name</div>
 
-    <!-- Image Placeholder -->
+  <!-- Off-center Hero -->
+  <section class="hero">
+    <div class="hero-box">
+      <h1>Survey Page</h1>
+      <p>Intro paragraph here—brief context or framing for this page.</p>
+    </div>
+  </section>
+
+  <!-- Main Survey Section -->
+  <section>
     <div class="image-placeholder"></div>
 
-    <!-- Two Columns -->
     <div class="two-column">
       <div class="text-box">
         <p>some text some text some text some text</p>
       </div>
       <div class="survey-embed">
         <p>This will be an embedded Qualtrics survey</p>
-        <!-- Replace below with actual embed when ready -->
         <!-- <iframe src="QUALTRICS_LINK_HERE" width="100%" height="400" style="border:none;"></iframe> -->
       </div>
     </div>
   </section>
 
-  <!-- Expandable Box -->
+  <!-- Expanding Text Box -->
   <section class="expand-container">
     <div class="expand-toggle" onclick="toggleExpandBox()">
       <div style="font-size: 1.5rem;">+</div>
@@ -186,9 +224,10 @@
   <script>
     function toggleExpandBox() {
       const box = document.getElementById('expandBox');
-      box.style.display = box.style.display === 'block' ? 'none' : 'block';
+      box.classList.toggle('open');
     }
   </script>
 
 </body>
 </html>
+
