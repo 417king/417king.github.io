@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-light: #003366;
+      --bg-light: #0059b3;
       --text-dark: #333;
       --accent: #003366;
     }
@@ -330,6 +330,11 @@
     }
 
     /* === Dark Mode Styles === */
+    body.dark-mode {
+      background-color: #003366; /* dark navy when dark mode is on */
+      color: white;
+    }
+
     body.dark-mode .hero {
       background-image: url('nightbanner1.jpg');
     }
@@ -345,6 +350,7 @@
     body.dark-mode .hero-box p {
       color: white;
     }
+    
     .hero-buttons {
       display: flex;
       gap: 1rem;
