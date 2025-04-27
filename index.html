@@ -10,8 +10,6 @@
       --bg-light: #0059b3;
       --text-dark: #333;
       --accent: #003366;
-      --primary-purple: #7F30C4;
-      --primary-purple-dark: #5B1B93;
     }
 
     body {
@@ -22,15 +20,21 @@
     }
 
     /* === Animation Styles === */
-    .fade-in-top, .fade-in-banner, .slide-up-delayed {
+    .fade-in-top {
       opacity: 0;
       transform: translateY(-20px);
       transition: all 0.6s ease;
     }
 
+    .fade-in-banner {
+      opacity: 0;
+      transition: opacity 1s ease 0.4s;
+    }
+
     .slide-up-delayed {
+      opacity: 0;
       transform: translateY(50px);
-      transition-delay: 1s;
+      transition: all 0.6s ease 1s;
     }
 
     .animate-in {
@@ -45,7 +49,7 @@
       left: 0;
       width: 100%;
       z-index: 999;
-      background: var(--accent);
+      background: #003366;
       padding: 0.75rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -122,7 +126,7 @@
       top: 0;
       width: 0;
       height: 100%;
-      background-color: var(--primary-purple);
+      background-color: #7F30C4;
       transition: width 0.3s ease;
       z-index: 0;
     }
@@ -138,11 +142,15 @@
       color: white;
     }
 
+    .survey-link-box:hover span {
+      color: white;
+    }
+
     .color-rect {
       width: 8px;
       height: 40px;
       border-radius: 3px;
-      background-color: var(--primary-purple);
+      background-color: #7F30C4;
       z-index: 1;
     }
 
@@ -171,19 +179,16 @@
       margin-left: 10%;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       z-index: 1;
-      color: var(--accent);
+      color: #003366;
     }
 
     .hero-box h1 {
-      font-size: 45px;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
+      font-size: 2.8rem;
       margin-bottom: 0.5rem;
     }
 
     .hero-box p {
-      font-size: 18px;
-      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem;
       margin-bottom: 1.5rem;
     }
 
@@ -206,33 +211,294 @@
     }
 
     .button-primary {
-      background-color: var(--primary-purple);
+      background-color: #7F30C4;
       color: white;
       border: none;
     }
 
     .button-primary:hover {
-      background-color: var(--primary-purple-dark);
+      background-color: #5c2392;
     }
 
     .button-outline {
       background: transparent;
-      color: var(--primary-purple);
-      border: 2px solid var(--primary-purple);
+      color: #7F30C4;
+      border: 2px solid #7F30C4;
     }
 
     .button-outline:hover {
-      background-color: var(--primary-purple);
+      background-color: #7F30C4;
       color: white;
     }
 
-    /* Additional corrected sections continue similarly */
+    /* === Grid Section === */
+    .grid-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 45vh 45vh;
+      gap: 0;
+      margin-bottom: 4rem;
+    }
+
+    .grid-2x2 img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .grid-item {
+      background: #e0e0e0;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 45vh;
+      box-sizing: border-box;
+    }
+
+    .image-top-left,
+    .image-bottom-right {
+      min-height: 300px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #ccc;
+    }
+
+    .image-top-left {
+      background-image: url('indeximage1.png');
+    }
+
+    .image-bottom-right {
+      background-image: url('indeximage2.png');
+    }
+
+    .grid-2x2 > div:not(.image-top-left):not(.image-bottom-right) {
+      background: #e0e0e0;
+      padding: 1rem;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* === Center Section (4 Circles) === */
+    .center-card {
+      background: white;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-radius: 12px;
+      padding: 4rem 2rem;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .circle-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .circle-item {
+      text-align: center;
+    }
+
+    .circle-item .circle {
+      width: 60px;
+      height: 60px;
+      background: black;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+    }
+
+    /* === Side-by-Side Section === */
+    .side-image-text {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .side-image-text > div {
+      background: #e0e0e0;
+      padding: 2rem;
+    }
+
+    /* === Project Section === */
+    .project-section {
+      background: white;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+      max-width: 800px;
+      margin: 2rem auto;
+    }
+
+    .project-card {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      background: white;
+    }
+
+    .arrow-down {
+      font-size: 2rem;
+      margin-top: 2rem;
+    }
+
+    footer {
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid #ccc;
+    }
+
+    .footer-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    /* === Dark Mode Styles === */
+    body.dark-mode {
+      background-color: #003366;
+      color: white;
+    }
+
+    body.dark-mode .new-header {
+      background: #003366;
+    }
+
+    body.dark-mode .hero {
+      background-image: url('nightbanner1.jpg');
+    }
+
+    body.dark-mode .hero-box,
+    body.dark-mode .center-card,
+    body.dark-mode .project-card {
+      background: #1f1f1f;
+      color: white;
+    }
+
+    body.dark-mode .hero-box h1,
+    body.dark-mode .hero-box p {
+      color: white;
+    }
   </style>
 </head>
+
 <body onload="animateOnLoad()">
 
-<!-- Your full website structure continues here exactly as you wrote it, with styling corrections applied -->
+<!-- === Header === -->
+<header class="new-header fade-in-top">
+  <div class="header-left">
+    <div class="dark-toggle-switch" onclick="toggleSwitch(this)">
+      <div class="circle"></div>
+    </div>
+    <div class="site-name">
+      <a href="index.html">Christopher King</a>
+    </div>
+  </div>
+  <div class="header-right">
+    <a href="https://417king.github.io/survey.html" class="survey-link-box">
+      <div class="color-rect"></div>
+      <span>Survey Designs</span>
+    </a>
+  </div>
+</header>
 
+<!-- === Hero Section === -->
+<section class="hero fade-in-banner">
+  <div class="hero-box slide-up-delayed">
+    <h1>Hi, I'm Christopher King</h1>
+    <p>I design and build a variety of solutions that are suited for policy professionals. Explore these solutions and see how I've helped push smarter system outcomes on my online portfolio.</p>
+    <a href="#" class="button button-primary">Follow Our Journey</a>
+    <a href="#" class="button button-outline">Areas of Focus</a>
+  </div>
+</section>
+
+<!-- === Grid Section === -->
+<section class="image-grid-section">
+  <div class="grid-2x2">
+    <div class="grid-item image-top-left"></div>
+    <div class="grid-item">Image / Text</div>
+    <div class="grid-item">Image / Text</div>
+    <div class="grid-item image-bottom-right"></div>
+  </div>
+</section>
+
+<!-- === Center Section (4 Circles) === -->
+<section class="full-background-section">
+  <div class="center-card">
+    <h2>Operating Principles</h2>
+    <div class="circle-grid">
+      <div class="circle-item">
+        <div class="circle"></div>
+        <h3>Customer Service</h3>
+        <p>We value our residents, customers, and employees by designing solutions and services that put people first.</p>
+      </div>
+      <div class="circle-item">
+        <div class="circle"></div>
+        <h3>Empowerment & Engagement</h3>
+        <p>We empower employees to creatively solve problems and offer solutions.</p>
+      </div>
+      <div class="circle-item">
+        <div class="circle"></div>
+        <h3>Equity & Inclusion</h3>
+        <p>We create equal access to opportunity and resources.</p>
+      </div>
+      <div class="circle-item">
+        <div class="circle"></div>
+        <h3>Trust & Transparency</h3>
+        <p>We use data to make better-informed decisions and build trust with the public.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === Side-by-Side Section === -->
+<section class="side-image-text">
+  <div>Image Placeholder</div>
+  <div>
+    <h3>Lorem ipsum</h3>
+    <h4>More lorem</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod dolor ut tincidunt porttitor.</p>
+  </div>
+</section>
+
+<!-- === Project Section === -->
+<section class="project-section">
+  <h2>Some text. Some text</h2>
+  <p>Some text. Some text. a lot more text right here its just gonna be here as text because there is text here</p>
+  <div class="project-grid">
+    <div class="project-card">Project 1</div>
+    <div class="project-card">Project 2</div>
+    <div class="project-card">Project 3</div>
+    <div class="project-card">Project 4</div>
+    <div class="project-card">Project 5</div>
+    <div class="project-card">Project 6</div>
+  </div>
+  <div class="arrow-down">⬇</div>
+</section>
+
+<!-- === Footer === -->
+<footer>
+  <div class="footer-icons">
+    <div>⚫</div>
+    <div>⚫</div>
+    <div>⚫</div>
+  </div>
+</footer>
+
+<!-- === Scripts === -->
 <script>
 function toggleSwitch(el) {
   el.classList.toggle('active');
@@ -248,6 +514,7 @@ function animateOnLoad() {
 
 </body>
 </html>
+
 
 
 
