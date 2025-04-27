@@ -345,7 +345,47 @@
     body.dark-mode .hero-box p {
       color: white;
     }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .button-primary {
+      background-color: #7F30C4; /* your purple color */
+      color: white;
+      border: none;
+    }
+
+    .button-primary:hover {
+      background-color: #5c2392;
+    }
+
+    .button-outline {
+      background: transparent;
+      color: #7F30C4;
+      border: 2px solid #7F30C4;
+    }
+
+    .button-outline:hover {
+      background-color: #7F30C4;
+      color: white;
+    }
+
   </style>
+  
 </head>
 
 <body onload="animateOnLoad()">
@@ -373,8 +413,8 @@
     <div class="hero-box slide-up-delayed">
       <h1>Hi, I'm Christopher King</h1>
       <p>I design and build a variety of solutions that are suited for policy professionals. Explore these solutions and see how I've helped push smarter system outcomes on my online portfolio .</p>
-      <button class="button">Button One</button>
-      <button class="button">Button Two</button>
+      <a href="#" class="button button-primary">Follow Our Journey</a>
+      <a href="#" class="button button-outline">Areas of Focus</a>
     </div>
   </section>
 
