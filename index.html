@@ -272,9 +272,15 @@
       left: 50%;
       transform: translateX(-50%);
       font-size: 2.5rem;
-      color: white;
+      color: black; /* now black */
+      opacity: 0; /* start hidden for fade-in */
       animation: bounce 1.5s ease-in-out 2;
       z-index: 10;
+    }
+
+    .fade-in-banner.animate-in {
+      opacity: 1;
+      transition: opacity 1s ease;
     }
 
     @keyframes bounce {
@@ -285,6 +291,7 @@
         transform: translateX(-50%) translateY(-10px);
       }
     }
+
     /* === Grid Section === */
     .grid-2x2 {
       display: grid;
@@ -497,7 +504,7 @@
   </div>
 </section>
 
-  <div class="scroll-down-arrow">
+  <div class="scroll-down-arrow fade-in-banner">
      ▼
   </div>
 
@@ -613,6 +620,7 @@ function animateOnLoad() {
   document.querySelector('.new-header').classList.add('animate-in');
   document.querySelector('.hero').classList.add('animate-in');
   document.querySelector('.hero-box').classList.add('animate-in');
+  document.querySelector('.scroll-down-arrow').classList.add('animate-in');
 }
 </script>
 
