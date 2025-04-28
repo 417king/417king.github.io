@@ -612,6 +612,17 @@
       html{ font-size: 80%; }   /* on ultra-wide 27-inch screens text shrinks again */
     }
 
+    body {
+  transform: scale(0.75); /* 75% size */
+  transform-origin: top center;
+}
+
+html, body {
+  width: 133.333%; /* because 100 / 0.75 = 133.333 */
+  overflow-x: hidden; /* prevent sideways scrolling */
+}
+
+
   </style>
 </head>
 
