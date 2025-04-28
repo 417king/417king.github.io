@@ -613,14 +613,19 @@
     }
 
     body {
-  transform: scale(0.75); /* 75% size */
-  transform-origin: top center;
-}
+      transform: scale(0.75);
+      transform-origin: top center;
+      width: 133.333%;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-html, body {
-  width: 133.333%; /* because 100 / 0.75 = 133.333 */
-  overflow-x: hidden; /* prevent sideways scrolling */
-}
+    html, body {
+      width: 133.333%; /* because 100 / 0.75 = 133.333 */
+      overflow-x: hidden; /* prevent sideways scrolling */
+    }
 
 
   </style>
