@@ -308,12 +308,12 @@
     }
 
     .grid-item {
-      background: #e0e0e0;
+      background: white;
       height: 100%;
       width: 100%;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       text-align: center;
       min-height: 45vh;
       box-sizing: border-box;
@@ -453,6 +453,20 @@
     body.dark-mode .hero-box p {
       color: white;
     }
+
+    body.dark-mode .grid-item {
+      background-color: #1f1f1f; /* dark gray background in dark mode */
+      color: white;
+    }
+
+    body.dark-mode .grid-item p {
+      color: white;
+    }
+
+    body.dark-mode .grid-item h2 {
+      color: white;
+    }
+    
   </style>
 </head>
 
