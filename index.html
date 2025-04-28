@@ -243,7 +243,6 @@
       margin-top: -7rem;
       padding: 3rem 2rem;
       border-radius: 16px;
-      min-width: 700px;
       max-width: 900px;
       margin-left: 10%;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -586,48 +585,30 @@
       opacity: 1;
     }
 
-    @media (min-width: 1200px) {
-      .hero-box h1 {
-        font-size: 38px;
-      }
-
-      .hero-box p {
-        font-size: 18px;
-      }
-    
-      .grid-text-block h2 {
-        font-size: 36px;
-      }
-
-      .grid-text-block p {
-        font-size: 18px;
-      }
+    .site-wrapper {
+      max-width: 1440px;   /* pick any width that felt “normal” before */
+      margin-inline: auto; /* centers the whole layout */
+      padding-inline: 1rem;
     }
 
+/* dial back the really large fixed pixel fonts on ultra-wide screens */
+    @media (min-width: 1600px) {
+      h1  { font-size: 36px; }
+      h2  { font-size: 32px; }
+      h3  { font-size: 22px; }
+      p,
+      .grid-text-block p { font-size: 16px; }
+    }
+
+/* let phones / small tablets keep breathing room  */
     @media (max-width: 768px) {
-      .hero-box {
-        margin-left: 5%;
-        margin-right: 5%;
-        padding: 2rem 1rem;
-      }
+      .hero-box      { margin: 0 1rem; padding: 2rem 1rem; }
+      .hero-box h1   { font-size: 30px; }
+      .hero-box p    { font-size: 16px; }
 
-      .hero-box h1 {
-        font-size: 32px;
-      }
-
-      .hero-box p {
-        font-size: 16px;
-      }
-
-      .grid-text-block h2 {
-        font-size: 30px;
-      }
-
-      .grid-text-block p {
-        font-size: 16px;
-      }
+      .grid-text-block h2 { font-size: 28px; }
+      .grid-text-block p  { font-size: 16px; }
     }
-
 
   </style>
 </head>
@@ -669,6 +650,8 @@
 
 
 </header>
+
+<div class="site-wrapper">
 
 <!-- === Hero Section === -->
 <section class="hero fade-in-banner">
@@ -904,7 +887,8 @@ function startSnakeGame() {
 }
     
 </script>
-  
+
+</div> 
 </body>
 </html>
 
