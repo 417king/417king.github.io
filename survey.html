@@ -118,13 +118,13 @@
 
     /* === Hero Section === */
     .hero {
-      position: relative;
       height: 100vh;
+      position: relative;
       display: flex;
       justify-content: flex-start;
       align-items: center;
       padding: 6rem 2rem;
-      background-image: url('banner2.jpg');
+      background-image: url('banner2.jpg'); /* Keep your survey banner */
       background-size: cover;
       background-position: center;
       transition: background-image 0.5s ease-in-out, background-color 0.5s ease-in-out;
@@ -132,24 +132,29 @@
 
     .hero-box {
       background: white;
+      text-align: left;
+      margin-top: -7rem;
       padding: 3rem 2rem;
       border-radius: 16px;
       min-width: 700px;
       max-width: 900px;
       margin-left: 10%;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 1;
       color: #003366;
     }
 
     .hero-box h1 {
       font-size: 45px;
+      font-family: 'Poppins', sans-serif;
       margin-bottom: 0.5rem;
     }
 
     .hero-box p {
-      font-size: 18px;
+     font-size: 1.2rem;
       margin-bottom: 1.5rem;
     }
+
 
     /* === Main Section === */
     .two-column {
