@@ -704,14 +704,30 @@
   <div id="snake-game" style="margin-top: 2rem; display: flex; justify-content: center; align-items: flex-start; gap: 2rem;">
     <canvas id="snakeCanvas" width="600" height="270" style="background: #004080; border: 2px solid #001a33; border-radius: 12px;"></canvas>
   
-    <div id="leaderboard" style="background: white; color: #003366; border-radius: 12px; padding: 1rem 2rem; box-shadow: 0 0 10px rgba(0,0,0,0.2); width: 250px;">
-      <h3 style="text-align: center;">Leaderboard</h3>
-      <ol id="leaderboard-list" style="padding-left: 1.5rem; font-size: 1rem;">
-        <li><strong>Deilotte</strong> — 81</li>
-        <li><strong>Qualcomm</strong> — 48</li>
-        <li><strong>City of San Diego</strong> — 44</li>
-      </ol>
-    </div>
+  <div id="leaderboard" style="
+    background: white;
+    color: #003366;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'Poppins', sans-serif;
+  ">
+    <h3 style="text-align: center; font-size: 1.5rem; margin-bottom: 1rem;">Leaderboard</h3>
+    <ol id="leaderboard-list" style="
+      padding-left: 1rem;
+      width: 100%;
+      list-style-position: inside;
+      font-size: 1rem;
+    ">
+      <li><strong>Deilotte</strong> — 81</li>
+      <li><strong>Qualcomm</strong> — 48</li>
+      <li><strong>City of San Diego</strong> — 44</li>
+    </ol>
   </div>
 
 </footer>
@@ -791,8 +807,8 @@ function startSnakeGame() {
     if (snakeX == food.x && snakeY == food.y) {
       score++;
       food = {
-        x: Math.floor(Math.random() * 19 + 1) * box,
-        y: Math.floor(Math.random() * 19 + 1) * box
+        x: Math.floor(Math.random() * (canvas.width / box)) * box,
+        y: Math.floor(Math.random() * (canvas.height / box)) * box
       };
     } else {
       snake.pop();
