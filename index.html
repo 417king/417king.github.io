@@ -131,31 +131,42 @@
       overflow: hidden;
     }
 
-    .survey-link-box::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 0;
-      height: 100%;
-      background-color: #7F30C4;
-      transition: width 0.3s ease;
-      z-index: 0;
-    }
-
-    .survey-link-box:hover::before {
-      width: 100%;
-    }
-
-    .survey-link-box span {
+    .survey-link-box {
       position: relative;
-      z-index: 1;
-      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .survey-link-box:hover {
       color: white;
     }
 
-    .survey-link-box:hover span {
-      color: white;
+    .survey-link-surveys:hover {
+      background-color: #7F30C4;
+    }
+
+    .survey-link-memos:hover {
+      background-color: #FFA02F;
+    }
+
+    .survey-link-dashboards:hover {
+      background-color: #00C7B2;
+    }
+
+    .survey-link-visualizations:hover {
+      background-color: #00549F;
+    }
+
+    .survey-link-gallery:hover {
+      background-color: #D7A8FF;
     }
 
     .color-rect {
