@@ -266,6 +266,25 @@
       color: white;
     }
 
+    .scroll-down-arrow {
+      position: absolute;
+      top: 90vh;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2.5rem;
+      color: white;
+      animation: bounce 1.5s ease-in-out 2;
+      z-index: 10;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      50% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+    }
     /* === Grid Section === */
     .grid-2x2 {
       display: grid;
@@ -477,6 +496,11 @@
     <a href="#" class="button button-outline">Areas of Focus</a>
   </div>
 </section>
+
+  <div class="scroll-down-arrow">
+     ▼
+  </div>
+
 
 <!-- === Grid Section === -->
 <section class="image-grid-section">
