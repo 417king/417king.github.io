@@ -701,9 +701,19 @@
     </div>
   </div>
 
-  <div id="snake-game" style="margin-top: 2rem;">
-    <canvas id="snakeCanvas" width="900" height="270" style="background: black; border-radius: 8px;"></canvas>
+  <div id="snake-game" style="margin-top: 2rem; display: flex; justify-content: center; align-items: flex-start; gap: 2rem;">
+    <canvas id="snakeCanvas" width="600" height="270" style="background: #004080; border: 2px solid #001a33; border-radius: 12px;"></canvas>
+  
+    <div id="leaderboard" style="background: white; color: #003366; border-radius: 12px; padding: 1rem 2rem; box-shadow: 0 0 10px rgba(0,0,0,0.2); width: 250px;">
+      <h3 style="text-align: center;">Leaderboard</h3>
+      <ol id="leaderboard-list" style="padding-left: 1.5rem; font-size: 1rem;">
+        <li><strong>Deilotte</strong> — 81</li>
+        <li><strong>Qualcomm</strong> — 48</li>
+        <li><strong>City of San Diego</strong> — 44</li>
+      </ol>
+    </div>
   </div>
+
 </footer>
 
 
@@ -736,8 +746,8 @@ function startSnakeGame() {
   let snake = [];
   snake[0] = { x: 9 * box, y: 10 * box };
   let food = {
-    x: Math.floor(Math.random() * 19 + 1) * box,
-    y: Math.floor(Math.random() * 19 + 1) * box
+    x: Math.floor(Math.random() * (canvas.width / box)) * box,
+    y: Math.floor(Math.random() * (canvas.height / box)) * box
   };
   let score = 0;
   let d;
@@ -799,8 +809,17 @@ function startSnakeGame() {
       collision(newHead, snake)
     ) {
       clearInterval(game);
-      alert('Thanks for Playing! Your Score: ' + score);
+
+      if (score > 43) { // If they beat the third place
+        let newName = prompt('Wow! New Top 3 Score! Enter your Company Name:');
+        if (newName) {
+          updateLeaderboard(newName, score);
+        }
+      } else {
+        alert('Thanks for Playing! Your Score: ' + score);
+      }
     }
+
 
     snake.unshift(newHead);
 
