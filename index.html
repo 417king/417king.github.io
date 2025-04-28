@@ -69,6 +69,24 @@
       transform: translateY(0);
     }
 
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .social-links a:hover {
+      text-decoration: underline;
+    }
+
     /* === Header === */
     .new-header {
       position: fixed;
@@ -602,29 +620,18 @@
 </section>
 
 
-<!-- === Side-by-Side Section === -->
+<!-- === Bottom Section: Socials === -->
 <section class="side-image-text">
-  <div>Image Placeholder</div>
   <div>
-    <h3>Lorem ipsum</h3>
-    <h4>More lorem</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod dolor ut tincidunt porttitor.</p>
+    <h3>Let's Connect</h3>
+    <p>Find me online:</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+      <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+      <a href="mailto:youremail@example.com">Email</a>
+    </div>
   </div>
-</section>
-
-<!-- === Project Section === -->
-<section class="project-section">
-  <h2>Some text. Some text</h2>
-  <p>Some text. Some text. a lot more text right here its just gonna be here as text because there is text here</p>
-  <div class="project-grid">
-    <div class="project-card">Project 1</div>
-    <div class="project-card">Project 2</div>
-    <div class="project-card">Project 3</div>
-    <div class="project-card">Project 4</div>
-    <div class="project-card">Project 5</div>
-    <div class="project-card">Project 6</div>
-  </div>
-  <div class="arrow-down">⬇</div>
+  <div></div> <!-- empty right side -->
 </section>
 
 <!-- === Footer === -->
