@@ -6,25 +6,55 @@
   <title>Survey Designs</title>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-light: #0059b3;
+      --text-dark: #333;
+      --accent: #003366;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
     }
 
+    h1, h2, h3 {
+      font-family: 'Merriweather', serif;
+    }
+
+    p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+    }
+
+    /* === Header === */
     .new-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      background: #003366;
       padding: 0.75rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #ccc;
-      background: #f5f5f5;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      box-sizing: border-box;
     }
 
     .header-left, .header-right {
       display: flex;
       align-items: center;
+    }
+
+    .header-left {
+      gap: 1rem;
     }
 
     .header-right {
@@ -65,25 +95,31 @@
       align-items: center;
       gap: 0.5rem;
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 1.3rem;
       font-weight: 600;
-      color: #333;
-    }
-
-    .survey-link-box:hover {
-      text-decoration: underline;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
     }
 
     .color-rect {
-      width: 6px;
-      height: 30px;
+      width: 8px;
+      height: 40px;
       border-radius: 3px;
-      background-color: #37424A;
+      background-color: #7F30C4;
+      z-index: 1;
     }
 
-    /* Hero Section with top-left name */
+    .survey-link-box:hover {
+      background-color: #7F30C4;
+      color: white;
+    }
+
+    /* === Hero Section === */
     .hero {
       position: relative;
+      height: 100vh;
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -91,65 +127,53 @@
       background-image: url('banner2.jpg');
       background-size: cover;
       background-position: center;
-      height: 500px;
-    }
-
-    .name {
-      position: absolute;
-      top: 1.5rem;
-      left: 2rem;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: white;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-      z-index: 2;
+      transition: background-image 0.5s ease-in-out, background-color 0.5s ease-in-out;
     }
 
     .hero-box {
       background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      max-width: 400px;
-      margin-left: 5%;
+      padding: 3rem 2rem;
+      border-radius: 16px;
+      min-width: 700px;
+      max-width: 900px;
+      margin-left: 10%;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      z-index: 1;
+      color: #003366;
     }
 
     .hero-box h1 {
-      font-size: 1.8rem;
+      font-size: 45px;
       margin-bottom: 0.5rem;
     }
 
     .hero-box p {
+      font-size: 18px;
       margin-bottom: 1.5rem;
     }
 
-    .image-placeholder {
-      background: #d0e0d0;
-      height: 150px;
-      margin: 2rem auto;
-      max-width: 700px;
-    }
-
+    /* === Main Section === */
     .two-column {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
-      max-width: 900px;
-      margin: 3rem auto;
+      max-width: 1100px;
+      margin: 4rem auto;
+      padding: 0 2rem;
       align-items: start;
     }
 
     .text-box, .survey-embed {
-      border: 2px solid black;
-      padding: 1rem;
       background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
+    /* === Expandable Section === */
     .expand-container {
       max-width: 900px;
       margin: 3rem auto;
+      padding: 0 2rem;
     }
 
     .expand-toggle {
@@ -158,15 +182,20 @@
       gap: 1rem;
       cursor: pointer;
       font-weight: bold;
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     .expand-box {
       margin-top: 1rem;
-      border: 2px dashed #333;
-      padding: 1rem;
       background: white;
-      overflow: hidden;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       max-height: 0;
+      overflow: hidden;
       opacity: 0;
       transition: max-height 0.5s ease, opacity 0.5s ease;
     }
@@ -175,73 +204,89 @@
       max-height: 500px;
       opacity: 1;
     }
+
+    /* === Dark Mode === */
+    body.dark-mode {
+      background-color: #003366;
+      color: white;
+    }
+
+    body.dark-mode .new-header,
+    body.dark-mode .hero-box,
+    body.dark-mode .text-box,
+    body.dark-mode .survey-embed,
+    body.dark-mode .expand-toggle,
+    body.dark-mode .expand-box {
+      background: #1f1f1f;
+      color: white;
+    }
   </style>
 </head>
 <body>
 
-  <!-- === Header === -->
-  <header class="new-header">
-    <div class="header-left">
-      <div class="dark-toggle-switch" onclick="toggleSwitch(this)">
-        <div class="circle"></div>
-      </div>
+<!-- === Header === -->
+<header class="new-header">
+  <div class="header-left">
+    <div class="dark-toggle-switch" onclick="toggleSwitch(this)">
+      <div class="circle"></div>
     </div>
-    <div class="header-right">
-      <a href="survey.html" class="survey-link-box">
-        <div class="color-rect"></div>
-        <span>Survey Designs</span>
-      </a>
+    <div class="site-name">
+      <a href="index.html" style="color: white; text-decoration: none; font-size: 1.4rem; font-weight: 600;">Christopher King</a>
     </div>
-  </header>
+  </div>
+  <div class="header-right">
+    <a href="survey.html" class="survey-link-box">
+      <div class="color-rect"></div>
+      <span>Survey Designs</span>
+    </a>
+  </div>
+</header>
 
-  <!-- === Hero Section with Name and Box === -->
-  <section class="hero">
-    <div class="name">
-      <a href="index.html" style="color: inherit; text-decoration: none;">Christopher King</a>
-    </div>
-    <div class="hero-box">
-      <h1>Survey Page</h1>
-      <p>Intro paragraph here—brief context or framing for this page.</p>
-    </div>
-  </section>
+<!-- === Hero Section === -->
+<section class="hero">
+  <div class="hero-box">
+    <h1>Survey Designs</h1>
+    <p>A collection of survey tools, designs, and frameworks supporting data-driven insights and better decision making.</p>
+  </div>
+</section>
 
-  <!-- === Main Survey Section === -->
-  <section>
-    <div class="image-placeholder"></div>
-
-    <div class="two-column">
-      <div class="text-box">
-        <p>some text some text some text some text</p>
-      </div>
-      <div class="survey-embed">
-        <p>This will be an embedded Qualtrics survey</p>
-        <!-- <iframe src="QUALTRICS_LINK_HERE" width="100%" height="400" style="border:none;"></iframe> -->
-      </div>
+<!-- === Main Two Column Section === -->
+<section>
+  <div class="two-column">
+    <div class="text-box">
+      <h2>Survey Overview</h2>
+      <p>Overview of survey types, frameworks, or context for the surveys featured here. Brief introduction or methodology explanation.</p>
     </div>
-  </section>
-
-  <!-- === Expandable Section === -->
-  <section class="expand-container">
-    <div class="expand-toggle" onclick="toggleExpandBox()">
-      <div style="font-size: 1.5rem;">+</div>
-      <div>Click to expand for more text</div>
+    <div class="survey-embed">
+      <p>Embed or describe the survey content here (Qualtrics or other survey platforms).</p>
+      <!-- <iframe src="QUALTRICS_LINK_HERE" width="100%" height="400" style="border:none;"></iframe> -->
     </div>
-    <div class="expand-box" id="expandBox">
-      <p>some text some text some text some text some text some text some text</p>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- === Scripts === -->
-  <script>
-    function toggleExpandBox() {
-      const box = document.getElementById('expandBox');
-      box.classList.toggle('open');
-    }
+<!-- === Expandable Section === -->
+<section class="expand-container">
+  <div class="expand-toggle" onclick="toggleExpandBox()">
+    <div style="font-size: 1.5rem;">+</div>
+    <div>Click to expand for more survey details</div>
+  </div>
+  <div class="expand-box" id="expandBox">
+    <p>Additional supporting information about survey methods, sample designs, or analysis frameworks that aren't in the main overview.</p>
+  </div>
+</section>
 
-    function toggleSwitch(el) {
-      el.classList.toggle('active');
-    }
-  </script>
+<!-- === Scripts === -->
+<script>
+function toggleExpandBox() {
+  const box = document.getElementById('expandBox');
+  box.classList.toggle('open');
+}
+
+function toggleSwitch(el) {
+  el.classList.toggle('active');
+  document.body.classList.toggle('dark-mode');
+}
+</script>
 
 </body>
 </html>
