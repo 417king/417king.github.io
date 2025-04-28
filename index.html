@@ -250,11 +250,11 @@
       color: #003366;
     }
 
-    .hero-box h1 {
-      font-size: 45px;
-      font-family: 'Poppins', sans-serif;
-      margin-bottom: 0.5rem;
+    .hero-box {
+      max-width: 900px;
+      margin: -7rem auto 0 10%;
     }
+
 
     .hero-box p {
       font-size: 1.2rem;
@@ -611,20 +611,11 @@
     @media (min-width: 1800px){
       html{ font-size: 80%; }   /* on ultra-wide 27-inch screens text shrinks again */
     }
-
-    body {
-      transform: scale(0.75);
-      transform-origin: top center;
-      width: 133.333%;
-      overflow-x: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    html, body {
-      width: 133.333%; /* because 100 / 0.75 = 133.333 */
-      overflow-x: hidden; /* prevent sideways scrolling */
+    
+      .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
 
 
@@ -672,11 +663,13 @@
 
 <!-- === Hero Section === -->
 <section class="hero fade-in-banner">
-  <div class="hero-box slide-up-delayed">
-    <h1>Hi, I'm Christopher King</h1>
-    <p>I design and build a variety of solutions that are suited for policy professionals. Explore these solutions and see how I've helped push smarter system outcomes on my online portfolio.</p>
-    <a href="#work" class="button button-primary">View my Work</a>
-    <a href="#footer" class="button button-outline">About Me</a>
+  <div class="container">
+    <div class="hero-box slide-up-delayed">
+      <h1>Hi, I'm Christopher King</h1>
+      <p>I design and build a variety of solutions that are suited for policy professionals. Explore these solutions and see how I've helped push smarter system outcomes on my online portfolio.</p>
+      <a href="#work" class="button button-primary">View my Work</a>
+      <a href="#footer" class="button button-outline">About Me</a>
+    </div>
   </div>
 </section>
 
@@ -687,52 +680,51 @@
 
 <!-- === Grid Section === -->
 <section class="image-grid-section" id="work">
-  <div class="grid-2x2">
+  <div class="container">
+    <div class="grid-2x2">
   
-    <div class="grid-item image-top-left"></div> <!-- Top Left Image -->
+      <div class="grid-item image-top-left"></div> <!-- Top Left Image -->
     
-<!-- Top Right - Dashboards -->
-<div class="grid-item">
-  <div class="grid-text-block">
-    <h2>Dashboards</h2>
-    <div class="underline" style="background-color: #00C7B2;"></div>
-    <p>
-      I design performance dashboards to present critical policy, program, and operational data in clean, actionable formats that improve decision-making.
-    </p>
-    <div class="grid-button-container">
-      <a href="dashboards.html" class="button button-dashboards">Go to Dashboards</a>
-    </div>
-  </div>
-</div>
+      <!-- Top Right - Dashboards -->
+      <div class="grid-item">
+        <div class="grid-text-block">
+          <h2>Dashboards</h2>
+          <div class="underline" style="background-color: #00C7B2;"></div>
+          <p>I design performance dashboards to present critical policy, program, and operational data in clean, actionable formats that improve decision-making.</p>
+          <div class="grid-button-container">
+            <a href="dashboards.html" class="button button-dashboards">Go to Dashboards</a>
+          </div>
+        </div>
+      </div>
 
-<!-- Bottom Left - Memos -->
-<div class="grid-item">
-  <div class="grid-text-block">
-    <h2>Memos and Budgets</h2>
-    <div class="underline" style="background-color: #FFA02F;"></div>
-    <p>
-      I prepare written analyses, memos, and budgets focused on translating complex issues into accessible, decision-ready formats for policy and operational leaders.
-    </p>
-    <div class="grid-button-container">
-      <a href="memos.html" class="button button-memos">Go to Memos & Budgets</a>
-    </div>
-  </div>
-</div>
+      <!-- Bottom Left - Memos -->
+      <div class="grid-item">
+        <div class="grid-text-block">
+          <h2>Memos and Budgets</h2>
+          <div class="underline" style="background-color: #FFA02F;"></div>
+          <p>I prepare written analyses, memos, and budgets focused on translating complex issues into accessible, decision-ready formats for policy and operational leaders.</p>
+          <div class="grid-button-container">
+            <a href="memos.html" class="button button-memos">Go to Memos & Budgets</a>
+          </div>
+        </div>
+      </div>
 
-<div class="grid-item image-bottom-right"></div> <!-- Bottom Right Image -->
+      <div class="grid-item image-bottom-right"></div> <!-- Bottom Right Image -->
 
-
-  </div> <!-- End .grid-2x2 -->
+    </div> <!-- End .grid-2x2 -->
+  </div> <!-- End .container -->
 </section>
 
   <!-- === About Me Section === -->
 <section class="side-image-text" id="about">
-  <div class="about-image" style="background-image: url('headshot.png'); background-size: contain; background-repeat: no-repeat; background-position: center; min-height: 400px;"></div>
+  <div class="container">
+    <div class="about-image" style="background-image: url('headshot.png'); background-size: contain; background-repeat: no-repeat; background-position: center; min-height: 400px;"></div>
 
-  <div class="about-text">
-    <h2>Who I Am</h2>
-    <p>I'm Christopher King, a designer and builder of smart solutions for public policy challenges. With a passion for data, systems thinking, and human-centered design, I help teams make better decisions through effective tools and insights.</p>
-    <p>Explore my work to see how I translate complex problems into practical outcomes.</p>
+    <div class="about-text">
+      <h2>Who I Am</h2>
+      <p>I'm Christopher King, a designer and builder of smart solutions for public policy challenges. With a passion for data, systems thinking, and human-centered design, I help teams make better decisions through effective tools and insights.</p>
+      <p>Explore my work to see how I translate complex problems into practical outcomes.</p>
+    </div>
   </div>
 </section>
 
