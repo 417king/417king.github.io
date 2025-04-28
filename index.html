@@ -687,7 +687,7 @@
     <div class="social-links">
       <a href="https://www.linkedin.com/in/christopherd-king" target="_blank">LinkedIn</a>
       <a href="mailto:cdking417@gmail.com">Email</a>
-      <a href="#" onclick="startSnakeGame()" style="cursor: pointer;">Play Snake</a>
+      <a href="#" onclick="startSnakeGame(); return false;" style="cursor: pointer;">Play Snake</a>
     </div>
   </div>
 
@@ -782,7 +782,7 @@ function startSnakeGame() {
       collision(newHead, snake)
     ) {
       clearInterval(game);
-      alert('Game Over! Your Score: ' + score);
+      alert('Thanks for Playing! Your Score: ' + score);
     }
 
     snake.unshift(newHead);
