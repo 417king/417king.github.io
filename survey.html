@@ -91,6 +91,7 @@
     }
 
     .survey-link-box {
+      position: relative;
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -103,18 +104,37 @@
       transition: background-color 0.3s ease;
     }
 
+    .survey-link-box:hover {
+      color: white;
+    }
+
+    .survey-link-surveys:hover {
+      background-color: #7F30C4;
+    }
+
+    .survey-link-memos:hover {
+      background-color: #FFA02F;
+    }
+
+    .survey-link-dashboards:hover {
+      background-color: #00C7B2;
+    }
+
+    .survey-link-visualizations:hover {
+      background-color: #00549F;
+    }
+
+    .survey-link-gallery:hover {
+      background-color: #D7A8FF;
+    }
+
     .color-rect {
       width: 8px;
       height: 40px;
       border-radius: 3px;
-      background-color: #7F30C4;
       z-index: 1;
     }
 
-    .survey-link-box:hover {
-      background-color: #7F30C4;
-      color: white;
-    }
 
     /* === Hero Section === */
     .hero {
@@ -230,22 +250,39 @@
 <body>
 
 <!-- === Header === -->
-<header class="new-header">
+<header class="new-header fade-in-top">
   <div class="header-left">
     <div class="dark-toggle-switch" onclick="toggleSwitch(this)">
       <div class="circle"></div>
     </div>
     <div class="site-name">
-      <a href="index.html" style="color: white; text-decoration: none; font-size: 1.4rem; font-weight: 600;">Christopher King</a>
+      <a href="index.html">Christopher King</a>
     </div>
   </div>
   <div class="header-right">
-    <a href="survey.html" class="survey-link-box">
-      <div class="color-rect"></div>
+    <a href="survey.html" class="survey-link-box survey-link-surveys">
+      <div class="color-rect" style="background-color: #7F30C4;"></div>
       <span>Survey Designs</span>
+    </a>
+    <a href="memos.html" class="survey-link-box survey-link-memos">
+      <div class="color-rect" style="background-color: #FFA02F;"></div>
+      <span>Memos & Budgets</span>
+    </a>
+    <a href="dashboards.html" class="survey-link-box survey-link-dashboards">
+      <div class="color-rect" style="background-color: #00C7B2;"></div>
+      <span>Dashboards</span>
+    </a>
+    <a href="visualizations.html" class="survey-link-box survey-link-visualizations">
+      <div class="color-rect" style="background-color: #00549F;"></div>
+      <span>Data Visualizations</span>
+    </a>
+    <a href="gallery.html" class="survey-link-box survey-link-gallery">
+      <div class="color-rect" style="background-color: #D7A8FF;"></div>
+      <span>Gallery</span>
     </a>
   </div>
 </header>
+
 
 <!-- === Hero Section === -->
 <section class="hero">
