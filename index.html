@@ -713,9 +713,10 @@ function animateOnLoad() {
 
   <script>
 function startSnakeGame() {
-  // Hide the normal footer content
   document.getElementById('footer-content').style.display = 'none';
-  document.getElementById('snake-game').style.display = 'block';
+
+  const snakeGame = document.getElementById('snake-game');
+  snakeGame.classList.add('show');
 
   const canvas = document.getElementById('snakeCanvas');
   const ctx = canvas.getContext('2d');
@@ -731,6 +732,11 @@ function startSnakeGame() {
   let d;
 
   document.addEventListener("keydown", direction);
+  document.addEventListener("keydown", function(e) {
+    if(["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+      e.preventDefault();
+    }
+  }, { passive: false });
 
   function direction(event) {
     if (event.keyCode == 37 && d != "RIGHT") d = "LEFT";
@@ -740,7 +746,7 @@ function startSnakeGame() {
   }
 
   function draw() {
-    ctx.fillStyle = "#003366"; // footer dark blue background
+    ctx.fillStyle = "#003366";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     for (let i = 0; i < snake.length; i++) {
@@ -782,12 +788,11 @@ function startSnakeGame() {
       collision(newHead, snake)
     ) {
       clearInterval(game);
-      alert('Thanks for Playing! Your Score: ' + score);
+      alert('Game Over! Your Score: ' + score);
     }
 
     snake.unshift(newHead);
 
-    // Display Score
     ctx.fillStyle = "white";
     ctx.font = "18px Poppins";
     ctx.fillText("Score: " + score, 10, 20);
