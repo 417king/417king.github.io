@@ -61,6 +61,28 @@
       gap: 0.5rem;
     }
 
+    .fade-in-top {
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in-banner {
+      opacity: 0;
+      transition: opacity 1s ease 0.4s;
+    }
+
+    .slide-up-delayed {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease 1s;
+    }
+
+    .animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .dark-toggle-switch {
       width: 50px;
       height: 25px;
@@ -285,12 +307,13 @@
 
 
 <!-- === Hero Section === -->
-<section class="hero">
-  <div class="hero-box">
+<section class="hero fade-in-banner">
+  <div class="hero-box slide-up-delayed">
     <h1>Survey Designs</h1>
     <p>A collection of survey tools, designs, and frameworks supporting data-driven insights and better decision making.</p>
   </div>
 </section>
+
 
 <!-- === Main Two Column Section === -->
 <section>
@@ -328,6 +351,15 @@ function toggleSwitch(el) {
   el.classList.toggle('active');
   document.body.classList.toggle('dark-mode');
 }
+
+  function animateOnLoad() {
+  document.querySelector('.new-header').classList.add('animate-in');
+  document.querySelector('.hero').classList.add('animate-in');
+  document.querySelector('.hero-box').classList.add('animate-in');
+}
+
+window.onload = animateOnLoad;
+
 </script>
 
 </body>
