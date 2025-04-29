@@ -241,7 +241,9 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       z-index: 1;
       color: #003366;
-      transform: translateX(3%);
+      transform: translateX(3%); translateY(30px); 
+      opacity: 0; 
+      transition: all 0.6s ease 1s; 
     }
 
 
@@ -334,6 +336,12 @@
       opacity: 1;
       transition: opacity 1s ease;
     }
+
+    .hero-box.animate-in {
+      opacity: 1;
+      transform: translateX(3%) translateY(0);
+    }
+
 
     @keyframes bounce {
       0%, 100% {
