@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Survey Designs</title>
+  <title>Survey Designs - Christopher King</title>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -12,10 +12,7 @@
       --accent: #003366;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -23,241 +20,161 @@
       color: var(--text-dark);
     }
 
-    h1, h2, h3 {
-      font-family: 'Merriweather', serif;
-    }
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+    p { font-size: 16px; font-family: 'Poppins', sans-serif; }
 
-    p {
-      font-family: 'Poppins', sans-serif;
-      font-size: 18px;
-    }
-
-    /* === Header === */
+    /* Header */
     .new-header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      z-index: 999;
-      background: #003366;
+      background: var(--accent);
       padding: 0.75rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #ccc;
-      box-sizing: border-box;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      box-sizing: border-box;
+      z-index: 999;
     }
-
-    .site-name a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.4rem;
-      font-weight: 600;
-    }
-
-    .site-name a:visited {
-      color: white;
-    }
-
-
     .header-left, .header-right {
       display: flex;
       align-items: center;
     }
-
-    .header-left {
-      gap: 1rem;
-    }
-
+    .header-left { gap: 1rem; }
     .header-right {
       gap: 0.5rem;
+      margin-left: auto;
+      flex-wrap: wrap;
     }
-
-    .fade-in-top {
-      opacity: 0;
-      transform: translateY(-20px);
-      transition: all 0.6s ease;
+    .site-name a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
     }
-
-    .fade-in-banner {
-      opacity: 0;
-      transition: opacity 1s ease 0.4s;
-    }
-
-    .slide-up-delayed {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.6s ease 1s;
-    }
-
-    .animate-in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     .dark-toggle-switch {
-      width: 50px;
-      height: 25px;
+      width: 40px;
+      height: 20px;
       background: #ccc;
       border-radius: 50px;
       position: relative;
       cursor: pointer;
       transition: background 0.3s;
     }
-
     .dark-toggle-switch .circle {
-      width: 20px;
-      height: 20px;
+      width: 16px;
+      height: 16px;
       background: white;
       border-radius: 50%;
       position: absolute;
-      top: 2.5px;
+      top: 2px;
       left: 3px;
       transition: left 0.3s;
     }
-
-    .dark-toggle-switch.active {
-      background: #444;
-    }
-
-    .dark-toggle-switch.active .circle {
-      left: 27px;
-    }
+    .dark-toggle-switch.active { background: #444; }
+    .dark-toggle-switch.active .circle { left: 22px; }
 
     .survey-link-box {
-      position: relative;
       display: flex;
       align-items: center;
       gap: 0.5rem;
       text-decoration: none;
-      font-size: 1.3rem;
+      font-size: 1rem;
       font-weight: 600;
       color: white;
-      padding: 0.5rem 1rem;
+      padding: 0.4rem 0.8rem;
       border-radius: 6px;
       transition: background-color 0.3s ease;
     }
-
-    .survey-link-box:hover {
-      color: white;
-    }
-
-    .survey-link-surveys:hover {
-      background-color: #7F30C4;
-    }
-
-    .survey-link-memos:hover {
-      background-color: #FFA02F;
-    }
-
-    .survey-link-dashboards:hover {
-      background-color: #00C7B2;
-    }
-
-    .survey-link-visualizations:hover {
-      background-color: #00549F;
-    }
-
-    .survey-link-gallery:hover {
-      background-color: #D7A8FF;
-    }
-
     .color-rect {
-      width: 8px;
-      height: 40px;
+      width: 6px;
+      height: 30px;
       border-radius: 3px;
-      z-index: 1;
     }
 
+    /* Hover colors */
+    .survey-link-surveys:hover { background-color: #7F30C4; }
+    .survey-link-memos:hover { background-color: #FFA02F; }
+    .survey-link-dashboards:hover { background-color: #00C7B2; }
+    .survey-link-visualizations:hover { background-color: #00549F; }
+    .survey-link-gallery:hover { background-color: #D7A8FF; }
 
-    /* === Hero Section === */
+    /* Hero */
     .hero {
-      height: 100vh;
-      position: relative;
+      height: 70vh;
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      padding: 6rem 2rem;
-      background-image: url('banner2.jpg'); /* Keep your survey banner */
+      padding: 8rem 2rem 4rem;
+      background-image: url('banner2.jpg'); /* Survey banner */
       background-size: cover;
       background-position: center;
-      transition: background-image 0.5s ease-in-out, background-color 0.5s ease-in-out;
+      opacity: 0;
+      transition: opacity 1s ease 0.4s;
     }
+    .hero.animate-in { opacity: 1; }
 
     .hero-box {
-      background: white;
-      text-align: left;
-      margin-top: -7rem;
-      padding: 3rem 2rem;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
       border-radius: 16px;
-      min-width: 700px;
-      max-width: 900px;
       margin-left: 10%;
+      max-width: 700px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      z-index: 1;
-      color: #003366;
+      color: var(--accent);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease 1s;
     }
-
-    .hero-box h1 {
-      font-size: 45px;
-      font-family: 'Poppins', sans-serif;
-      margin-bottom: 0.5rem;
+    .hero-box.animate-in {
+      opacity: 1;
+      transform: translateY(0);
     }
+    .hero-box h1 { font-size: 36px; margin-bottom: 0.5rem; }
+    .hero-box p { font-size: 1rem; }
 
-    .hero-box p {
-     font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-
-
-    /* === Main Section === */
+    /* Main Two Column */
     .two-column {
       display: grid;
-      grid-template-columns: 1.2fr 1fr; /* make the left box a little bigger */
-      gap: 4rem; /* bigger gap between boxes */
-      max-width: 1400px; /* allow more width overall */
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      max-width: 1200px;
       margin: 4rem auto;
-      padding: 0 4rem;
+      padding: 0 2rem;
       align-items: start;
     }
-
-
     .left-box, .right-box {
       background: white;
       padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-
     .left-box h2 {
-      font-family: 'Merriweather', serif;
-      font-size: 40px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
       margin-bottom: 1rem;
     }
-
     .left-box p {
       font-family: 'Poppins', sans-serif;
-      font-size: 18px;
+      font-size: 16px;
       line-height: 1.6;
     }
-
     .right-box iframe {
       width: 100%;
-      height: 600px;
+      height: 500px;
       border: none;
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-
-    /* === Expandable Section === */
+    /* Expandable Section */
     .expand-container {
       max-width: 900px;
       margin: 3rem auto;
       padding: 0 2rem;
     }
-
     .expand-toggle {
       display: flex;
       align-items: center;
@@ -269,7 +186,6 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-
     .expand-box {
       margin-top: 1rem;
       background: white;
@@ -281,21 +197,47 @@
       opacity: 0;
       transition: max-height 0.5s ease, opacity 0.5s ease;
     }
-
     .expand-box.open {
       max-height: 500px;
       opacity: 1;
     }
 
-    /* === Dark Mode === */
+    /* Footer */
+    footer {
+      background: var(--accent);
+      padding: 1.5rem;
+      text-align: center;
+      color: white;
+      margin-top: 4rem;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .social-links a {
+      color: white;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+    .social-links a:hover { text-decoration: underline; }
+
+    /* Dark Mode */
     body.dark-mode {
-      background-color: #003366;
+      background-color: var(--accent);
       color: white;
     }
-
+    body.dark-mode .new-header,
+    body.dark-mode footer {
+      background: var(--accent);
+    }
+    body.dark-mode .hero {
+      background-image: url('nightbanner1.jpg');
+    }
     body.dark-mode .hero-box,
-    body.dark-mode .text-box,
-    body.dark-mode .survey-embed,
+    body.dark-mode .left-box,
+    body.dark-mode .right-box,
     body.dark-mode .expand-toggle,
     body.dark-mode .expand-box {
       background: #1f1f1f;
@@ -303,10 +245,11 @@
     }
   </style>
 </head>
-<body>
 
-<!-- === Header === -->
-<header class="new-header fade-in-top">
+<body onload="animateOnLoad()">
+
+<!-- Header -->
+<header class="new-header">
   <div class="header-left">
     <div class="dark-toggle-switch" onclick="toggleSwitch(this)">
       <div class="circle"></div>
@@ -317,63 +260,63 @@
   </div>
   <div class="header-right">
     <a href="survey.html" class="survey-link-box survey-link-surveys">
-      <div class="color-rect" style="background-color: #7F30C4;"></div>
-      <span>Survey Designs</span>
+      <div class="color-rect" style="background-color: #7F30C4;"></div><span>Survey Designs</span>
     </a>
     <a href="memos.html" class="survey-link-box survey-link-memos">
-      <div class="color-rect" style="background-color: #FFA02F;"></div>
-      <span>Memos & Budgets</span>
+      <div class="color-rect" style="background-color: #FFA02F;"></div><span>Memos & Budgets</span>
     </a>
     <a href="dashboards.html" class="survey-link-box survey-link-dashboards">
-      <div class="color-rect" style="background-color: #00C7B2;"></div>
-      <span>Dashboards</span>
+      <div class="color-rect" style="background-color: #00C7B2;"></div><span>Dashboards</span>
     </a>
     <a href="visualizations.html" class="survey-link-box survey-link-visualizations">
-      <div class="color-rect" style="background-color: #00549F;"></div>
-      <span>Data Visualizations</span>
+      <div class="color-rect" style="background-color: #00549F;"></div><span>Data Visualizations</span>
     </a>
     <a href="gallery.html" class="survey-link-box survey-link-gallery">
-      <div class="color-rect" style="background-color: #D7A8FF;"></div>
-      <span>Gallery</span>
+      <div class="color-rect" style="background-color: #D7A8FF;"></div><span>Gallery</span>
     </a>
   </div>
 </header>
 
-
-<!-- === Hero Section === -->
-<section class="hero fade-in-banner">
-  <div class="hero-box slide-up-delayed">
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-box">
     <h1>Survey Designs</h1>
-    <p>A collection of survey tools, designs, and frameworks supporting data-driven insights and better decision making.</p>
+    <p>A collection of survey tools, designs, and frameworks supporting data-driven insights and smarter decision making.</p>
   </div>
 </section>
 
-
-<!-- === Main Two Column Section === -->
-
+<!-- Main Section -->
 <section class="two-column">
   <div class="left-box">
     <h2>Survey Overview</h2>
-    <p>This section can talk about the background, goals, and methodology of your survey project.</p>
+    <p>Background, goals, and methodology of survey projects focused on capturing actionable data.</p>
   </div>
   <div class="right-box">
-    <iframe src="https://youruniversity.qualtrics.com/jfe/form/SV_XXXXX" width="100%" height="600" style="border:none; border-radius:12px; box-shadow: 0 0 10px rgba(0,0,0,0.1);"></iframe>
+    <iframe src="https://youruniversity.qualtrics.com/jfe/form/SV_XXXXX"></iframe>
   </div>
 </section>
 
-
-<!-- === Expandable Section === -->
+<!-- Expandable Section -->
 <section class="expand-container">
   <div class="expand-toggle" onclick="toggleExpandBox()">
     <div style="font-size: 1.5rem;">+</div>
-    <div>Click to expand for more survey details</div>
+    <div>Expand for More Survey Details</div>
   </div>
   <div class="expand-box" id="expandBox">
-    <p>Additional supporting information about survey methods, sample designs, or analysis frameworks that aren't in the main overview.</p>
+    <p>Supporting information about survey methods, sampling strategies, analysis frameworks, and additional documentation.</p>
   </div>
 </section>
 
-<!-- === Scripts === -->
+<!-- Footer -->
+<footer id="footer">
+  <p>Let's Connect!</p>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/christopherd-king" target="_blank">LinkedIn</a>
+    <a href="mailto:cdking417@gmail.com">Email</a>
+  </div>
+</footer>
+
+<!-- Scripts -->
 <script>
 function toggleExpandBox() {
   const box = document.getElementById('expandBox');
@@ -385,14 +328,11 @@ function toggleSwitch(el) {
   document.body.classList.toggle('dark-mode');
 }
 
-  function animateOnLoad() {
+function animateOnLoad() {
   document.querySelector('.new-header').classList.add('animate-in');
   document.querySelector('.hero').classList.add('animate-in');
   document.querySelector('.hero-box').classList.add('animate-in');
 }
-
-window.onload = animateOnLoad;
-
 </script>
 
 </body>
