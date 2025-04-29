@@ -597,6 +597,60 @@
       box-sizing: border-box;
     }
 
+  #snake-game {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 2rem;
+}
+
+.leaderboard-box {
+  background: white;
+  color: #003366;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 1rem;
+  width: 260px;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.leaderboard-title {
+  font-weight: 600;
+  font-size: 1.2rem;
+  background: #003366;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 8px 8px 0 0;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.leaderboard-table th {
+  font-weight: 600;
+  background-color: #f0f0f0;
+}
+
+.leaderboard-table td {
+  font-weight: 400;
+}
 
   </style>
 </head>
@@ -713,34 +767,27 @@
     </div>
   </div>
 
-  <div id="snake-game" style="margin-top: 2rem; justify-content: center; align-items: flex-start; gap: 2rem;">
-    <canvas id="snakeCanvas" width="600" height="270" style="background: #004080; border: 2px solid #001a33; border-radius: 12px;"></canvas>
-  
-  <div id="leaderboard" style="
-    background: white;
-    color: #003366;
-    border-radius: 16px;
-    padding: 1.5rem;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    font-family: 'Poppins', sans-serif;
-  ">
-    <h3 style="text-align: center; font-size: 1.5rem; margin-bottom: 1rem;">Leaderboard</h3>
-    <ol id="leaderboard-list" style="
-      padding-left: 1rem;
-      width: 100%;
-      list-style-position: inside;
-      font-size: 1rem;
-    ">
-      <li><strong>Deilotte</strong> — 81</li>
-      <li><strong>Qualcomm</strong> — 48</li>
-      <li><strong>City of San Diego</strong> — 44</li>
-    </ol>
+ <div id="snake-game" class="snake-container">
+  <canvas id="snakeCanvas" width="600" height="270" style="background: #004080; border: 2px solid #001a33; border-radius: 12px;"></canvas>
+
+  <div id="leaderboard" class="leaderboard-box">
+    <div class="leaderboard-title">Leaderboard</div>
+    <table class="leaderboard-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboard-list">
+        <tr><td>1</td><td>Deilotte</td><td>81</td></tr>
+        <tr><td>2</td><td>Qualcomm</td><td>48</td></tr>
+        <tr><td>3</td><td>City of San Diego</td><td>44</td></tr>
+      </tbody>
+    </table>
   </div>
+</div>
 
 </footer>
 
