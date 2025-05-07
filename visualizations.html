@@ -196,6 +196,11 @@
   height: auto;
   border-radius: 8px;
   object-fit: contain;
+  flex-shrink: 0;
+}
+
+.carousel-text {
+  flex: 1;
 }
 
 .carousel-track {
@@ -206,7 +211,8 @@
 .carousel-card {
   min-width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  align-items: center;
   gap: 2rem;
   background: white;
   padding: 1.5rem;
