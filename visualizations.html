@@ -200,7 +200,87 @@
   min-width: 100%;
   display: flex;
   flex-
-    
+
+.tabbed-data-section {
+  background: #f4f4f4;
+  padding: 2rem 1rem;
+  max-width: 1100px;
+  margin: 3rem auto;
+  border-radius: 12px;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  background: none;
+  border: 2px solid #003366;
+  color: #003366;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-button.active,
+.tab-button:hover {
+  background: #003366;
+  color: white;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-layout {
+  display: flex;
+  flex-wrap: wrap;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.tab-image {
+  flex: 1 1 50%;
+  min-height: 300px;
+  background-size: cover;
+  background-position: center;
+}
+
+.tab-description {
+  flex: 1 1 50%;
+  padding: 2rem;
+  color: #003366;
+}
+
+.tab-description h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.tab-description span {
+  color: #00C7B2;
+}
+
+.tab-description p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+
+  
   </style>
 </head>
 
@@ -259,6 +339,50 @@
   <button class="carousel-btn left">‹</button>
   <button class="carousel-btn right">›</button>
 </section>
+
+  <!-- === Tabbed Data Visualizations === -->
+<section class="tabbed-data-section">
+  <div class="tab-buttons">
+    <button class="tab-button active" data-tab="equity">Equity</button>
+    <button class="tab-button" data-tab="arts">Arts & Culture</button>
+    <button class="tab-button" data-tab="safety">Public Safety</button>
+  </div>
+
+  <div class="tab-content active" id="equity">
+    <div class="tab-layout">
+      <div class="tab-image" style="background-image: url('equity-map.png');"></div>
+      <div class="tab-description">
+        <h2>San Diego Snapshot: <span>Proximity to Recreational Areas</span></h2>
+        <p>Serving every neighborhood means prioritizing communities with the greatest need. This map shows access to recreational areas across San Diego.</p>
+        <p><strong>Source:</strong> City of San Diego Climate Equity Index</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="arts">
+    <div class="tab-layout">
+      <div class="tab-image" style="background-image: url('arts-map.png');"></div>
+      <div class="tab-description">
+        <h2>San Diego Snapshot: <span>Public Art Installations</span></h2>
+        <p>This section highlights where public art has been installed to foster cultural inclusion and tourism through community engagement.</p>
+        <p><strong>Source:</strong> San Diego Public Art Report</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="safety">
+    <div class="tab-layout">
+      <div class="tab-image" style="background-image: url('safety-heatmap.png');"></div>
+      <div class="tab-description">
+        <h2>San Diego Snapshot: <span>Public Safety Hotspots</span></h2>
+        <p>Explore a data-driven look at emergency response and incident rates across city neighborhoods to inform equitable safety planning.</p>
+        <p><strong>Source:</strong> SDPD Open Data Portal</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
   
 <!-- Footer -->
 <footer id="footer">
@@ -303,6 +427,18 @@ leftBtn.addEventListener('click', () => {
     index--;
     track.style.transform = `translateX(-${index * 100}%)`;
   }
+});
+</script>
+
+  <script>
+document.querySelectorAll('.tab-button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  });
 });
 </script>
   
