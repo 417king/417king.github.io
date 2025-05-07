@@ -178,6 +178,29 @@
       background: #1f1f1f;
       color: white;
     }
+
+    /* === Data Insights Carousel === */
+.data-insights-carousel {
+  position: relative;
+  background: #f4f9ff;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 3rem auto;
+  max-width: 1000px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-card {
+  min-width: 100%;
+  display: flex;
+  flex-
+    
   </style>
 </head>
 
@@ -220,6 +243,23 @@
   </div>
 </section>
 
+<!-- === Data Insights Carousel === -->
+<section class="data-insights-carousel">
+  <div class="carousel-track">
+    <div class="carousel-card">
+      <img src="poverty-chart.png" alt="Extreme Poverty Chart" class="carousel-image" />
+      <div class="carousel-text">
+        <p class="carousel-date">📅 APRIL 29</p>
+        <h3>One in six people live in Sub-Saharan Africa, but it accounts for two-thirds of global extreme poverty</h3>
+        <p>Every twelfth person in the world still lives in extreme poverty, surviving on less than $2.15 per day.</p>
+        <a href="#" class="carousel-link">Continue reading →</a>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-btn left">‹</button>
+  <button class="carousel-btn right">›</button>
+</section>
+  
 <!-- Footer -->
 <footer id="footer">
   <p>Let's Connect!</p>
@@ -242,7 +282,30 @@ function animateOnLoad() {
   document.querySelector('.hero-box').classList.add('animate-in');
 }
 </script>
+<script>
+const track = document.querySelector('.carousel-track');
+const leftBtn = document.querySelector('.carousel-btn.left');
+const rightBtn = document.querySelector('.carousel-btn.right');
 
+let index = 0;
+const cards = document.querySelectorAll('.carousel-card');
+const totalCards = cards.length;
+
+rightBtn.addEventListener('click', () => {
+  if (index < totalCards - 1) {
+    index++;
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+});
+
+leftBtn.addEventListener('click', () => {
+  if (index > 0) {
+    index--;
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+});
+</script>
+  
 </body>
 </html>
 
