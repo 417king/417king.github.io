@@ -359,6 +359,59 @@ body.dark-mode .introduction-section .intro-content-box { /* Ensure this targets
 body.dark-mode .introduction-section .intro-content-box h2 { /* Ensure this targets h2 within intro-content-box */
   color: white; /* Ensure heading is visible in dark mode */
 }
+
+/* Styling for the new button section */
+.survey-toggles-container {
+    max-width: 1200px; /* Aligns with your other main content sections */
+    margin: 3rem auto 2rem auto; /* Top margin, centered, bottom margin for spacing */
+    padding: 0 2rem;   /* Horizontal padding */
+    text-align: center; /* Center the button group */
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap; /* Allows buttons to wrap to the next line on smaller screens */
+    gap: 1rem; /* Space between buttons */
+    justify-content: center; /* Centers buttons within the group */
+}
+
+.button-group button {
+    background-color: var(--accent); /* Dark blue background */
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    flex-shrink: 0; /* Prevent buttons from shrinking if space is tight */
+}
+
+.button-group button:hover:not(.active) { /* Hover effect only for non-active buttons */
+    background-color: #004488; /* Slightly darker on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.button-group button.active {
+    background-color: #002244; /* Even darker to show active state */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.3); /* Inset shadow for "pressed" look */
+    cursor: default; /* No hover effect when active */
+    transform: none; /* No lift effect when active */
+}
+
+/* Dark mode for buttons */
+body.dark-mode .button-group button {
+    background-color: #333;
+    color: white;
+}
+body.dark-mode .button-group button:hover:not(.active) {
+    background-color: #555;
+}
+body.dark-mode .button-group button.active {
+    background-color: #111;
+}
   </style>
 </head>
 
@@ -456,21 +509,22 @@ strategies for effective survey design</p>
     <p>It's essential to choose the right structure and approach to get the most out of your surveys. Below you'll discover how my survey approaches can help you gather the insights you need, whether it's through simple questionnaires or more complex research studies.</p>
   </div> </section>
 
-<div class="separator-bar">  
+<div class="separator-bar">
 </div>
 
-<section class="two-column">
-  </section>
+<section class="survey-toggles-container">
+  <div class="button-group">
+    <button data-survey-id="survey1" class="active">Employee Satisfaction Survey</button>
+    <button data-survey-id="survey2">Customer Feedback Survey</button>
+    <button data-survey-id="survey3">Market Research Survey</button>
+  </div>
+</section>
 
-  
 <section class="two-column">
   <div class="left-box">
-    <h2>Survey Overview</h2>
-    <p>Background, goals, and methodology of survey projects focused on capturing actionable data.</p>
-  </div>
+    <h2 id="surveyOverviewTitle">Survey Overview</h2> <p id="surveyOverviewText">Background, goals, and methodology of survey projects focused on capturing actionable data.</p> </div>
   <div class="right-box">
-    <iframe src="https://youruniversity.qualtrics.com/jfe/form/SV_XXXXX"></iframe>
-  </div>
+    <iframe id="qualtricsIframe" src="https://youruniversity.qualtrics.com/jfe/form/SV_XXXXX"></iframe> </div>
 </section>
 
 
@@ -480,9 +534,9 @@ strategies for effective survey design</p>
     <div>Expand for More Survey Details</div>
   </div>
   <div class="expand-box" id="expandBox">
-    <p>Supporting information about survey methods, sampling strategies, analysis frameworks, and additional documentation.</p>
-  </div>
+    <p id="expandBoxText">Supporting information about survey methods, sampling strategies, analysis frameworks, and additional documentation.</p> </div>
 </section>
+
 
 
 <footer id="footer">
@@ -511,7 +565,109 @@ function animateOnLoad() {
   document.querySelector('.hero-box').classList.add('animate-in');
 }
 </script>
+<script>
+// --- Existing JS Functions ---
+function toggleExpandBox() {
+  const box = document.getElementById('expandBox');
+  box.classList.toggle('open');
+}
 
+function toggleSwitch(el) {
+  el.classList.toggle('active');
+  document.body.classList.toggle('dark-mode');
+}
+
+function animateOnLoad() {
+  document.querySelector('.new-header').classList.add('animate-in');
+  document.querySelector('.hero').classList.add('animate-in');
+  document.querySelector('.hero-box').classList.add('animate-in');
+}
+
+// --- NEW JS for Survey Toggles ---
+
+// Define your survey data
+const surveyData = [
+  {
+    id: "survey1",
+    buttonLabel: "Employee Satisfaction Survey", // Not strictly needed here but good for data integrity
+    qualtricsUrl: "https://universityname.qualtrics.com/jfe/form/SV_SAMPLE1", // REPLACE WITH YOUR ACTUAL URLS
+    overviewTitle: "Employee Satisfaction Survey Overview",
+    overviewText: "This survey assesses employee satisfaction, engagement, and work environment factors. Data helps identify areas for improvement in company culture and operational efficiency.",
+    expandText: "Key metrics include job satisfaction, work-life balance, management effectiveness, and career development opportunities. Results are used for HR strategy and policy adjustments. This info is specific to Survey 1."
+  },
+  {
+    id: "survey2",
+    buttonLabel: "Customer Feedback Survey",
+    qualtricsUrl: "https://universityname.qualtrics.com/jfe/form/SV_SAMPLE2", // REPLACE WITH YOUR ACTUAL URLS
+    overviewTitle: "Customer Feedback Survey Overview",
+    overviewText: "Designed to gather insights into customer experience, product satisfaction, and service quality. Essential for improving customer loyalty and product offerings.",
+    expandText: "Focuses on user satisfaction, product features, support interactions, and overall brand perception. Feedback drives product development cycles and customer service training. This info is specific to Survey 2."
+  },
+  {
+    id: "survey3",
+    buttonLabel: "Market Research Survey",
+    qualtricsUrl: "https://universityname.qualtrics.com/jfe/form/SV_SAMPLE3", // REPLACE WITH YOUR ACTUAL URLS
+    overviewTitle: "Market Research Survey Overview",
+    overviewText: "Explores market trends, consumer behavior, and competitive landscape. Provides data for strategic business decisions and new market entry evaluations.",
+    expandText: "Covers demographics, purchasing habits, brand awareness, and competitor analysis. Insights inform marketing campaigns, product positioning, and business expansion plans. This info is specific to Survey 3."
+  }
+];
+
+// Get references to the HTML elements
+const qualtricsIframe = document.getElementById('qualtricsIframe');
+const surveyOverviewTitle = document.getElementById('surveyOverviewTitle');
+const surveyOverviewText = document.getElementById('surveyOverviewText');
+const expandBoxText = document.getElementById('expandBoxText');
+const surveyButtons = document.querySelectorAll('.button-group button'); // Select all buttons in the group
+
+// Function to update content based on survey ID
+function updateSurveyContent(surveyId) {
+  const selectedSurvey = surveyData.find(survey => survey.id === surveyId);
+
+  if (selectedSurvey) {
+    // Update Qualtrics iframe
+    qualtricsIframe.src = selectedSurvey.qualtricsUrl;
+
+    // Update Survey Overview
+    surveyOverviewTitle.textContent = selectedSurvey.overviewTitle;
+    surveyOverviewText.textContent = selectedSurvey.overviewText;
+
+    // Update Expand Box text
+    expandBoxText.textContent = selectedSurvey.expandText;
+
+    // Update active button state
+    surveyButtons.forEach(button => {
+      if (button.dataset.surveyId === surveyId) {
+        button.classList.add('active');
+      } else {
+        button.classList.remove('active');
+      }
+    });
+
+    // Optional: If you want to close the expand box when a new survey is selected
+    const expandBox = document.getElementById('expandBox');
+    if (expandBox.classList.contains('open')) {
+      expandBox.classList.remove('open');
+    }
+
+  } else {
+    console.error("Survey data not found for ID:", surveyId);
+  }
+}
+
+// Add event listeners to buttons
+surveyButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    updateSurveyContent(button.dataset.surveyId);
+  });
+});
+
+// Initialize with the first survey on page load
+document.addEventListener('DOMContentLoaded', () => {
+  animateOnLoad(); // Keep your existing animation
+  updateSurveyContent('survey1'); // Load default survey content
+});
+</script>
 
 </body>
 </html>
