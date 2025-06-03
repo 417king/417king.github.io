@@ -201,6 +201,8 @@ body.dark-mode .separator-bar {
   border-bottom-color: #1f1f1f; /
 }
 
+
+    
     /* Main Two Column */
     .two-column {
       display: grid;
@@ -317,6 +319,46 @@ body.dark-mode .separator-bar {
     body.dark-mode .dashboard-box h2 {
       color: white; /* Ensure heading is visible in dark mode */
     }
+
+  /* New Introduction Section */
+.introduction-section {
+  max-width: 1200px; /* Align with your other main content sections */
+  margin: 4rem auto; /* Provide vertical spacing and center the section */
+  padding: 0 2rem;   /* Horizontal padding */
+}
+
+.intro-content-box {
+  background: white; /* Consistent background */
+  padding: 2.5rem;   /* Slightly more padding than basic boxes for prominence */
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center; /* Center the text content */
+}
+
+.intro-content-box h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px; /* Make it stand out a bit */
+  margin-bottom: 1.5rem;
+  color: var(--accent); /* Consistent heading color */
+}
+
+.intro-content-box p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px; /* A bit larger for readability */
+  line-height: 1.7;
+  max-width: 800px; /* Limit paragraph width for better readability */
+  margin: 0 auto 1rem auto; /* Center paragraphs */
+}
+
+/* Dark Mode for Introduction Section */
+body.dark-mode .introduction-section .intro-content-box {
+  background: #1f1f1f; /* Match other dark mode boxes */
+  color: white;
+}
+
+body.dark-mode .introduction-section .intro-content-box h2 {
+  color: white; /* Ensure heading is visible in dark mode */
+}
   </style>
 </head>
 
@@ -406,8 +448,21 @@ strategys for effective survey design</p>
 </section>
 
 <div class="separator-bar">
-  
 </div>
+
+<section class="introduction-section">
+  <div class="intro-content-box">
+    <h2>Types of Surveys and When to Use Them</h2>
+    <p>With the right survey, you can collect the right data to meet your needs.</p>
+    <p>It's essential to choose the right structure and approach to get the most out of your surveys. Below you'll discover how my survey approaches can help you gather the insights you need, whether it's through simple questionnaires or more complex research studies.</p>
+  </div>
+</section>
+
+<div class="separator-bar">  
+</div>
+
+<section class="two-column">
+  </section>
 
   
 <section class="two-column">
