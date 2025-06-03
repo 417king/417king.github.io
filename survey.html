@@ -136,6 +136,48 @@
     .hero-box h1 { font-size: 36px; margin-bottom: 0.5rem; }
     .hero-box p { font-size: 1rem; }
 
+    /* Tableau Dashboard Section */
+    .tableau-dashboard-container {
+      max-width: 1200px; /* Matches .two-column for consistent width */
+      margin: 4rem auto; /* Centers it and provides vertical spacing */
+      padding: 0 2rem;   /* Horizontal padding like .two-column */
+    }
+
+    .dashboard-box {
+      background: white; /* Matches .left-box / .right-box */
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .dashboard-box h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px; /* Similar to .left-box h2 */
+      margin-bottom: 1rem;
+      color: var(--accent); /* Or var(--text-dark) if preferred */
+    }
+
+    .dashboard-box p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .tableau-embed {
+      width: 100%;
+      height: 80vh; /* "Almost fit the whole screen" - adjust as needed */
+      border-radius: 8px; /* Optional: if you want the embed itself to have rounded corners */
+      overflow: hidden; /* Helps contain the iframe nicely */
+    }
+
+    .tableau-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: none; /* Remove default iframe border */
+    }
+
+
     /* Main Two Column */
     .two-column {
       display: grid;
@@ -244,12 +286,20 @@
       background: #1f1f1f;
       color: white;
     }
+    /* Dark Mode for Tableau Section */
+    body.dark-mode .dashboard-box {
+      background: #1f1f1f; /* Matches other dark mode boxes */
+      color: white;
+    }
+    body.dark-mode .dashboard-box h2 {
+      color: white; /* Ensure heading is visible in dark mode */
+    }
   </style>
 </head>
 
+
 <body onload="animateOnLoad()">
 
-<!-- Header -->
 <header class="new-header">
   <div class="header-left">
     <div class="dark-toggle-switch" onclick="toggleSwitch(this)">
@@ -278,7 +328,7 @@
   </div>
 </header>
 
-<!-- Hero -->
+
 <section class="hero">
   <div class="hero-box">
     <h1>Survey Designs</h1>
@@ -286,7 +336,18 @@
   </div>
 </section>
 
-<!-- Main Section -->
+
+<section class="tableau-dashboard-container">
+  <div class="dashboard-box">
+    <h2>Interactive Dashboard Title</h2>
+    <p>Brief description or context for the dashboard below.</p>
+    <div class="tableau-embed">
+      <iframe src="YOUR_TABLEAU_DASHBOARD_LINK_HERE" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
+  </div>
+</section>
+
+
 <section class="two-column">
   <div class="left-box">
     <h2>Survey Overview</h2>
@@ -297,7 +358,7 @@
   </div>
 </section>
 
-<!-- Expandable Section -->
+
 <section class="expand-container">
   <div class="expand-toggle" onclick="toggleExpandBox()">
     <div style="font-size: 1.5rem;">+</div>
@@ -308,7 +369,7 @@
   </div>
 </section>
 
-<!-- Footer -->
+
 <footer id="footer">
   <p>Let's Connect!</p>
   <div class="social-links">
@@ -317,7 +378,7 @@
   </div>
 </footer>
 
-<!-- Scripts -->
+
 <script>
 function toggleExpandBox() {
   const box = document.getElementById('expandBox');
@@ -335,6 +396,7 @@ function animateOnLoad() {
   document.querySelector('.hero-box').classList.add('animate-in');
 }
 </script>
+
 
 </body>
 </html>
