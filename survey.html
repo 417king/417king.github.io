@@ -187,9 +187,10 @@
     }
 
 .separator-bar {
-  border-bottom: 25px solid #003366; /* Matching the color and thickness of your existing bar */
-  width: 100%; /* Ensure it spans the full width */
-  margin-top: 4rem; /* Add some space above it, adjust as needed */
+  border-bottom: 25px solid #003366; 
+  width: 100%; 
+  margin-top: 0rem; 
+  /* Add some space above it, adjust as needed */
   /* If you want it to behave like a section and have max-width, uncomment and adjust: */
   /* max-width: 1200px; */
   /* margin-left: auto; */
@@ -327,36 +328,38 @@ body.dark-mode .separator-bar {
   padding: 0 2rem;   /* Horizontal padding */
 }
 
-.intro-content-box {
-  background: white; /* Consistent background */
-  padding: 2.5rem;   /* Slightly more padding than basic boxes for prominence */
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  text-align: center; /* Center the text content */
+/* New Introduction Section */
+.introduction-section {
+  max-width: 1200px; /* Align with your other main content sections */
+  margin: 3rem auto; /* Slightly reduced margin to bring it closer vertically */
+  padding: 2rem 2rem; /* Add internal padding to the section itself */
+  text-align: center; /* Center the text content of the section */
+  color: var(--text-dark); /* Ensure text color is appropriate for the body background */
+  /* No background or box-shadow here to make it blend with the page */
 }
 
-.intro-content-box h2 {
+.introduction-section h2 { /* Targeting h2 directly inside introduction-section */
   font-family: 'Poppins', sans-serif;
-  font-size: 32px; /* Make it stand out a bit */
+  font-size: 32px;
   margin-bottom: 1.5rem;
   color: var(--accent); /* Consistent heading color */
 }
 
-.intro-content-box p {
+.introduction-section p { /* Targeting p directly inside introduction-section */
   font-family: 'Poppins', sans-serif;
-  font-size: 17px; /* A bit larger for readability */
+  font-size: 17px;
   line-height: 1.7;
   max-width: 800px; /* Limit paragraph width for better readability */
   margin: 0 auto 1rem auto; /* Center paragraphs */
 }
 
 /* Dark Mode for Introduction Section */
-body.dark-mode .introduction-section .intro-content-box {
-  background: #1f1f1f; /* Match other dark mode boxes */
-  color: white;
+body.dark-mode .introduction-section {
+  background: transparent; /* No background in dark mode either */
+  color: white; /* Ensure text color is white in dark mode */
 }
 
-body.dark-mode .introduction-section .intro-content-box h2 {
+body.dark-mode .introduction-section h2 {
   color: white; /* Ensure heading is visible in dark mode */
 }
   </style>
@@ -451,11 +454,9 @@ strategys for effective survey design</p>
 </div>
 
 <section class="introduction-section">
-  <div class="intro-content-box">
     <h2>Types of Surveys and When to Use Them</h2>
     <p>With the right survey, you can collect the right data to meet your needs.</p>
     <p>It's essential to choose the right structure and approach to get the most out of your surveys. Below you'll discover how my survey approaches can help you gather the insights you need, whether it's through simple questionnaires or more complex research studies.</p>
-  </div>
 </section>
 
 <div class="separator-bar">  
