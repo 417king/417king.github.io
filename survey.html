@@ -331,15 +331,16 @@ body.dark-mode .separator-bar {
 }
 
 .intro-content-box {
-  background: white; /* RE-ADD THIS */
-  padding: 2.5rem;   /* Keep this padding inside the box */
-  border-radius: 12px; /* RE-ADD THIS */
-  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* RE-ADD THIS */
-  text-align: center; /* Center the text content within the box */
-  margin-top: 3rem; /* Add top margin to push it down from the first separator */
-  margin-bottom: 3rem; /* Add bottom margin to push it up from the second separator */
+  background: white; /* Keep this for the white background */
+  padding: 2.5rem;   /* Internal padding for the text */
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center; /* Center the text inside the white box */
+  margin-top: 0;    /* IMPORTANT: CHANGE THIS TO 0 */
+  margin-bottom: 0; /* IMPORTANT: CHANGE THIS TO 0 */
 }
 
+    
 .intro-content-box h2 { /* Targeting h2 directly inside intro-content-box */
   font-family: 'Poppins', sans-serif;
   font-size: 32px;
