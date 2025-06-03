@@ -165,11 +165,9 @@
     /* Important: The Tableau embed code generates a div with this class. */
     /* We'll use this to center the actual Tableau viz within its parent dashboard-box. */
     .tableauPlaceholder {
-      /* Add these lines to center the content */
       display: flex;       /* Use flexbox */
       justify-content: center; /* Center horizontally */
       align-items: center;   /* Center vertically (if height allows) */
-      /* Make sure it takes full width of its parent */
       width: 100%;
       /* And ensure it respects the height you want */
       height: 80vh; /* This should match the desired height of the viz */
@@ -188,6 +186,20 @@
         border: none; /* Remove any default border */
     }
 
+.separator-bar {
+  border-bottom: 25px solid #003366; /* Matching the color and thickness of your existing bar */
+  width: 100%; /* Ensure it spans the full width */
+  margin-top: 4rem; /* Add some space above it, adjust as needed */
+  /* If you want it to behave like a section and have max-width, uncomment and adjust: */
+  /* max-width: 1200px; */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+}
+
+/* Dark mode for the separator bar */
+body.dark-mode .separator-bar {
+  border-bottom-color: #1f1f1f; /
+}
 
     /* Main Two Column */
     .two-column {
