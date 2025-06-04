@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Christopher King - [Page Title]</title>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Christopher King - Dashboards</title> <link rel="icon" href="favicon.png" type="image/png" /> <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-light: #0059b3;
@@ -109,7 +108,7 @@
       justify-content: flex-start;
       align-items: center;
       padding: 8rem 2rem 4rem;
-      background-image: url('banner1.png');
+      background-image: url('banner1.png'); /* You might want a specific banner for dashboards */
       background-size: cover;
       background-position: center;
       transition: opacity 1s ease 0.4s;
@@ -141,28 +140,138 @@
       font-size: 1rem;
     }
 
-    /* Footer */
-    footer {
-      background: var(--accent);
-      padding: 1.5rem;
-      text-align: center;
-      color: white;
-      margin-top: 4rem;
-    }
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-    .social-links a {
-      color: white;
-      font-size: 0.9rem;
-      text-decoration: none;
-    }
-    .social-links a:hover { text-decoration: underline; }
+    /* === NEW/COPIED STYLES BELOW THIS LINE === */
 
-    /* Dark Mode */
+    .separator-bar {
+      border-bottom: 25px solid #003366;
+      width: 100%;
+      margin-top: 0rem;
+    }
+
+    /* Introduction Section (Copied from Survey Page) */
+    .introduction-section {
+      max-width: 100vw;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .intro-content-box {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .intro-content-box h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+    }
+
+    .intro-content-box p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      max-width: 800px; /* Limit paragraph width for better readability */
+      margin: 0 auto 1rem auto; /* Center paragraphs within the box */
+    }
+
+    /* Styling for the Dashboard Toggle Buttons (Copied and adapted) */
+    .dashboard-toggles-container { /* Renamed from survey-toggles-container */
+      max-width: 1200px; /* Aligns with your other main content sections */
+      margin: 3rem auto 2rem auto; /* Top margin, centered, bottom margin for spacing */
+      padding: 0 2rem;   /* Horizontal padding */
+      text-align: center; /* Center the button group */
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap; /* Allows buttons to wrap to the next line on smaller screens */
+      gap: 1rem; /* Space between buttons */
+      justify-content: center; /* Centers buttons within the group */
+    }
+
+    .button-group button {
+      background-color: var(--accent); /* Dark blue background */
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      flex-shrink: 0; /* Prevent buttons from shrinking if space is tight */
+    }
+
+    .button-group button:hover:not(.active) { /* Hover effect only for non-active buttons */
+      background-color: #004488; /* Slightly darker on hover */
+      transform: translateY(-2px); /* Slight lift effect */
+    }
+
+    .button-group button.active {
+      background-color: #002244; /* Even darker to show active state */
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.3); /* Inset shadow for "pressed" look */
+      cursor: default; /* No hover effect when active */
+      transform: none; /* No lift effect when active */
+    }
+
+    /* Tableau Dashboard Section (Copied and adapted) */
+    .tableau-dashboard-container {
+      max-width: 1200px; /* Matches .two-column for consistent width */
+      margin: 4rem auto; /* Centers it and provides vertical spacing */
+      padding: 0 2rem;   /* Horizontal padding like .two-column */
+    }
+
+    .dashboard-box {
+      background: white; /* Matches .left-box / .right-box */
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .dashboard-box h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px; /* Similar to .left-box h2 */
+      margin-bottom: 1rem;
+      color: var(--accent); /* Or var(--text-dark) if preferred */
+    }
+
+    .dashboard-box p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Important: The Tableau embed code generates a div with this class. */
+    /* We'll use this to center the actual Tableau viz within its parent dashboard-box. */
+    .tableauPlaceholder {
+      display: flex;       /* Use flexbox */
+      justify-content: center; /* Center horizontally */
+      align-items: center;   /* Center vertically (if height allows) */
+      width: 100%;
+      height: 80vh; /* This should match the desired height of the viz */
+      overflow: hidden;
+    }
+
+    /* If Tableau's embed script uses an object or iframe directly inside tableauPlaceholder, ensure it scales */
+    .tableauPlaceholder object,
+    .tableauPlaceholder iframe {
+        display: block; /* Ensure it behaves like a block element */
+        margin: 0 auto; /* This can help center if flexbox isn't enough for specific Tableau quirks */
+        width: 100%; /* Ensure it fills the placeholder width */
+        height: 100%; /* Ensure it fills the placeholder height */
+        border: none; /* Remove any default border */
+    }
+
+    /* === DARK MODE STYLES (COPIED AND ADAPTED) === */
+
     body.dark-mode {
       background-color: var(--accent);
       color: white;
@@ -178,12 +287,39 @@
       background: #1f1f1f;
       color: white;
     }
+    /* Dark Mode for Introduction Section */
+    body.dark-mode .introduction-section .intro-content-box {
+      background: #1f1f1f; /* Match other dark mode boxes */
+      color: white; /* Ensure text color is white in dark mode */
+    }
+    body.dark-mode .introduction-section .intro-content-box h2 {
+      color: white; /* Ensure heading is visible in dark mode */
+    }
+    /* Dark Mode for Dashboard Toggle Buttons */
+    body.dark-mode .button-group button {
+      background-color: #333;
+      color: white;
+    }
+    body.dark-mode .button-group button:hover:not(.active) {
+      background-color: #555;
+    }
+    body.dark-mode .button-group button.active {
+      background-color: #111;
+    }
+    /* Dark Mode for Tableau Dashboard Section */
+    body.dark-mode .dashboard-box {
+      background: #1f1f1f; /* Matches other dark mode boxes */
+      color: white;
+    }
+    body.dark-mode .dashboard-box h2 {
+      color: white; /* Ensure heading is visible in dark mode */
+    }
+
   </style>
 </head>
 
 <body onload="animateOnLoad()">
 
-<!-- Header -->
 <header class="new-header">
   <div class="header-left">
     <div class="dark-toggle-switch" onclick="toggleSwitch(this)">
@@ -212,15 +348,39 @@
   </div>
 </header>
 
-<!-- Hero -->
 <section class="hero">
   <div class="hero-box">
-    <h1>[Page Title Here]</h1>
-    <p>[Short Description for This Page]</p>
+    <h1>Bringing Data to Life with Dashboards.</h1> <p>Explore interactive dashboards designed to transform complex data into clear, actionable insights. From tracking KPIs to deep-diving into trends, these dashboards help illuminate the story behind the numbers.</p> </div>
+</section>
+
+<div class="separator-bar"></div>
+
+<section class="introduction-section">
+  <div class="intro-content-box">
+    <h2 id="introTitle">Choose the dashboard that's right for you</h2> <p id="introParagraph1">With the right dashboard, it's easy to visualize data that meet your needs.</p> <p id="introParagraph2">It's essential to choose the right metrics and visualizations to get the most out of your dashboards. Below you'll discover how my dashboard approaches can help you gather the insights you need, whether it's through simple key performance indicators or more complex analytical views.</p> </div>
+</section>
+
+<div class="separator-bar"></div>
+
+<section class="dashboard-toggles-container"> <div class="button-group">
+    <button data-dashboard-id="dashboard1" class="active">Sales Performance</button>
+    <button data-dashboard-id="dashboard2">Customer Churn Analysis</button>
+    <button data-dashboard-id="dashboard3">Marketing Campaign Results</button>
   </div>
 </section>
 
-<!-- Footer -->
+<section class="tableau-dashboard-container">
+  <div class="dashboard-box">
+    <div class='tableauPlaceholder' id='tableauVizContainer' style='position: relative'>
+      <noscript>
+        <a href='#'>
+          <img alt='Dashboard Placeholder' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Sa&#47;SampleDashboard1&#47;Dashboard1&#47;1_rss.png' style='border: none' />
+        </a>
+      </noscript>
+    </div>
+  </div>
+</section>
+
 <footer id="footer">
   <p>Let's Connect!</p>
   <div class="social-links">
@@ -229,18 +389,144 @@
   </div>
 </footer>
 
-<!-- Scripts -->
 <script>
-function toggleSwitch(el) {
-  el.classList.toggle('active');
-  document.body.classList.toggle('dark-mode');
-}
+  // Global variable to hold the Tableau Viz object
+  let tableauViz = null;
 
-function animateOnLoad() {
-  document.querySelector('.new-header').classList.add('animate-in');
-  document.querySelector('.hero').classList.add('animate-in');
-  document.querySelector('.hero-box').classList.add('animate-in');
-}
+  // Existing functions from other pages
+  function toggleSwitch(el) {
+    el.classList.toggle('active');
+    document.body.classList.toggle('dark-mode');
+  }
+
+  function animateOnLoad() {
+    document.querySelector('.new-header').classList.add('animate-in');
+    document.querySelector('.hero').classList.add('animate-in');
+    document.querySelector('.hero-box').classList.add('animate-in');
+  }
+
+  // --- NEW JS for Dashboard Toggles ---
+
+  // Define your dashboard data
+  // REMEMBER TO REPLACE 'YOUR_TABLEAU_PUBLIC_URL' WITH YOUR ACTUAL DASHBOARD EMBED URLs
+  const dashboardData = [
+    {
+      id: "dashboard1",
+      buttonLabel: "Sales Performance",
+      vizUrl: "https://public.tableau.com/views/SuperstoreSalesDashboard/Overview", // REPLACE with your actual Tableau Public URL
+      vizOptions: {
+        hideTabs: true,
+        hideToolbar: true,
+        // You can add more Tableau specific options here
+        // Example: width: '100%', height: '80vh', onFirstInteractive: function() { console.log('Viz loaded!'); }
+      },
+      introTitle: "Sales Performance Dashboard",
+      introParagraph1: "This dashboard provides a comprehensive overview of sales performance, allowing you to track revenue, units sold, and profit margins across different regions.",
+      introParagraph2: "Key features include interactive filters for time periods and product categories, alongside trend analysis to identify growth opportunities and areas needing attention."
+    },
+    {
+      id: "dashboard2",
+      buttonLabel: "Customer Churn Analysis",
+      vizUrl: "https://public.tableau.com/views/CustomerChurnAnalysis/ChurnDashboard", // REPLACE with your actual Tableau Public URL
+      vizOptions: {
+        hideTabs: false, // Example: this dashboard might have tabs
+        hideToolbar: false,
+      },
+      introTitle: "Customer Churn Analysis Dashboard",
+      introParagraph1: "Understand the factors driving customer churn with this analytical dashboard. Identify at-risk customer segments and the reasons behind their departure.",
+      introParagraph2: "Leverage insights on customer demographics, engagement patterns, and service interactions to develop effective retention strategies and improve customer lifetime value."
+    },
+    {
+      id: "dashboard3",
+      buttonLabel: "Marketing Campaign Results",
+      vizUrl: "https://public.tableau.com/views/MarketingCampaignPerformance/CampaignOverview", // REPLACE with your actual Tableau Public URL
+      vizOptions: {
+        hideTabs: true,
+        hideToolbar: false,
+      },
+      introTitle: "Marketing Campaign Results",
+      introParagraph1: "Evaluate the effectiveness of your marketing campaigns through key metrics like reach, engagement, conversion rates, and ROI.",
+      introParagraph2: "This dashboard enables you to compare campaign performance, optimize future marketing efforts, and allocate resources more efficiently based on data-driven insights."
+    }
+  ];
+
+  // Get references to the HTML elements that will be updated
+  const introTitle = document.getElementById('introTitle');
+  const introParagraph1 = document.getElementById('introParagraph1');
+  const introParagraph2 = document.getElementById('introParagraph2');
+  const tableauVizContainer = document.getElementById('tableauVizContainer');
+  const dashboardButtons = document.querySelectorAll('.button-group button'); // Select all buttons in the group
+
+  // Function to load the Tableau API script only once
+  function loadTableauApi(callback) {
+    // Check if tableau object already exists (meaning API is loaded)
+    if (typeof tableau !== 'undefined') {
+      callback();
+      return;
+    }
+    const scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    scriptElement.onload = callback; // Execute callback once script is loaded
+    document.head.appendChild(scriptElement);
+  }
+
+  // Function to update content and load Tableau Viz
+  function updateDashboardContent(dashboardId) {
+    const selectedDashboard = dashboardData.find(dashboard => dashboard.id === dashboardId);
+
+    if (selectedDashboard) {
+      // Dispose of existing viz if it exists
+      if (tableauViz) {
+        tableauViz.dispose();
+        tableauVizContainer.innerHTML = ''; // Clear the container
+      }
+
+      // Update Introduction Box text
+      introTitle.textContent = selectedDashboard.introTitle;
+      introParagraph1.textContent = selectedDashboard.introParagraph1;
+      introParagraph2.textContent = selectedDashboard.introParagraph2;
+
+      // Create new Tableau Viz
+      // Ensure the container is empty before creating a new viz
+      tableauViz = new tableau.Viz(
+        tableauVizContainer,
+        selectedDashboard.vizUrl,
+        {
+          ...selectedDashboard.vizOptions, // Spread the options from your data object
+          width: '100%', // Important for responsiveness
+          height: '80vh' // Set a consistent height or adjust as needed
+        }
+      );
+
+      // Update active button state
+      dashboardButtons.forEach(button => {
+        if (button.dataset.dashboardId === dashboardId) {
+          button.classList.add('active');
+        } else {
+          button.classList.remove('active');
+        }
+      });
+
+    } else {
+      console.error("Dashboard data not found for ID:", dashboardId);
+    }
+  }
+
+  // Event listeners and initial load
+  document.addEventListener('DOMContentLoaded', () => {
+    animateOnLoad(); // Run initial animations
+
+    // Load Tableau API, then initialize the first dashboard
+    loadTableauApi(() => {
+      updateDashboardContent('dashboard1'); // Load default dashboard content
+    });
+
+    dashboardButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        updateDashboardContent(button.dataset.dashboardId);
+      });
+    });
+  });
 </script>
 
 </body>
