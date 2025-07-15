@@ -427,7 +427,146 @@ body.dark-mode .button-container a:hover {
     background-color: #C08FFF;
 }
 
-  
+/* Lightbox Styles */
+.lightbox-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9); /* Dark semi-transparent background */
+    z-index: 1000; /* Ensure it's on top of everything */
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    opacity: 0; /* Start with 0 opacity for fade-in effect */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.lightbox-overlay.active {
+    display: flex; /* Show when active */
+    opacity: 1; /* Fade in */
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%; /* Max width of the content container */
+    max-height: 90%; /* Max height of the content container */
+    background: #fff; /* White background for the content box */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: flex; /* Use flexbox for image/iframe centering */
+    flex-direction: column; /* Stack image, then caption */
+    align-items: center; /* Center image/iframe */
+}
+
+/* Dark Mode for Lightbox content */
+body.dark-mode .lightbox-content {
+    background: #1f1f1f;
+}
+body.dark-mode .lightbox-caption {
+    color: white;
+}
+body.dark-mode .lightbox-close,
+body.dark-mode .lightbox-nav {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+body.dark-mode .lightbox-close:hover,
+body.dark-mode .lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+.lightbox-image,
+.lightbox-iframe {
+    max-width: 100%;
+    max-height: 75vh; /* Max height relative to viewport height */
+    display: block; /* Remove extra space below images */
+    object-fit: contain; /* Ensure entire image is visible, scale down if needed */
+    margin-bottom: 15px;
+}
+.lightbox-iframe {
+    width: 80vw; /* Adjust as needed */
+    height: 75vh; /* Adjust as needed */
+}
+
+/* Hide iframe and image by default, show based on content type */
+.lightbox-image, .lightbox-iframe {
+    display: none;
+}
+.lightbox-image.active, .lightbox-iframe.active {
+    display: block;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    color: #333;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+.lightbox-close:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for buttons */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+.lightbox-nav:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.lightbox-prev {
+    left: 20px;
+}
+.lightbox-next {
+    right: 20px;
+}
+
+.lightbox-caption {
+    font-size: 1.1rem;
+    color: #333;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Hide nav buttons if only one item */
+.lightbox-overlay:not(.has-multiple-items) .lightbox-nav {
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .lightbox-nav {
+        font-size: 40px;
+        padding: 5px 10px;
+    }
+    .lightbox-prev { left: 5px; }
+    .lightbox-next { right: 5px; }
+    .lightbox-iframe {
+        width: 90vw;
+        height: 60vh;
+    }
+}
+    
   </style>
 </head>
 
@@ -535,6 +674,13 @@ body.dark-mode .button-container a:hover {
     </div>
 </section>
 
+  <div class="lightbox-overlay" id="lightbox">
+    <div class="lightbox-content">
+        <button class="lightbox-close">&times;</button>
+        <button class="lightbox-nav lightbox-prev">&#10094;</button> <img src="" alt="Data Visualization" class="lightbox-image" id="lightboxImage">
+        <iframe src="" frameborder="0" class="lightbox-iframe" allowfullscreen></iframe> <button class="lightbox-nav lightbox-next">&#10095;</button> <div class="lightbox-caption"></div>
+    </div>
+</div>
   
 <!-- Footer -->
 <footer id="footer">
