@@ -100,121 +100,107 @@
     }
 
     /* === Header === */
-    .new-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: var(--accent);
-      padding: 0.75rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-      box-sizing: border-box;
-      z-index: 999;
-    }
+   /* === Header === */
+.new-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--accent);
+  padding: 0.75rem 2rem;
+  display: flex;
+  justify-content: space-between; /* Keep this to push left/right sections apart */
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  z-index: 999;
+  /* Ensure flex-wrap: wrap; is NOT on .new-header itself if you want it to behave like other pages */
+  /* If you want the items to wrap within the header, add flex-wrap: wrap; here and adjust justify-content as discussed previously for wide screens */
+}
 
+.header-left, .header-right {
+  display: flex; /* <-- IMPORTANT: Add this */
+  align-items: center; /* <-- IMPORTANT: Add this */
+}
 
+.header-left {
+  gap: 1rem;
+}
 
+.header-right {
+  gap: 0.5rem;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
 
+.site-name a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
 
-    .site-name a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
+.dark-toggle-switch {
+  width: 40px;
+  height: 20px;
+  background: #ccc;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
-    .header-left, .header-right {
-      display: flex;
-      align-items: center;
-    }
+.dark-toggle-switch .circle {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px; /* <-- IMPORTANT: Change this to 2px */
+  left: 3px;
+  transition: left 0.3s;
+}
 
-    .header-left {
-      gap: 1rem;
-    }
+.dark-toggle-switch.active {
+  background: #444;
+}
 
-    .header-right {
-      gap: 0.5rem;
-      margin-left: auto;
-      flex-wrap: wrap;
-    }
+.dark-toggle-switch.active .circle {
+  left: 22px;
+}
 
-    .dark-toggle-switch {
-      width: 40px;
-      height: 20px;
-      background: #ccc;
-      border-radius: 50px;
-      position: relative;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+.survey-link-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
 
-    .dark-toggle-switch .circle {
-      width: 16px;
-      height: 16px;
-      background: white;
-      border-radius: 50%;
-      position: absolute;
-      top: 2.5px;
-      left: 3px;
-      transition: left 0.3s;
-    }
+.survey-link-box:hover {
+  color: white;
+}
 
-    .dark-toggle-switch.active {
-      background: #444;
-    }
+/* ... (ensure all survey-link-box hover styles are present and identical) ... */
 
-    .dark-toggle-switch.active .circle {
-      left: 22px;
-    }
-    
-    .survey-link-box {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 600;
-      color: white;
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-    }
+.color-rect {
+  width: 6px;
+  height: 30px;
+  border-radius: 3px;
+  background-color: #7F30C4; /* Or make this dynamic based on the link's color */
+  z-index: 1;
+}
 
-    .survey-link-box:hover {
-      color: white;
-    }
-
-    .survey-link-surveys:hover {
-      background-color: #7F30C4;
-    }
-
-    .survey-link-memos:hover {
-      background-color: #FFA02F;
-    }
-
-    .survey-link-dashboards:hover {
-      background-color: #00C7B2;
-    }
-
-    .survey-link-visualizations:hover {
-      background-color: #00549F;
-    }
-
-    .survey-link-gallery:hover {
-      background-color: #D7A8FF;
-    }
-
-    .color-rect {
-      width: 6px;
-      height: 30px;
-      border-radius: 3px;
-      background-color: #7F30C4;
-      z-index: 1;
-    }
-
+/* Also, update your general 'p' tag style to match your other pages for consistency */
+p {
+  font-size: 16px; /* Change from 10px to 16px */
+  font-family: 'Poppins', sans-serif;
+}
     /* === Hero Section === */
     .hero {
       height: 50vh;
