@@ -6,427 +6,314 @@
   <title>Christopher King - [Page Title]</title>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-:root {
-      --bg-light: #0059b3;
-      --text-dark: #333;
-      --accent: #003366;
-    }
+    :root {
+      --bg-light: #0059b3;
+      --text-dark: #333;
+      --accent: #003366;
+    }
 
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-dark);
-    }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+    }
 
-    h1, h2, h3 { font-family: 'Poppins', sans-serif; }
-    p { font-size: 16px; font-family: 'Poppins', sans-serif; }
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+    p { font-size: 16px; font-family: 'Poppins', sans-serif; }
 
-    /* Header */
-    .new-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: var(--accent);
-      padding: 0.75rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-      box-sizing: border-box;
-      z-index: 999;
-    }
-    .header-left, .header-right {
-      display: flex;
-      align-items: center;
-    }
-    .header-left { gap: 1rem; }
-    .header-right {
-      gap: 0.5rem;
-      margin-left: auto;
-      flex-wrap: wrap;
-    }
-    .site-name a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-    .dark-toggle-switch {
-      width: 40px;
-      height: 20px;
-      background: #ccc;
-      border-radius: 50px;
-      position: relative;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .dark-toggle-switch .circle {
-      width: 16px;
-      height: 16px;
-      background: white;
-      border-radius: 50%;
-      position: absolute;
-      top: 2px;
-      left: 3px;
-      transition: left 0.3s;
-    }
-    .dark-toggle-switch.active { background: #444; }
-    .dark-toggle-switch.active .circle { left: 22px; }
+    /* Header */
+    .new-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--accent);
+      padding: 0.75rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      box-sizing: border-box;
+      z-index: 999;
+    }
+    .header-left, .header-right {
+      display: flex;
+      align-items: center;
+    }
+    .header-left { gap: 1rem; }
+    .header-right {
+      gap: 0.5rem;
+      margin-left: auto;
+      flex-wrap: wrap;
+    }
+    .site-name a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .dark-toggle-switch {
+      width: 40px;
+      height: 20px;
+      background: #ccc;
+      border-radius: 50px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .dark-toggle-switch .circle {
+      width: 16px;
+      height: 16px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 3px;
+      transition: left 0.3s;
+    }
+    .dark-toggle-switch.active { background: #444; }
+    .dark-toggle-switch.active .circle { left: 22px; }
 
-    .survey-link-box {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 600;
-      color: white;
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-    }
+    .survey-link-box {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
 
-    .color-rect {
-      width: 6px;
-      height: 30px;
-      border-radius: 3px;
-    }
+    .color-rect {
+      width: 6px;
+      height: 30px;
+      border-radius: 3px;
+    }
 
-    /* Hover colors */
-    .survey-link-surveys:hover { background-color: #7F30C4; }
-    .survey-link-memos:hover { background-color: #FFA02F; }
-    .survey-link-dashboards:hover { background-color: #00C7B2; }
-    .survey-link-visualizations:hover { background-color: #00549F; }
-    .survey-link-gallery:hover { background-color: #D7A8FF; }
+    /* Hover colors */
+    .survey-link-surveys:hover { background-color: #7F30C4; }
+    .survey-link-memos:hover { background-color: #FFA02F; }
+    .survey-link-dashboards:hover { background-color: #00C7B2; }
+    .survey-link-visualizations:hover { background-color: #00549F; }
+    .survey-link-gallery:hover { background-color: #D7A8FF; }
 
-    /* Hero */
-    .hero {
-      height: 70vh;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      padding: 8rem 2rem 4rem;
-      background-image: url('../images/banner1.png');
-      background-size: cover;
-      background-position: center;
-      transition: opacity 1s ease 0.4s;
-      opacity: 0;
-    }
-    .hero.animate-in { opacity: 1; }
+    /* Hero */
+    .hero {
+      height: 70vh;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 8rem 2rem 4rem;
+      background-image: url('../images/banner1.png');
+      background-size: cover;
+      background-position: center;
+      transition: opacity 1s ease 0.4s;
+      opacity: 0;
+    }
+    .hero.animate-in { opacity: 1; }
 
-    .hero-box {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 2rem;
-      border-radius: 16px;
-      margin-left: 10%;
-      max-width: 700px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      color: var(--accent);
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease 1s;
-    }
-    .hero-box.animate-in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .hero-box h1 {
-      font-size: 36px;
-      margin-bottom: 0.5rem;
-    }
-    .hero-box p {
-      font-size: 1rem;
-    }
+    .hero-box {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 16px;
+      margin-left: 10%;
+      max-width: 700px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      color: var(--accent);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease 1s;
+    }
+    .hero-box.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hero-box h1 {
+      font-size: 36px;
+      margin-bottom: 0.5rem;
+    }
+    .hero-box p {
+      font-size: 1rem;
+    }
 
-    /* Footer */
-    footer {
-      background: var(--accent);
-      padding: 1.5rem;
-      text-align: center;
-      color: white;
-      margin-top: 4rem;
-    }
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-    .social-links a {
-      color: white;
-      font-size: 0.9rem;
-      text-decoration: none;
-    }
-    .social-links a:hover { text-decoration: underline; }
+    /* Footer */
+    footer {
+      background: var(--accent);
+      padding: 1.5rem;
+      text-align: center;
+      color: white;
+      margin-top: 4rem;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .social-links a {
+      color: white;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+    .social-links a:hover { text-decoration: underline; }
 
-    /* Dark Mode */
-    body.dark-mode {
-      background-color: var(--accent);
-      color: white;
-    }
-    body.dark-mode .new-header,
-    body.dark-mode footer {
-      background: var(--accent);
-    }
-    body.dark-mode .hero {
-      background-image: url('images/nightbanner1.png');
-    }
-    body.dark-mode .hero-box {
-      background: #1f1f1f;
-      color: white;
-    }
+    /* Dark Mode */
+    body.dark-mode {
+      background-color: var(--accent);
+      color: white;
+    }
+    body.dark-mode .new-header,
+    body.dark-mode footer {
+      background: var(--accent);
+    }
+    body.dark-mode .hero {
+      background-image: url('images/nightbanner1.png');
+    }
+    body.dark-mode .hero-box {
+      background: #1f1f1f;
+      color: white;
+    }
 
-    /* === Data Insights Carousel === */
+    /* === Data Insights Carousel === */
 .data-insights-carousel {
-  position: relative;
-  background: #f4f9ff;
-  padding: 2rem;
-  border-radius: 12px;
-  margin: 3rem auto;
-  max-width: 1000px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+  background: #f4f9ff;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 3rem auto;
+  max-width: 1000px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .carousel-image {
-  width: 300px;
-  height: auto;
-  border-radius: 8px;
-  object-fit: contain;
-  flex-shrink: 0;
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .carousel-text {
-  flex: 1;
+  flex: 1;
 }
 
 .carousel-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
 .carousel-card {
-  min-width: 100%;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  gap: 2rem;
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-sizing: border-box;
-  align-items: flex-start;
+  min-width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 2rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-sizing: border-box;
+  align-items: flex-start;
 }
 
 
 .tabbed-data-section {
-  background: #f4f4f4;
-  padding: 2rem 1rem;
-  max-width: 1100px;
-  margin: 3rem auto;
-  border-radius: 12px;
+  background: #f4f4f4;
+  padding: 2rem 1rem;
+  max-width: 1100px;
+  margin: 3rem auto;
+  border-radius: 12px;
 }
 
 .tab-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .tab-button {
-  background: none;
-  border: 2px solid #003366;
-  color: #003366;
-  padding: 0.5rem 1.2rem;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  background: none;
+  border: 2px solid #003366;
+  color: #003366;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .tab-button.active,
 .tab-button:hover {
-  background: #003366;
-  color: white;
+  background: #003366;
+  color: white;
 }
 
 .tab-content {
-  display: none;
+  display: none;
 }
 
 .tab-content.active {
-  display: block;
+  display: block;
 }
 
 .tab-layout {
-  display: flex;
-  flex-wrap: nowrap;
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  max-width: 1200px; /* ← increase this from 1000px */
-  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 1200px; /* ← increase this from 1000px */
+  margin: 0 auto;
 }
 
 
 
 .tab-image {
-  flex: 1 1 75%;
-  max-width: 700px;
-  aspect-ratio: 4 / 3;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #fff;
+  flex: 1 1 75%;
+  max-width: 700px;
+  aspect-ratio: 4 / 3;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #fff;
 }
 
 
 
 .tab-description {
-  flex: 1 1 35%;
-  padding: 2rem;
-  color: #003366;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex: 1 1 35%;
+  padding: 2rem;
+  color: #003366;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .tab-description h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 .tab-description span {
-  color: #00C7B2;
+  color: #00C7B2;
 }
 
 .tab-description p {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
-    /* New content layout classes */
-    .content-section {
-        max-width: 1200px;
-        margin: 4rem auto; /* Adjust margin as needed */
-        padding: 0 2rem; /* Add horizontal padding for smaller screens */
-    }
 
-    .section-header {
-        text-align: center;
-        margin-bottom: 2rem;
-        color: var(--accent); /* Matches existing accent color */
-    }
-    body.dark-mode .section-header {
-        color: white;
-    }
-
-
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 columns on large screens, adjusts for smaller */
-        gap: 2rem; /* Spacing between grid items */
-    }
-
-    .grid-item {
-        background: white;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        text-decoration: none; /* Remove underline from links */
-        color: var(--text-dark); /* Inherit text color */
-        display: flex;
-        flex-direction: column;
-        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    }
-    .grid-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-    }
-    body.dark-mode .grid-item {
-        background: #1f1f1f;
-        color: white;
-    }
-
-
-    .grid-item-image {
-        width: 100%;
-        height: 200px; /* Fixed height for consistency */
-        object-fit: cover; /* Cover the area, cropping if necessary */
-        border-bottom: 1px solid #eee; /* Separator for image and text */
-    }
-
-    body.dark-mode .grid-item-image {
-        border-color: #333;
-    }
-
-    .grid-item-content {
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1; /* Allows content to push footer to bottom if items have varying heights */
-    }
-
-    .grid-item-content h3 {
-        font-size: 1.25rem;
-        margin-top: 0;
-        margin-bottom: 0.5rem;
-        color: var(--accent); /* Title color */
-    }
-    body.dark-mode .grid-item-content h3 {
-        color: white;
-    }
-
-    .grid-item-content p {
-        font-size: 0.95rem;
-        line-height: 1.5;
-        margin-bottom: 1rem;
-        flex-grow: 1; /* Allow paragraph to take available space */
-    }
-
-    .grid-item-meta {
-        font-size: 0.85rem;
-        color: #777;
-        margin-top: auto; /* Pushes meta to the bottom */
-    }
-    body.dark-mode .grid-item-meta {
-        color: #bbb;
-    }
-
-    .button-container {
-        text-align: center;
-        margin-top: 3rem;
-    }
-
-    .button-container a {
-        display: inline-block;
-        background: var(--accent);
-        color: white;
-        padding: 0.8rem 1.8rem;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: background-color 0.3s ease;
-    }
-
-    .button-container a:hover {
-        background-color: #002244; /* Darker shade on hover */
-    }
-    body.dark-mode .button-container a {
-        background: #D7A8FF; /* Lighter color for dark mode button */
-        color: var(--accent);
-    }
-    body.dark-mode .button-container a:hover {
-        background-color: #C08FFF;
-    }
-
+  
   </style>
 </head>
 
@@ -505,74 +392,6 @@
   <button class="carousel-btn left">‹</button>
   <button class="carousel-btn right">›</button>
 </section>
-
-  ---
-
-<section class="content-section">
-    <h2 class="section-header">My Featured Work</h2>
-    <div class="grid-container">
-
-        <a href="[LINK_TO_PROJECT_1]" target="_blank" class="grid-item">
-            <img src="../images/placeholder1.png" alt="Project 1 Thumbnail" class="grid-item-image">
-            <div class="grid-item-content">
-                <h3>Project Title One</h3>
-                <p>A brief description of this project, highlighting its key features or what it aimed to achieve.</p>
-                <p class="grid-item-meta">Category | Tools Used | Date</p>
-            </div>
-        </a>
-
-        <a href="[LINK_TO_PROJECT_2]" target="_blank" class="grid-item">
-            <img src="../images/placeholder2.png" alt="Project 2 Thumbnail" class="grid-item-image">
-            <div class="grid-item-content">
-                <h3>Another Project Example</h3>
-                <p>This project involved [mention a specific skill or outcome]. It showcases [relevant expertise].</p>
-                <p class="grid-item-meta">Category | Tools Used | Date</p>
-            </div>
-        </a>
-
-        <a href="[LINK_TO_PROJECT_3]" target="_blank" class="grid-item">
-            <img src="../images/placeholder3.png" alt="Project 3 Thumbnail" class="grid-item-image">
-            <div class="grid-item-content">
-                <h3>Third Important Piece</h3>
-                <p>An engaging summary of the third project, emphasizing its impact or innovative aspects.</p>
-                <p class="grid-item-meta">Category | Tools Used | Date</p>
-            </div>
-        </a>
-
-        <a href="[LINK_TO_PROJECT_4]" target="_blank" class="grid-item">
-            <img src="../images/placeholder4.png" alt="Project 4 Thumbnail" class="grid-item-image">
-            <div class="grid-item-content">
-                <h3>Fourth Project Insight</h3>
-                <p>Detailing the challenges and solutions in this project, demonstrating problem-solving skills.</p>
-                <p class="grid-item-meta">Category | Tools Used | Date</p>
-            </div>
-        </a>
-
-         <a href="[LINK_TO_PROJECT_5]" target="_blank" class="grid-item">
-            <img src="../images/placeholder5.png" alt="Project 5 Thumbnail" class="grid-item-image">
-            <div class="grid-item-content">
-                <h3>Fifth Data Story</h3>
-                <p>This project tells a compelling story through data, with interactive elements.</p>
-                <p class="grid-item-meta">Category | Tools Used | Date</p>
-            </div>
-        </a>
-
-        <a href="[LINK_TO_PROJECT_6]" target="_blank" class="grid-item">
-            <img src="../images/placeholder6.png" alt="Project 6 Thumbnail" class="grid-item-image">
-            <div class="grid-item-content">
-                <h3>Sixth Research Report</h3>
-                <p>A comprehensive report presenting findings from extensive research and analysis.</p>
-                <p class="grid-item-meta">Category | Tools Used | Date</p>
-            </div>
-        </a>
-
-    </div>
-    <div class="button-container">
-        <a href="[LINK_TO_ALL_PROJECTS_PAGE]">View All Projects</a>
-    </div>
-</section>
-
----
 
 
   <!-- === Tabbed Data Visualizations === -->
@@ -679,4 +498,3 @@ document.querySelectorAll('.tab-button').forEach(btn => {
   
 </body>
 </html>
-
