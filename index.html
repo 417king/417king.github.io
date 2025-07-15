@@ -136,7 +136,7 @@
 .site-name a {
   color: white;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.2rem; /* Keep this for "Christopher King" */
   font-weight: 600;
 }
 
@@ -174,12 +174,17 @@
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
-  font-size: 1rem;
-  font-weight: 600;
+  font-weight: 600; /* This applies to the whole link box */
   color: white;
   padding: 0.4rem 0.8rem;
   border-radius: 6px;
   transition: background-color 0.3s ease;
+}
+
+.survey-link-box span {
+  font-size: 1rem; /* This is the current size in your provided code,
+                    if you want it larger, change this value.
+                    For example, to 1.1rem or 1.2rem. */
 }
 
 .survey-link-box:hover {
@@ -192,7 +197,7 @@
   width: 6px;
   height: 30px;
   border-radius: 3px;
-  background-color: #7F30C4; /* Or make this dynamic based on the link's color */
+  background-color: #7F30C4;
   z-index: 1;
 }
 
