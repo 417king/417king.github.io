@@ -389,69 +389,152 @@
   </div>
 </footer>
 
+
+
+
+  
 <script>
-// Global variable to hold the Tableau Viz object
-let tableauViz = null;
+  // Global variable to hold the Tableau Viz object
+  let tableauViz = null;
 
-// Existing functions from other pages
-function toggleSwitch(el) {
-  el.classList.toggle('active');
-  document.body.classList.toggle('dark-mode');
-}
+  // Existing functions from other pages
+  function toggleSwitch(el) {
+    el.classList.toggle('active');
+    document.body.classList.toggle('dark-mode');
+  }
 
-// REMOVE THE onload="animateOnLoad()" FROM THE BODY TAG
-// function animateOnLoad() { // This function is no longer needed as a separate call
-//   document.querySelector('.new-header').classList.add('animate-in');
-//   document.querySelector('.hero').classList.add('animate-in');
-//   document.querySelector('.hero-box').classList.add('animate-in');
-// }
+  // --- Animation function (this is what's called by onload) ---
+  function animateOnLoad() {
+    document.querySelector('.new-header').classList.add('animate-in');
+    document.querySelector('.hero').classList.add('animate-in');
+    document.querySelector('.hero-box').classList.add('animate-in');
+  }
 
-// Define your dashboard data (keep this as is)
-const dashboardData = [ /* ... your dashboard data ... */ ];
+  // --- NEW JS for Dashboard Toggles ---
 
-// Get references to the HTML elements that will be updated (keep this as is)
-const introTitle = document.getElementById('introTitle');
-const introParagraph1 = document.getElementById('introParagraph1');
-const introParagraph2 = document.getElementById('introParagraph2');
-const tableauVizContainer = document.getElementById('tableauVizContainer');
-const dashboardButtons = document.querySelectorAll('.button-group button');
+  // Define your dashboard data
+  // REMEMBER TO REPLACE 'YOUR_TABLEAU_PUBLIC_URL' WITH YOUR ACTUAL DASHBOARD EMBED URLs
+  const dashboardData = [
+    {
+      id: "dashboard1",
+      buttonLabel: "Sales Performance",
+      vizUrl: "https://public.tableau.com/views/SuperstoreSalesDashboard/Overview", // REPLACE with your actual Tableau Public URL
+      vizOptions: {
+        hideTabs: true,
+        hideToolbar: true,
+        // You can add more Tableau specific options here
+        // Example: width: '100%', height: '80vh', onFirstInteractive: function() { console.log('Viz loaded!'); }
+      },
+      introTitle: "Sales Performance Dashboard",
+      introParagraph1: "This dashboard provides a comprehensive overview of sales performance, allowing you to track revenue, units sold, and profit margins across different regions.",
+      introParagraph2: "Key features include interactive filters for time periods and product categories, alongside trend analysis to identify growth opportunities and areas needing attention."
+    },
+    {
+      id: "dashboard2",
+      buttonLabel: "Customer Churn Analysis",
+      vizUrl: "https://public.tableau.com/views/CustomerChurnAnalysis/ChurnDashboard", // REPLACE with your actual Tableau Public URL
+      vizOptions: {
+        hideTabs: false, // Example: this dashboard might have tabs
+        hideToolbar: false,
+      },
+      introTitle: "Customer Churn Analysis Dashboard",
+      introParagraph1: "Understand the factors driving customer churn with this analytical dashboard. Identify at-risk customer segments and the reasons behind their departure.",
+      introParagraph2: "Leverage insights on customer demographics, engagement patterns, and service interactions to develop effective retention strategies and improve customer lifetime value."
+    },
+    {
+      id: "dashboard3",
+      buttonLabel: "Marketing Campaign Results",
+      vizUrl: "https://public.tableau.com/views/MarketingCampaignPerformance/CampaignOverview", // REPLACE with your actual Tableau Public URL
+      vizOptions: {
+        hideTabs: true,
+        hideToolbar: false,
+      },
+      introTitle: "Marketing Campaign Results",
+      introParagraph1: "Evaluate the effectiveness of your marketing campaigns through key metrics like reach, engagement, conversion rates, and ROI.",
+      introParagraph2: "This dashboard enables you to compare campaign performance, optimize future marketing efforts, and allocate resources more efficiently based on data-driven insights."
+    }
+  ];
 
-// Function to load the Tableau API script only once (keep this as is)
-function loadTableauApi(callback) {
-  if (typeof tableau !== 'undefined') {
-    callback();
-    return;
-  }
-  const scriptElement = document.createElement('script');
-  scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-  scriptElement.onload = callback;
-  document.head.appendChild(scriptElement);
-}
+  // Get references to the HTML elements that will be updated
+  const introTitle = document.getElementById('introTitle');
+  const introParagraph1 = document.getElementById('introParagraph1');
+  const introParagraph2 = document.getElementById('introParagraph2');
+  const tableauVizContainer = document.getElementById('tableauVizContainer');
+  const dashboardButtons = document.querySelectorAll('.button-group button'); // Select all buttons in the group
 
-// Function to update content and load Tableau Viz (keep this as is)
-function updateDashboardContent(dashboardId) {
-  // ... (your existing updateDashboardContent logic) ...
-}
+  // Function to load the Tableau API script only once
+  function loadTableauApi(callback) {
+    // Check if tableau object already exists (meaning API is loaded)
+    if (typeof tableau !== 'undefined') {
+      callback();
+      return;
+    }
+    const scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    scriptElement.onload = callback; // Execute callback once script is loaded
+    document.head.appendChild(scriptElement);
+  }
 
-// Event listeners and initial load
-document.addEventListener('DOMContentLoaded', () => {
-  // Apply animations directly when DOM is ready
-  document.querySelector('.new-header').classList.add('animate-in'); // Assuming you want the header to fade in
-  document.querySelector('.hero').classList.add('animate-in');
-  document.querySelector('.hero-box').classList.add('animate-in');
+  // Function to update content and load Tableau Viz
+  function updateDashboardContent(dashboardId) {
+    const selectedDashboard = dashboardData.find(dashboard => dashboard.id === dashboardId);
 
-  // Load Tableau API, then initialize the first dashboard
-  loadTableauApi(() => {
-    updateDashboardContent('dashboard1'); // Load default dashboard content
-  });
+    if (selectedDashboard) {
+      // Dispose of existing viz if it exists
+      if (tableauViz) {
+        tableauViz.dispose();
+        tableauVizContainer.innerHTML = ''; // Clear the container
+      }
 
-  // Add event listeners for the dashboard buttons
-  dashboardButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      updateDashboardContent(button.dataset.dashboardId);
-    });
-  });
-});
+      // Update Introduction Box text
+      introTitle.textContent = selectedDashboard.introTitle;
+      introParagraph1.textContent = selectedDashboard.introParagraph1;
+      introParagraph2.textContent = selectedDashboard.introParagraph2;
+
+      // Create new Tableau Viz
+      // Ensure the container is empty before creating a new viz
+      tableauViz = new tableau.Viz(
+        tableauVizContainer,
+        selectedDashboard.vizUrl,
+        {
+          ...selectedDashboard.vizOptions, // Spread the options from your data object
+          width: '100%', // Important for responsiveness
+          height: '80vh' // Set a consistent height or adjust as needed
+        }
+      );
+
+      // Update active button state
+      dashboardButtons.forEach(button => {
+        if (button.dataset.dashboardId === dashboardId) {
+          button.classList.add('active');
+        } else {
+          button.classList.remove('active');
+        }
+      });
+
+    } else {
+      console.error("Dashboard data not found for ID:", dashboardId);
+    }
+  }
+
+  // Event listener for button clicks
+  document.addEventListener('DOMContentLoaded', () => {
+      dashboardButtons.forEach(button => {
+          button.addEventListener('click', () => {
+              updateDashboardContent(button.dataset.dashboardId);
+          });
+      });
+  });
+
+  // INITIAL LOAD OF TABLEAU CONTENT AND API AFTER ALL OTHER SCRIPTS
+  // This will run when the entire page is loaded.
+  // It's placed here to ensure `loadTableauApi` and `updateDashboardContent`
+  // are defined when `window.onload` (effectively `body.onload`) triggers.
+  window.addEventListener('load', () => {
+      loadTableauApi(() => {
+          updateDashboardContent('dashboard1'); // Load default dashboard content
+      });
+  });
 </script>
 
 </body>
