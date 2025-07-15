@@ -312,6 +312,120 @@
   line-height: 1.6;
 }
 
+/* New content layout classes */
+.content-section {
+    max-width: 1200px;
+    margin: 4rem auto; /* Adjust margin as needed */
+    padding: 0 2rem; /* Add horizontal padding for smaller screens */
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--accent); /* Matches existing accent color */
+}
+body.dark-mode .section-header {
+    color: white;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 columns on large screens, adjusts for smaller */
+    gap: 2rem; /* Spacing between grid items */
+}
+
+.grid-item {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-decoration: none; /* Remove underline from links */
+    color: var(--text-dark); /* Inherit text color */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+body.dark-mode .grid-item {
+    background: #1f1f1f;
+    color: white;
+}
+
+
+.grid-item-image {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Cover the area, cropping if necessary */
+    border-bottom: 1px solid #eee; /* Separator for image and text */
+}
+
+body.dark-mode .grid-item-image {
+    border-color: #333;
+}
+
+.grid-item-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows content to push footer to bottom if items have varying heights */
+}
+
+.grid-item-content h3 {
+    font-size: 1.25rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--accent); /* Title color */
+}
+body.dark-mode .grid-item-content h3 {
+    color: white;
+}
+
+.grid-item-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Allow paragraph to take available space */
+}
+
+.grid-item-meta {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: auto; /* Pushes meta to the bottom */
+}
+body.dark-mode .grid-item-meta {
+    color: #bbb;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.button-container a {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.button-container a:hover {
+    background-color: #002244; /* Darker shade on hover */
+}
+body.dark-mode .button-container a {
+    background: #D7A8FF; /* Lighter color for dark mode button */
+    color: var(--accent);
+}
+body.dark-mode .button-container a:hover {
+    background-color: #C08FFF;
+}
 
   
   </style>
@@ -354,6 +468,71 @@
     <h1>[Page Title Here]</h1>
     <p>[Short Description for This Page]</p>
   </div>
+</section>
+
+
+<section class="content-section">
+    <h2 class="section-header">My Featured Data Visualizations</h2>
+    <div class="grid-container">
+
+        <a href="[LINK_TO_VISUALIZATION_1]" target="_blank" class="grid-item">
+            <img src="../images/viz-placeholder1.png" alt="Data Visualization 1 Thumbnail" class="grid-item-image">
+            <div class="grid-item-content">
+                <h3>Interactive Dashboard Insights</h3>
+                <p>A dynamic dashboard illustrating key trends in [topic]. Built with [tool, e.g., Tableau, Power BI].</p>
+                <p class="grid-item-meta">Category: Dashboards | Tools: Tableau, SQL | Date: June 2025</p>
+            </div>
+        </a>
+
+        <a href="[LINK_TO_VISUALIZATION_2]" target="_blank" class="grid-item">
+            <img src="../images/viz-placeholder2.png" alt="Data Visualization 2 Thumbnail" class="grid-item-image">
+            <div class="grid-item-content">
+                <h3>Geospatial Data Story</h3>
+                <p>Mapping and analyzing [geographic data] to uncover spatial patterns and insights.</p>
+                <p class="grid-item-meta">Category: Mapping | Tools: Python (Folium), GeoPandas | Date: May 2025</p>
+            </div>
+        </a>
+
+        <a href="[LINK_TO_VISUALIZATION_3]" target="_blank" class="grid-item">
+            <img src="../images/viz-placeholder3.png" alt="Data Visualization 3 Thumbnail" class="grid-item-image">
+            <div class="grid-item-content">
+                <h3>Time-Series Anomaly Detection</h3>
+                <p>Visualizing anomalies in [time-series data] over time, indicating significant shifts.</p>
+                <p class="grid-item-meta">Category: Time Series | Tools: R (ggplot2), D3.js | Date: April 2025</p>
+            </div>
+        </a>
+
+        <a href="[LINK_TO_VISUALIZATION_4]" target="_blank" class="grid-item">
+            <img src="../images/viz-placeholder4.png" alt="Data Visualization 4 Thumbnail" class="grid-item-image">
+            <div class="grid-item-content">
+                <h3>Network Graph of Connections</h3>
+                <p>Exploring relationships and connections within [network data] using interactive graphs.</p>
+                <p class="grid-item-meta">Category: Network Analysis | Tools: Gephi, JavaScript (Cytoscape.js) | Date: March 2025</p>
+            </div>
+        </a>
+
+        <a href="[LINK_TO_VISUALIZATION_5]" target="_blank" class="grid-item">
+            <img src="../images/viz-placeholder5.png" alt="Data Visualization 5 Thumbnail" class="grid-item-image">
+            <div class="grid-item-content">
+                <h3>Custom Infographic Design</h3>
+                <p>Visually compelling static infographic summarizing key findings from [research topic].</p>
+                <p class="grid-item-meta">Category: Infographics | Tools: Adobe Illustrator, Figma | Date: Feb 2025</p>
+            </div>
+        </a>
+
+        <a href="[LINK_TO_VISUALIZATION_6]" target="_blank" class="grid-item">
+            <img src="../images/viz-placeholder6.png" alt="Data Visualization 6 Thumbnail" class="grid-item-image">
+            <div class="grid-item-content">
+                <h3>Predictive Model Performance</h3>
+                <p>Visualizing the accuracy and performance metrics of a machine learning predictive model.</p>
+                <p class="grid-item-meta">Category: Machine Learning | Tools: Python (Matplotlib, Seaborn) | Date: Jan 2025</p>
+            </div>
+        </a>
+
+    </div>
+    <div class="button-container">
+        <a href="[LINK_TO_ALL_VISUALIZATIONS_PAGE]">View All Visualizations</a>
+    </div>
 </section>
 
   
