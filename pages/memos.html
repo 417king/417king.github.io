@@ -216,6 +216,48 @@
       background: #1f1f1f;
       color: white;
     }
+
+    /* New CSS for the single memo box */
+.single-grid-memo-box {
+    max-width: 800px; /* Adjust this to match the desired width of your expand box */
+    margin: 4rem auto 2rem auto; /* Top margin, auto horizontal, bottom margin for space */
+    padding: 0 2rem; /* Consistent padding */
+
+    /* Inherit grid-item styling for appearance */
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    /* transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Optional: if you want hover effects */
+}
+
+/* Dark mode for the new memo box */
+body.dark-mode .single-grid-memo-box {
+    background: #1f1f1f;
+    color: white; /* Ensure text is readable */
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1); /* Lighter shadow in dark mode */
+}
+
+/* You might want to style content inside this box similarly to .grid-item-content */
+.single-grid-memo-box h3 {
+    font-size: 1.5rem; /* Slightly larger for a standalone section */
+    margin-top: 1.5rem; /* Add some top padding */
+    margin-bottom: 1rem;
+    color: var(--accent);
+    text-align: center; /* Center the title */
+}
+body.dark-mode .single-grid-memo-box h3 {
+    color: white;
+}
+
+.single-grid-memo-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 0 1.5rem 1.5rem 1.5rem; /* Add padding inside the box */
+    text-align: justify; /* Justify text for a clean look */
+}
     
   </style>
 </head>
@@ -259,6 +301,18 @@
   </div>
 </section>
 
+<section class="single-grid-memo-box">
+    <h3>Introduction to Memos & Budgets</h3>
+    <p>
+        On this page, you'll find examples of analytical memos and budget summaries I've prepared. These documents are crucial for clear and concise communication of complex information, whether it's an in-depth analysis of a project's performance or a detailed breakdown of financial allocations.
+    </p>
+    <p>
+        Effective memo writing involves distilling key findings, outlining actionable recommendations, and presenting data in an easily digestible format. Similarly, budget preparation requires meticulous attention to detail, foresight in financial planning, and the ability to articulate fiscal strategies clearly to various stakeholders.
+    </p>
+    <p>
+        My goal in these documents is to provide clarity and facilitate informed decision-making, ensuring that all relevant parties understand the implications of the presented information.
+    </p>
+</section>
 
   
 <section class="expand-container">
