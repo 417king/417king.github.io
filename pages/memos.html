@@ -246,41 +246,37 @@
     }
 
     /* Individual memo items within the carousel */
-    .mini-memo-item {
-        flex: 0 0 300px; /* Fixed width for each item (adjust as needed), no shrinking/growing */
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        padding: 0; /* Remove internal padding if image goes edge-to-edge */
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        min-height: 420px; /* Ensure consistent height */
-        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        scroll-snap-align: center; /* Snap items to the center when scrolling */
-        position: relative; /* For overlay if you add one */
-        /* Add initial transform for 3D effect / scaling for active */
-        transform: scale(0.9);
-        opacity: 0.6;
-    }
-
-    .mini-memo-item:hover {
-        transform: scale(0.95) translateY(-5px); /* Scale slightly more on hover */
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-    }
+   .mini-memo-item {
+    flex: 0 0 300px; /* Fixed width for each item (adjust as needed), no shrinking/growing */
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 0; /* Keep this at 0 for edge-to-edge image */
+    display: flex;
+    flex-direction: column; /* Arranges children vertically */
+    text-align: center;
+    min-height: 420px; /* Ensure consistent height */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    scroll-snap-align: center; /* Snap items to the center when scrolling */
+    position: relative;
+    transform: scale(0.9); /* Default scaled down */
+    opacity: 0.6; /* Default faded */
+    justify-content: space-between; /* Distributes space between items, pushing button to bottom */
+}
 
     /* State for the active (middle) carousel item */
-    .carousel-item-active {
-        transform: scale(1); /* Full size */
-        opacity: 1; /* Fully visible */
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow */
-    }
+  .carousel-item-active {
+    transform: scale(1); /* Full size */
+    opacity: 1; /* Fully visible */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+
 
     /* State for the faded (side) carousel items */
-    .carousel-item-faded {
-        transform: scale(0.85); /* Slightly smaller */
-        opacity: 0.4; /* More faded */
-    }
+ .carousel-item-faded {
+    transform: scale(0.85); /* Slightly smaller */
+    opacity: 0.4; /* More faded */
+}
 
     body.dark-mode .mini-memo-item {
         background: #1f1f1f;
@@ -293,91 +289,60 @@
     }
 
     .mini-memo-item h4 {
-        font-size: 1.2rem;
-        margin-top: 1.5rem; /* Add top padding here instead of item */
-        margin-bottom: 0.5rem;
-        color: var(--accent);
-        padding: 0 1rem; /* Horizontal padding for text */
-    }
+    font-size: 1.2rem;
+    margin-top: 0; /* Removed margin-top, using padding */
+    margin-bottom: 0; /* Removed margin-bottom, using padding */
+    padding: 1.5rem 1.5rem 0.5rem 1.5rem; /* Specific padding for title */
+    color: var(--accent);
+}
     body.dark-mode .mini-memo-item h4 {
         color: white;
     }
 
     .mini-memo-item img {
-        width: 100%;
-        height: 300px; /* Keep this height for the image */
-        object-fit: cover;
-        border-bottom: 1px solid var(--memo-border);
-        /* Remove border-radius on image if it's edge-to-edge as padding:0 removes the top rounded corners of the image */
-        border-radius: 0; /* Image now fills top of card, no radius needed here */
-        margin-bottom: 0; /* No margin here, let content below manage spacing */
-    }
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--memo-border);
+    border-radius: 0; /* Image now fills top of card, no radius needed here */
+    margin-bottom: 0; /* No margin here, as it pushes into the button space */
+}
 
     body.dark-mode .mini-memo-item img {
         border-color: #333;
     }
 
-    /* Carousel Navigation Buttons */
-    .carousel-button {
-        background-color: var(--accent); /* Blue button */
-        color: white;
-        border: none;
-        padding: 1rem;
-        border-radius: 50%; /* Circular buttons */
-        cursor: pointer;
-        font-size: 1.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        transition: background-color 0.3s ease, transform 0.1s ease;
-        z-index: 10; /* Ensure buttons are above carousel items */
-        width: 40px; /* Fixed size for circle */
-        height: 40px; /* Fixed size for circle */
-    }
+    /* --- New CSS for the Read Memo Button --- */
+.read-memo-button {
+    display: inline-block; /* Allows padding and margin, and horizontal centering with text-align: center on parent */
+    background-color: #FFA02F; /* Warm orange, matches your memo link hover */
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none; /* Remove underline */
+    font-weight: 600;
+    margin-top: 1rem; /* Space above button */
+    margin-bottom: 1.5rem; /* Space from bottom of the card */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    align-self: center; /* Ensures the button is centered within the flex column */
+}
 
-    .carousel-button:hover {
-        background-color: #004488; /* Darker blue on hover */
-        transform: scale(1.05);
-    }
+.read-memo-button:hover {
+    background-color: #e68a00; /* Darker orange on hover */
+    transform: scale(1.02); /* Slight scale on hover */
+}
 
-    .carousel-button:active {
-        transform: scale(0.95);
-    }
+.read-memo-button:active {
+    transform: scale(0.98); /* Slight shrink on click */
+}
 
-    /* Adjust button positioning relative to the carousel-wrapper */
-    .carousel-button-left {
-        margin-right: -20px; /* Overlap slightly with the carousel for visual cohesion */
-    }
-
-    .carousel-button-right {
-        margin-left: -20px; /* Overlap slightly with the carousel for visual cohesion */
-    }
-
-    /* Responsive adjustments for smaller screens */
-    @media (max-width: 768px) {
-        .carousel-container {
-            flex-wrap: nowrap; /* Prevent wrapping so items stay in a line for carousel */
-            justify-content: flex-start; /* Reset justification for proper scrolling */
-        }
-
-        .mini-memo-item {
-            flex: 0 0 280px; /* Slightly smaller width for items on smaller screens */
-            scroll-snap-align: start; /* Snap to start for better visibility on smaller screens */
-        }
-
-        .carousel-wrapper {
-            padding: 0 1rem; /* Reduce wrapper padding */
-        }
-
-        .carousel-button {
-            padding: 0.8rem;
-            font-size: 1.2rem;
-            width: 35px;
-            height: 35px;
-        }
-    }
-
+/* Dark mode for the button */
+body.dark-mode .read-memo-button {
+    background-color: #FFA02F; /* Keep the same or adjust */
+}
+body.dark-mode .read-memo-button:hover {
+    background-color: #e68a00;
+}
 .abstract-box {
     max-width: 900px; /* IMPORTANT: Set this to match the max-width of your .expand-container for consistent width */
     margin: 4rem auto 2rem auto; /* Top margin (adjust as needed), auto horizontal, bottom margin for spacing */
@@ -463,43 +428,40 @@ body.dark-mode .abstract-box h2 {
     </p>
 </section>
 
- <section class="carousel-wrapper">
+<section class="carousel-wrapper">
     <button class="carousel-button carousel-button-left" onclick="scrollCarousel(-1)">&#10094;</button> <div class="carousel-container" id="memoCarousel">
         <div class="mini-memo-item">
             <h4>Project Proposal Overview</h4>
-            <a href="../documents/memo-project-proposal.pdf" target="_blank" title="View Project Proposal Memo">
-                <img src="../images/viz-placeholder1.png" alt="Project Proposal Memo Thumbnail">
-            </a>
+            <img src="../images/viz-placeholder1.png" alt="Project Proposal Memo Thumbnail">
+            <a href="#" class="read-memo-button" data-memo-path="../documents/memo-project-proposal.pdf">Read Memo</a>
         </div>
 
         <div class="mini-memo-item">
             <h4>Quarterly Budget Summary</h4>
-            <a href="../documents/memo-quarterly-budget.pdf" target="_blank" title="View Quarterly Budget Summary">
-                <img src="../images/viz-placeholder1.png" alt="Quarterly Budget Summary Memo Thumbnail">
-            </a>
+            <img src="../images/viz-placeholder1.png" alt="Quarterly Budget Summary Memo Thumbnail">
+            <a href="#" class="read-memo-button" data-memo-path="../documents/memo-quarterly-budget.pdf">View Budget</a>
         </div>
 
         <div class="mini-memo-item">
             <h4>Performance Analysis Report</h4>
-            <a href="../documents/memo-performance-report.pdf" target="_blank" title="View Performance Analysis Report">
-                <img src="../images/viz-placeholder1.png" alt="Performance Analysis Report Memo Thumbnail">
-            </a>
+            <img src="../images/viz-placeholder1.png" alt="Performance Analysis Report Memo Thumbnail">
+            <a href="#" class="read-memo-button" data-memo-path="../documents/memo-performance-report.pdf">Read Report</a>
         </div>
         <div class="mini-memo-item">
             <h4>Financial Audit Memo</h4>
-            <a href="../documents/memo-audit.pdf" target="_blank" title="View Financial Audit Memo">
-                <img src="../images/viz-placeholder1.png" alt="Financial Audit Memo Thumbnail">
-            </a>
+            <img src="../images/viz-placeholder1.png" alt="Financial Audit Memo Thumbnail">
+            <a href="#" class="read-memo-button" data-memo-path="../documents/memo-audit.pdf">Read Memo</a>
         </div>
         <div class="mini-memo-item">
             <h4>Marketing Strategy Brief</h4>
-            <a href="../documents/memo-marketing.pdf" target="_blank" title="View Marketing Strategy Brief">
-                <img src="../images/viz-placeholder1.png" alt="Marketing Strategy Brief Thumbnail">
-            </a>
+            <img src="../images/viz-placeholder1.png" alt="Marketing Strategy Brief Thumbnail">
+            <a href="#" class="read-memo-button" data-memo-path="../documents/memo-marketing.pdf">Read Memo</a>
         </div>
     </div>
 
     <button class="carousel-button carousel-button-right" onclick="scrollCarousel(1)">&#10095;</button> </section>
+
+  
 <section class="expand-container">
   <div class="expand-toggle" onclick="toggleExpandBox()">
     <div style="font-size: 1.5rem;">+</div>
@@ -554,9 +516,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
   // Carousel JavaScript
-let currentCarouselIndex = 0;
+let currentCarouselIndex = 0; // This will be set to the middle item initially
 let carouselItems = [];
-let carouselContainer = null; // Will be set on DOMContentLoaded
+let carouselContainer = null;
 
 function initializeCarousel() {
     carouselContainer = document.getElementById('memoCarousel');
@@ -567,42 +529,67 @@ function initializeCarousel() {
         return;
     }
 
-    // Set initial active state on the first item (or center if more items)
+    // Set initial active state to the middle item
+    // Math.floor handles both odd and even numbers gracefully
+    currentCarouselIndex = Math.floor(carouselItems.length / 2);
+
     updateCarouselDisplay();
 
-    // Add event listeners for scroll to update active item if user scrolls manually
-    carouselContainer.addEventListener('scroll', handleCarouselScroll);
+    // Attach click listeners to all "Read Memo" buttons
+    const readButtons = document.querySelectorAll('.read-memo-button');
+    readButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior (e.g., jumping to #)
+            const memoPath = this.getAttribute('data-memo-path');
+            if (memoPath) {
+                // For now, just open the PDF in a new tab.
+                // When you implement a Lightbox, this is where you'd trigger it.
+                window.open(memoPath, '_blank');
+                console.log('Opening memo:', memoPath);
+            } else {
+                console.warn('Memo path not found for button:', this);
+            }
+        });
+    });
 }
 
 function updateCarouselDisplay() {
     carouselItems.forEach((item, index) => {
-        // Remove previous active/faded classes
+        // Remove previous active/faded classes from all items
         item.classList.remove('carousel-item-active', 'carousel-item-faded');
 
         if (index === currentCarouselIndex) {
             item.classList.add('carousel-item-active');
         } else {
             // All non-active items are faded
-            item.classList.add('carousel-item-faded'); // Or rely just on base .mini-memo-item opacity
+            item.classList.add('carousel-item-faded');
         }
     });
 
-    // Ensure the active item is scrolled into view (centered)
-    // This is crucial for the "middle one is active" logic
+    // Scroll to center the currently active item
     if (carouselItems[currentCarouselIndex]) {
-        const itemWidth = carouselItems[currentCarouselIndex].offsetWidth +
-                          parseFloat(getComputedStyle(carouselContainer).gap);
+        const activeItem = carouselItems[currentCarouselIndex];
+        const itemWidth = activeItem.offsetWidth;
+        const gap = parseFloat(getComputedStyle(carouselContainer).gap) || 0; // Get gap correctly
+
+        // Calculate the total width of items and gaps *before* the active item
+        let sumOfPreviousItemsWidth = 0;
+        for (let i = 0; i < currentCarouselIndex; i++) {
+            sumOfPreviousItemsWidth += carouselItems[i].offsetWidth + gap;
+        }
+
         const containerWidth = carouselContainer.offsetWidth;
 
-        // Calculate scroll position to center the active item
-        let scrollPos = (currentCarouselIndex * itemWidth) - (containerWidth / 2) + (itemWidth / 2);
+        // Calculate the target scroll position to center the active item
+        // (Sum of widths of items before) + (half of active item's width) - (half of container width)
+        let scrollLeftTarget = sumOfPreviousItemsWidth + (itemWidth / 2) - (containerWidth / 2);
 
-        // Prevent scrolling past the ends (optional, for tighter control)
-        scrollPos = Math.max(0, scrollPos);
-        scrollPos = Math.min(scrollPos, carouselContainer.scrollWidth - containerWidth);
+        // Boundary checks to prevent scrolling too far left or right
+        scrollLeftTarget = Math.max(0, scrollLeftTarget); // Cannot scroll less than 0
+        scrollLeftTarget = Math.min(scrollLeftTarget, carouselContainer.scrollWidth - containerWidth); // Cannot scroll past the end
 
         carouselContainer.scrollTo({
-            left: scrollPos,
+            left: scrollLeftTarget,
             behavior: 'smooth'
         });
     }
@@ -611,26 +598,19 @@ function updateCarouselDisplay() {
 function scrollCarousel(direction) {
     let newIndex = currentCarouselIndex + direction;
 
-    // Loop around if we reach the ends
+    // --- No looping around, stop at the ends ---
     if (newIndex < 0) {
-        newIndex = carouselItems.length - 1;
+        newIndex = 0; // If trying to go left from the first item, stay at first
     } else if (newIndex >= carouselItems.length) {
-        newIndex = 0;
+        newIndex = carouselItems.length - 1; // If trying to go right from the last item, stay at last
     }
+    // ------------------------------------------
 
-    currentCarouselIndex = newIndex;
-    updateCarouselDisplay();
+    if (newIndex !== currentCarouselIndex) { // Only update if the index actually changes
+        currentCarouselIndex = newIndex;
+        updateCarouselDisplay();
+    }
 }
-
-function handleCarouselScroll() {
-    // This function can be more complex if you want to update active item on manual scroll.
-    // For now, it's simpler to primarily rely on button clicks for active state.
-    // If you want to make the active state dynamically change as user scrolls,
-    // you'd calculate which item is closest to the center of the viewport here
-    // and update `currentCarouselIndex` accordingly.
-    // For simplicity, sticking to button-driven active state primarily.
-}
-
 
 // Initialize carousel when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
