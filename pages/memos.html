@@ -217,83 +217,166 @@
       color: white;
     }
 
-/* New CSS for the single memo box */
-.single-grid-memo-box { /* Now acting as a grid container */
-    display: grid;
-    /* Create three columns, each taking one fraction of space.
-       The minmax ensures they are at least 200px wide,
-       and wrap if the screen is too small. Adjust 200px if needed. */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem; /* Space between the three memo boxes */
 
-    max-width: 1000px; /* Adjust this max-width to control the overall width of the 3-box group */
-    margin: 3rem auto 2rem auto; /* Top margin, auto horizontal, bottom margin for space */
-    padding: 0 2rem; /* Consistent padding */
-    /* Remove background, border-radius, box-shadow from here as they will go on individual items */
-    /* Remove flex-direction, etc., as grid takes over */
-}
+/* ----- Carousel Specific CSS ----- */
 
-/* Dark mode for the new memo box */
-body.dark-mode .single-grid-memo-box {
-    background: #1f1f1f;
-    color: white; /* Ensure text is readable */
-    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1); /* Lighter shadow in dark mode */
-}
+    /* The main container that holds the carousel and its navigation */
+    .carousel-wrapper {
+        max-width: 1000px; /* Overall width of the carousel section */
+        margin: 1.5rem auto 2rem auto; /* Consistent margin as before the grid */
+        padding: 0 2rem; /* Consistent padding */
+        position: relative; /* Needed for absolute positioning of navigation buttons */
+        display: flex; /* To align carousel and buttons */
+        align-items: center; /* Vertically center items (buttons with carousel) */
+        justify-content: center; /* Horizontally center items */
+    }
 
-.single-grid-memo-box h3 {
-    font-size: 1.5rem; /* Slightly larger for a standalone section */
-    margin-top: 1.5rem; /* Add some top padding */
-    margin-bottom: 1rem;
-    color: var(--accent);
-    text-align: center; /* Center the title */
-}
-body.dark-mode .single-grid-memo-box h3 {
-    color: white;
-}
+    /* The actual carousel container */
+    .carousel-container {
+        display: flex; /* Use flexbox for horizontal arrangement and scrolling */
+        overflow-x: hidden; /* Hide the scrollbar, we'll control scrolling with JS */
+        scroll-snap-type: x mandatory; /* For smooth snapping when scrolling */
+        -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+        scroll-behavior: smooth; /* Smooth scrolling for JS navigation */
+        gap: 1.5rem; /* Space between memo items */
+        padding: 1.5rem 0; /* Add vertical padding for the top/bottom of items if padding was removed from .mini-memo-item */
+        flex-grow: 1; /* Allow container to grow within its wrapper */
+        justify-content: flex-start; /* Align items to the start initially */
+        align-items: center; /* Vertically center items */
+    }
 
+    /* Individual memo items within the carousel */
+    .mini-memo-item {
+        flex: 0 0 300px; /* Fixed width for each item (adjust as needed), no shrinking/growing */
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 0; /* Remove internal padding if image goes edge-to-edge */
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        min-height: 420px; /* Ensure consistent height */
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        scroll-snap-align: center; /* Snap items to the center when scrolling */
+        position: relative; /* For overlay if you add one */
+        /* Add initial transform for 3D effect / scaling for active */
+        transform: scale(0.9);
+        opacity: 0.6;
+    }
 
-/* New CSS for the individual "skinny" memo items within the mini-carousel */
-.mini-memo-item {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    display: flex; /* Use flex for content alignment inside each box */
-    flex-direction: column;
-    text-align: center; /* Center text within each box */
-    min-height: 420px; /* Ensure a consistent minimum height for the boxes */
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Optional hover effect */
-}
+    .mini-memo-item:hover {
+        transform: scale(0.95) translateY(-5px); /* Scale slightly more on hover */
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
 
-.mini-memo-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
+    /* State for the active (middle) carousel item */
+    .carousel-item-active {
+        transform: scale(1); /* Full size */
+        opacity: 1; /* Fully visible */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+    }
 
-body.dark-mode .mini-memo-item {
-    background: #1f1f1f;
-    color: white;
-    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
-}
+    /* State for the faded (side) carousel items */
+    .carousel-item-faded {
+        transform: scale(0.85); /* Slightly smaller */
+        opacity: 0.4; /* More faded */
+    }
 
-}
-body.dark-mode .mini-memo-item h4 {
-    color: white;
-}
+    body.dark-mode .mini-memo-item {
+        background: #1f1f1f;
+        color: white;
+        box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+    }
 
-.mini-memo-item img {
-    width: 100%;
-    height: 300px; /* Increased height to make the image more dominant */
-    object-fit: cover; /* Crop if necessary to fill the space */
-    border-bottom: 1px solid var(--memo-border); /* A subtle separator */
-    border-radius: 8px 8px 0 0; /* Match container border radius on top corners */
-    margin-bottom: 1rem; /* Space between image and title/button */
-}
+    body.dark-mode .carousel-item-active {
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+    }
 
-body.dark-mode .mini-memo-item img {
-    border-color: #333; /* Darker border in dark mode */
-}
+    .mini-memo-item h4 {
+        font-size: 1.2rem;
+        margin-top: 1.5rem; /* Add top padding here instead of item */
+        margin-bottom: 0.5rem;
+        color: var(--accent);
+        padding: 0 1rem; /* Horizontal padding for text */
+    }
+    body.dark-mode .mini-memo-item h4 {
+        color: white;
+    }
 
+    .mini-memo-item img {
+        width: 100%;
+        height: 300px; /* Keep this height for the image */
+        object-fit: cover;
+        border-bottom: 1px solid var(--memo-border);
+        /* Remove border-radius on image if it's edge-to-edge as padding:0 removes the top rounded corners of the image */
+        border-radius: 0; /* Image now fills top of card, no radius needed here */
+        margin-bottom: 0; /* No margin here, let content below manage spacing */
+    }
+
+    body.dark-mode .mini-memo-item img {
+        border-color: #333;
+    }
+
+    /* Carousel Navigation Buttons */
+    .carousel-button {
+        background-color: var(--accent); /* Blue button */
+        color: white;
+        border: none;
+        padding: 1rem;
+        border-radius: 50%; /* Circular buttons */
+        cursor: pointer;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease, transform 0.1s ease;
+        z-index: 10; /* Ensure buttons are above carousel items */
+        width: 40px; /* Fixed size for circle */
+        height: 40px; /* Fixed size for circle */
+    }
+
+    .carousel-button:hover {
+        background-color: #004488; /* Darker blue on hover */
+        transform: scale(1.05);
+    }
+
+    .carousel-button:active {
+        transform: scale(0.95);
+    }
+
+    /* Adjust button positioning relative to the carousel-wrapper */
+    .carousel-button-left {
+        margin-right: -20px; /* Overlap slightly with the carousel for visual cohesion */
+    }
+
+    .carousel-button-right {
+        margin-left: -20px; /* Overlap slightly with the carousel for visual cohesion */
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 768px) {
+        .carousel-container {
+            flex-wrap: nowrap; /* Prevent wrapping so items stay in a line for carousel */
+            justify-content: flex-start; /* Reset justification for proper scrolling */
+        }
+
+        .mini-memo-item {
+            flex: 0 0 280px; /* Slightly smaller width for items on smaller screens */
+            scroll-snap-align: start; /* Snap to start for better visibility on smaller screens */
+        }
+
+        .carousel-wrapper {
+            padding: 0 1rem; /* Reduce wrapper padding */
+        }
+
+        .carousel-button {
+            padding: 0.8rem;
+            font-size: 1.2rem;
+            width: 35px;
+            height: 35px;
+        }
+    }
 
 .abstract-box {
     max-width: 900px; /* IMPORTANT: Set this to match the max-width of your .expand-container for consistent width */
@@ -380,30 +463,43 @@ body.dark-mode .abstract-box h2 {
     </p>
 </section>
 
-    <!-- Memo Boxes -->
-<section class="single-grid-memo-box">
-    <div class="mini-memo-item">
-        <h4>Project Proposal Overview</h4>
-        <a href="../documents/memo-project-proposal.pdf" target="_blank" title="View Project Proposal Memo">
-            <img src="../images/viz-placeholder1.png" alt="Project Proposal Memo Thumbnail">
-        </a>
+ <section class="carousel-wrapper">
+    <button class="carousel-button carousel-button-left" onclick="scrollCarousel(-1)">&#10094;</button> <div class="carousel-container" id="memoCarousel">
+        <div class="mini-memo-item">
+            <h4>Project Proposal Overview</h4>
+            <a href="../documents/memo-project-proposal.pdf" target="_blank" title="View Project Proposal Memo">
+                <img src="../images/viz-placeholder1.png" alt="Project Proposal Memo Thumbnail">
+            </a>
+        </div>
+
+        <div class="mini-memo-item">
+            <h4>Quarterly Budget Summary</h4>
+            <a href="../documents/memo-quarterly-budget.pdf" target="_blank" title="View Quarterly Budget Summary">
+                <img src="../images/viz-placeholder1.png" alt="Quarterly Budget Summary Memo Thumbnail">
+            </a>
+        </div>
+
+        <div class="mini-memo-item">
+            <h4>Performance Analysis Report</h4>
+            <a href="../documents/memo-performance-report.pdf" target="_blank" title="View Performance Analysis Report">
+                <img src="../images/viz-placeholder1.png" alt="Performance Analysis Report Memo Thumbnail">
+            </a>
+        </div>
+        <div class="mini-memo-item">
+            <h4>Financial Audit Memo</h4>
+            <a href="../documents/memo-audit.pdf" target="_blank" title="View Financial Audit Memo">
+                <img src="../images/viz-placeholder1.png" alt="Financial Audit Memo Thumbnail">
+            </a>
+        </div>
+        <div class="mini-memo-item">
+            <h4>Marketing Strategy Brief</h4>
+            <a href="../documents/memo-marketing.pdf" target="_blank" title="View Marketing Strategy Brief">
+                <img src="../images/viz-placeholder1.png" alt="Marketing Strategy Brief Thumbnail">
+            </a>
+        </div>
     </div>
 
-    <div class="mini-memo-item">
-        <h4>Quarterly Budget Summary</h4>
-        <a href="../documents/memo-quarterly-budget.pdf" target="_blank" title="View Quarterly Budget Summary">
-            <img src="../images/viz-placeholder1.png" alt="Quarterly Budget Summary Memo Thumbnail">
-        </a>
-    </div>
-
-    <div class="mini-memo-item">
-        <h4>Performance Analysis Report</h4>
-        <a href="../documents/memo-performance-report.pdf" target="_blank" title="View Performance Analysis Report">
-            <img src="../images/viz-placeholder1.png" alt="Performance Analysis Report Memo Thumbnail">
-        </a>
-    </div>
-</section>
-  
+    <button class="carousel-button carousel-button-right" onclick="scrollCarousel(1)">&#10095;</button> </section>
 <section class="expand-container">
   <div class="expand-toggle" onclick="toggleExpandBox()">
     <div style="font-size: 1.5rem;">+</div>
@@ -455,6 +551,91 @@ function toggleExpandBox() {
 // Initialize animations on page load (you should have this)
 document.addEventListener('DOMContentLoaded', () => {
   animateOnLoad();
+});
+
+  // Carousel JavaScript
+let currentCarouselIndex = 0;
+let carouselItems = [];
+let carouselContainer = null; // Will be set on DOMContentLoaded
+
+function initializeCarousel() {
+    carouselContainer = document.getElementById('memoCarousel');
+    carouselItems = Array.from(carouselContainer.getElementsByClassName('mini-memo-item'));
+
+    if (carouselItems.length === 0) {
+        console.warn("No carousel items found. Is the 'memoCarousel' ID correct?");
+        return;
+    }
+
+    // Set initial active state on the first item (or center if more items)
+    updateCarouselDisplay();
+
+    // Add event listeners for scroll to update active item if user scrolls manually
+    carouselContainer.addEventListener('scroll', handleCarouselScroll);
+}
+
+function updateCarouselDisplay() {
+    carouselItems.forEach((item, index) => {
+        // Remove previous active/faded classes
+        item.classList.remove('carousel-item-active', 'carousel-item-faded');
+
+        if (index === currentCarouselIndex) {
+            item.classList.add('carousel-item-active');
+        } else {
+            // All non-active items are faded
+            item.classList.add('carousel-item-faded'); // Or rely just on base .mini-memo-item opacity
+        }
+    });
+
+    // Ensure the active item is scrolled into view (centered)
+    // This is crucial for the "middle one is active" logic
+    if (carouselItems[currentCarouselIndex]) {
+        const itemWidth = carouselItems[currentCarouselIndex].offsetWidth +
+                          parseFloat(getComputedStyle(carouselContainer).gap);
+        const containerWidth = carouselContainer.offsetWidth;
+
+        // Calculate scroll position to center the active item
+        let scrollPos = (currentCarouselIndex * itemWidth) - (containerWidth / 2) + (itemWidth / 2);
+
+        // Prevent scrolling past the ends (optional, for tighter control)
+        scrollPos = Math.max(0, scrollPos);
+        scrollPos = Math.min(scrollPos, carouselContainer.scrollWidth - containerWidth);
+
+        carouselContainer.scrollTo({
+            left: scrollPos,
+            behavior: 'smooth'
+        });
+    }
+}
+
+function scrollCarousel(direction) {
+    let newIndex = currentCarouselIndex + direction;
+
+    // Loop around if we reach the ends
+    if (newIndex < 0) {
+        newIndex = carouselItems.length - 1;
+    } else if (newIndex >= carouselItems.length) {
+        newIndex = 0;
+    }
+
+    currentCarouselIndex = newIndex;
+    updateCarouselDisplay();
+}
+
+function handleCarouselScroll() {
+    // This function can be more complex if you want to update active item on manual scroll.
+    // For now, it's simpler to primarily rely on button clicks for active state.
+    // If you want to make the active state dynamically change as user scrolls,
+    // you'd calculate which item is closest to the center of the viewport here
+    // and update `currentCarouselIndex` accordingly.
+    // For simplicity, sticking to button-driven active state primarily.
+}
+
+
+// Initialize carousel when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    animateOnLoad();
+    initializeCarousel(); // Call the carousel initialization
 });
 
 </script>
