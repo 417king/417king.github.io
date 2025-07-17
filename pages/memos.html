@@ -217,46 +217,76 @@
       color: white;
     }
 
-    /* New CSS for the single memo box */
-.single-grid-memo-box {
-    max-width: 800px; /* Adjust this to match the desired width of your expand box */
-    margin: 4rem auto 2rem auto; /* Top margin, auto horizontal, bottom margin for space */
-    padding: 0 2rem; /* Consistent padding */
+  .single-grid-memo-box { /* Now acting as a grid container */
+    display: grid;
+    /* Create three columns, each taking one fraction of space.
+       The minmax ensures they are at least 200px wide,
+       and wrap if the screen is too small. Adjust 200px if needed. */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem; /* Space between the three memo boxes */
 
-    /* Inherit grid-item styling for appearance */
+    max-width: 1000px; /* Adjust this max-width to control the overall width of the 3-box group */
+    margin: 8rem auto 2rem auto; /* Top margin, auto horizontal, bottom margin for space */
+    padding: 0 2rem; /* Consistent padding */
+    /* Remove background, border-radius, box-shadow from here as they will go on individual items */
+    /* Remove flex-direction, etc., as grid takes over */
+}
+
+/* New CSS for the individual "skinny" memo items within the mini-carousel */
+.mini-memo-item {
     background: white;
     border-radius: 8px;
-    overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
+    padding: 1.5rem;
+    display: flex; /* Use flex for content alignment inside each box */
     flex-direction: column;
-    /* transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Optional: if you want hover effects */
+    text-align: center; /* Center text within each box */
+    min-height: 220px; /* Ensure a consistent minimum height for the boxes */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Optional hover effect */
 }
 
-/* Dark mode for the new memo box */
-body.dark-mode .single-grid-memo-box {
+.mini-memo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .mini-memo-item {
     background: #1f1f1f;
-    color: white; /* Ensure text is readable */
-    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1); /* Lighter shadow in dark mode */
+    color: white;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
 }
 
-/* You might want to style content inside this box similarly to .grid-item-content */
-.single-grid-memo-box h3 {
-    font-size: 1.5rem; /* Slightly larger for a standalone section */
-    margin-top: 1.5rem; /* Add some top padding */
-    margin-bottom: 1rem;
+.mini-memo-item h4 { /* Changed from h3 to h4 to indicate a sub-heading */
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 0.8rem;
     color: var(--accent);
-    text-align: center; /* Center the title */
 }
-body.dark-mode .single-grid-memo-box h3 {
+body.dark-mode .mini-memo-item h4 {
     color: white;
 }
 
-.single-grid-memo-box p {
-    font-size: 1rem;
-    line-height: 1.6;
-    padding: 0 1.5rem 1.5rem 1.5rem; /* Add padding inside the box */
-    text-align: justify; /* Justify text for a clean look */
+.mini-memo-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Allows paragraphs to push content down for consistent bottom alignment */
+}
+
+.mini-memo-item .read-more-button {
+    background-color: #FFA02F; /* Matching your memo link color */
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    margin-top: auto; /* Pushes the button to the bottom of the box */
+}
+
+.mini-memo-item .read-more-button:hover {
+    background-color: #cc8026; /* Darker shade on hover */
 }
     
   </style>
@@ -310,16 +340,23 @@ body.dark-mode .single-grid-memo-box h3 {
 
 
 <section class="single-grid-memo-box">
-    <h3>Introduction to Memos & Budgets</h3>
-    <p>
-        On this page, you'll find examples of analytical memos and budget summaries I've prepared. These documents are crucial for clear and concise communication of complex information, whether it's an in-depth analysis of a project's performance or a detailed breakdown of financial allocations.
-    </p>
-    <p>
-        Effective memo writing involves distilling key findings, outlining actionable recommendations, and presenting data in an easily digestible format. Similarly, budget preparation requires meticulous attention to detail, foresight in financial planning, and the ability to articulate fiscal strategies clearly to various stakeholders.
-    </p>
-    <p>
-        My goal in these documents is to provide clarity and facilitate informed decision-making, ensuring that all relevant parties understand the implications of the presented information.
-    </p>
+    <div class="mini-memo-item">
+        <h4>Project Proposal Overview</h4>
+        <p>A concise summary of a new project proposal, outlining objectives, key deliverables, and expected outcomes.</p>
+        <a href="memo-detail-1.html" class="read-more-button">Read Memo</a>
+    </div>
+
+    <div class="mini-memo-item">
+        <h4>Quarterly Budget Summary</h4>
+        <p>A high-level overview of quarterly expenditures and budget adherence, highlighting key variances.</p>
+        <a href="memo-detail-2.html" class="read-more-button">View Budget</a>
+    </div>
+
+    <div class="mini-memo-item">
+        <h4>Performance Analysis Report</h4>
+        <p>An abstract of a report analyzing recent project performance, including success metrics and challenges.</p>
+        <a href="memo-detail-3.html" class="read-more-button">Read Report</a>
+    </div>
 </section>
 
   
