@@ -315,6 +315,41 @@ body.dark-mode .mini-memo-item h4 {
 .mini-memo-item .read-more-button:hover {
     background-color: #cc8026; /* Darker shade on hover */
 }
+
+.abstract-box {
+    max-width: 900px; /* IMPORTANT: Set this to match the max-width of your .expand-container for consistent width */
+    margin: 4rem auto 2rem auto; /* Top margin (adjust as needed), auto horizontal, bottom margin for spacing */
+    padding: 2rem; /* Padding inside the box */
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: var(--text-dark); /* Ensure text is readable */
+}
+
+/* Dark Mode for the Abstract Box */
+body.dark-mode .abstract-box {
+    background: #1f1f1f;
+    color: white;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+.abstract-box h2 { /* Use h2 for the main abstract heading */
+    font-size: 1.8rem;
+    color: var(--accent);
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+body.dark-mode .abstract-box h2 {
+    color: white;
+}
+
+.abstract-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 0; /* Remove extra margin if it's the last paragraph */
+}
     
   </style>
 </head>
@@ -359,8 +394,14 @@ body.dark-mode .mini-memo-item h4 {
 </section>
 
   <!-- Abstract -->
+<section class="abstract-box">
+    <h2>Page Abstract</h2>
+    <p>
+        This page serves as a curated collection of analytical memos and detailed budget documents, showcasing my expertise in translating complex data and financial information into clear, actionable insights. Each piece demonstrates a commitment to precision, strategic foresight, and effective communication essential for informed decision-making and stakeholder alignment within an organizational context.
+    </p>
+</section>
 
-
+    <!-- Memo Boxes -->
 <section class="single-grid-memo-box">
     <div class="mini-memo-item">
         <h4>Project Proposal Overview</h4>
