@@ -507,6 +507,39 @@ body.dark-mode .lightbox-close {
         margin: 0;
     }
 }
+    /* Expandable Section */
+    .expand-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+    .expand-toggle {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .expand-box {
+      margin-top: 1rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+    .expand-box.open {
+      max-height: 500px;
+      opacity: 1;
+    }
+    
   </style>
 </head>
 
@@ -565,6 +598,17 @@ body.dark-mode .lightbox-close {
         <iframe id="memoPdfViewer" src="" frameborder="0"></iframe>
     </div>
 </div>
+
+  
+<section class="expand-container">
+  <div class="expand-toggle" onclick="toggleExpandBox()">
+    <div style="font-size: 1.5rem;">+</div>
+    <div>Expand for More Survey Details</div>
+  </div>
+  <div class="expand-box" id="expandBox">
+    <p id="expandBoxText">Supporting information about survey methods, sampling strategies, analysis frameworks, and additional documentation.</p> </div>
+</section>
+
 
 <!-- Footer -->
 <footer id="footer">
