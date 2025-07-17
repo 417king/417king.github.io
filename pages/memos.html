@@ -217,19 +217,46 @@
       color: white;
     }
 
-  .single-grid-memo-box { /* Now acting as a grid container */
-    display: grid;
-    /* Create three columns, each taking one fraction of space.
-       The minmax ensures they are at least 200px wide,
-       and wrap if the screen is too small. Adjust 200px if needed. */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem; /* Space between the three memo boxes */
-
-    max-width: 1000px; /* Adjust this max-width to control the overall width of the 3-box group */
-    margin: 8rem auto 2rem auto; /* Top margin, auto horizontal, bottom margin for space */
+/* New CSS for the single memo box */
+.single-grid-memo-box {
+    max-width: 800px; /* Adjust this to match the desired width of your expand box */
+    margin: 4rem auto 2rem auto; /* Top margin, auto horizontal, bottom margin for space */
     padding: 0 2rem; /* Consistent padding */
-    /* Remove background, border-radius, box-shadow from here as they will go on individual items */
-    /* Remove flex-direction, etc., as grid takes over */
+
+    /* Inherit grid-item styling for appearance */
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    /* transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Optional: if you want hover effects */
+}
+
+/* Dark mode for the new memo box */
+body.dark-mode .single-grid-memo-box {
+    background: #1f1f1f;
+    color: white; /* Ensure text is readable */
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1); /* Lighter shadow in dark mode */
+}
+
+/* You might want to style content inside this box similarly to .grid-item-content */
+.single-grid-memo-box h3 {
+    font-size: 1.5rem; /* Slightly larger for a standalone section */
+    margin-top: 1.5rem; /* Add some top padding */
+    margin-bottom: 1rem;
+    color: var(--accent);
+    text-align: center; /* Center the title */
+}
+body.dark-mode .single-grid-memo-box h3 {
+    color: white;
+}
+
+.single-grid-memo-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 0 1.5rem 1.5rem 1.5rem; /* Add padding inside the box */
+    text-align: justify; /* Justify text for a clean look */
 }
 
 /* New CSS for the individual "skinny" memo items within the mini-carousel */
@@ -241,7 +268,7 @@
     display: flex; /* Use flex for content alignment inside each box */
     flex-direction: column;
     text-align: center; /* Center text within each box */
-    min-height: 220px; /* Ensure a consistent minimum height for the boxes */
+    min-height: 420px; /* Ensure a consistent minimum height for the boxes */
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Optional hover effect */
 }
 
