@@ -10,6 +10,8 @@
       --bg-light: #0059b3;
       --text-dark: #333;
       --accent: #003366;
+      --memo-bg: #f8f8f8; /* Light background for memo cards */
+      --memo-border: #ddd; /* Light border for memo cards */
     }
 
     html { scroll-behavior: smooth; }
@@ -181,6 +183,330 @@
       background: #1f1f1f;
       color: white;
     }
+
+    /* New: Styles for the Memo Abstract Section */
+.memo-abstract-section {
+    max-width: 100vw; /* Takes full width to control padding */
+    margin: 0 auto; /* No top/bottom margin, controlled by padding */
+    padding: 4rem 2rem 2rem; /* Top padding (adjust based on hero height), horizontal, and bottom */
+    background-color: var(--bg-light); /* Matches body background */
+}
+
+.memo-abstract-box {
+    background: rgba(255, 255, 255, 0.97); /* White background for the box itself */
+    padding: 2.5rem; /* Internal padding */
+    border-radius: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center text inside the white box */
+    max-width: 900px; /* Max width for readability */
+    margin: 0 auto; /* Center the box within its section */
+    color: var(--accent); /* Text color for abstract */
+}
+
+.memo-abstract-box h2 {
+    font-size: 32px;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+    border-bottom: 6px solid #FFA02F; /* Memo accent color for the title */
+    padding-bottom: 0.1px;
+    display: inline-block;
+}
+
+.memo-abstract-box p {
+    font-size: 1.15rem; /* Slightly larger text for abstract */
+    line-height: 1.7;
+    max-width: 700px; /* Limit paragraph width */
+    margin: 0 auto 1rem auto; /* Center paragraphs and add bottom margin */
+}
+
+/* Separator Bar (Keep existing, ensure it's still there) */
+.separator-bar {
+  border-bottom: 25px solid var(--accent);
+  width: 100%;
+  margin-top: 0rem;
+}
+
+/* Carousel Container */
+.carousel-container {
+  position: relative;
+  max-width: 1200px; /* Match other content width */
+  margin: 4rem auto;
+  padding: 0 2rem;
+  overflow: hidden; /* Hide overflowing memo cards */
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Smooth sliding transition */
+  align-items: center; /* Vertically align items in the track */
+}
+
+/* Memo Card Styling (adapted from .grid-item in visualizations.html) */
+.memo-card {
+  min-width: 400px; /* Base width for memo cards */
+  flex-shrink: 0; /* Prevent cards from shrinking */
+  margin: 0 1rem; /* Spacing between cards */
+  background-color: var(--memo-bg);
+  border: 1px solid var(--memo-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer; /* Indicate clickable */
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 500px; /* Fixed height for consistent layout */
+}
+
+.memo-card.faded {
+  opacity: 0.5; /* Faded effect */
+  transform: scale(0.9); /* Slightly smaller when faded */
+  pointer-events: none; /* Disable click on faded ones for now */
+}
+
+.memo-card.prominent {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto; /* Enable click on prominent one */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow for prominent */
+}
+
+.memo-card.hidden {
+  display: none; /* Hide memos that are off-screen */
+}
+
+.memo-card img {
+  width: 100%;
+  height: 200px; /* Fixed height for image thumbnails */
+  object-fit: cover;
+  border-bottom: 1px solid var(--memo-border);
+}
+
+.memo-card-content {
+  padding: 1.5rem;
+  flex-grow: 1; /* Allow content to take available space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.memo-card h3 {
+  font-size: 24px;
+  color: var(--accent);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.memo-card p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  flex-grow: 1; /* Allow paragraph to grow */
+}
+
+.memo-card-meta {
+  font-size: 14px;
+  color: #666;
+  margin-top: 1rem;
+}
+
+/* Carousel Navigation Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 2rem;
+  z-index: 10;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-arrow.left {
+  left: 0;
+}
+
+.carousel-arrow.right {
+  right: 0;
+}
+
+/* Expandable Section (for individual memos) */
+.expand-container-memo {
+  max-width: 90%; /* Adjust width to align with card */
+  margin: 1rem auto 2rem auto; /* Spacing below card */
+  padding: 0 1rem;
+}
+.expand-toggle-memo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  background: white;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  font-size: 0.9rem;
+  color: var(--accent);
+  justify-content: center;
+}
+.expand-box-memo {
+  margin-top: 0.5rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+.expand-box-memo.open {
+  max-height: 500px; /* Adjust as needed */
+  opacity: 1;
+}
+
+/* Lightbox for PDF */
+.lightbox-overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: hidden; /* Hide iframe scrollbars if they go beyond lightbox */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.lightbox-content iframe {
+  width: 100%;
+  height: calc(100% - 40px); /* Adjust for close button space */
+  border: none;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Dark Mode Adjustments for Memos */
+body.dark-mode .memo-abstract-box {
+  background: #1f1f1f; /* Dark background for memo abstract */
+  color: white;
+}
+body.dark-mode .memo-abstract-box h2 {
+  border-bottom-color: #FFA02F; /* Keep accent color for consistency */
+  color: white; /* Ensure heading is white */
+}
+body.dark-mode .memo-card {
+  background-color: #2a2a2a;
+  border-color: #444;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+body.dark-mode .memo-card h3 {
+  color: #FFA02F; /* Keep accent color for contrast */
+}
+body.dark-mode .memo-card p,
+body.dark-mode .memo-card-meta {
+  color: #ccc;
+}
+body.dark-mode .expand-toggle-memo,
+body.dark-mode .expand-box-memo {
+  background: #1f1f1f;
+  color: white;
+  box-shadow: 0 0 5px rgba(255,255,255,0.1);
+}
+body.dark-mode .expand-toggle-memo {
+  color: white; /* Ensure plus sign is visible */
+}
+body.dark-mode .lightbox-content {
+  background: #1f1f1f;
+  color: white;
+}
+body.dark-mode .lightbox-close {
+  color: white;
+}
+
+/* Responsive adjustments for memo cards and carousel */
+@media (max-width: 1024px) {
+    .memo-card {
+        min-width: 350px;
+        height: 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    .memo-card {
+        min-width: 300px;
+        height: 400px;
+        margin: 0 0.5rem;
+    }
+    .carousel-arrow {
+        font-size: 1.5rem;
+        width: 40px;
+        height: 40px;
+        padding: 0.5rem;
+    }
+    .carousel-container {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .memo-card {
+        min-width: 280px; /* Smallest size for single view */
+        margin: 0 auto; /* Center when only one visible */
+    }
+    .carousel-track {
+        justify-content: center; /* Center items when only one is prominent */
+    }
+    .carousel-arrow.left { left: -10px; }
+    .carousel-arrow.right { right: -10px; }
+    .memo-abstract-box { /* Adjust for smaller screens */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .memo-card.faded { /* Hide faded card completely on small screens */
+        opacity: 0;
+        min-width: 0;
+        margin: 0;
+    }
+}
   </style>
 </head>
 
@@ -223,6 +549,23 @@
   </div>
 </section>
 
+<!-- Carousel -->
+  <section class="carousel-container">
+    <div class="carousel-track" id="memoCarouselTrack">
+        </div>
+    <button class="carousel-arrow left" id="carouselArrowLeft" style="display:none;">&#10094;</button>
+    <button class="carousel-arrow right" id="carouselArrowRight">&#10095;</button>
+</section>
+
+
+<!-- Lightbox -->
+  <div class="lightbox-overlay" id="memoLightbox">
+    <div class="lightbox-content">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <iframe id="memoPdfViewer" src="" frameborder="0"></iframe>
+    </div>
+</div>
+
 <!-- Footer -->
 <footer id="footer">
   <p>Let's Connect!</p>
@@ -244,6 +587,217 @@ function animateOnLoad() {
   document.querySelector('.hero').classList.add('animate-in');
   document.querySelector('.hero-box').classList.add('animate-in');
 }
+
+// --- Memos Page Specific JS ---
+
+// Memo Data - Replace with your actual memo details and PDF paths
+const memos = [
+    {
+        id: "memo1",
+        title: "Annual Budget Analysis Q1",
+        image: "../images/memo_thumbnail1.jpg", // Replace with actual thumbnail path
+        description: "A detailed analysis of the Q1 budget performance, highlighting key expenditures and revenue streams. Provides recommendations for cost optimization.",
+        meta: "Tools: Excel, PowerPoint | Date: Jan 2025",
+        pdf: "../pdfs/memo1.pdf", // Replace with actual PDF path
+        expandedText: "This memo includes a comprehensive breakdown of departmental spending, variance analysis, and projected financial outcomes based on Q1 data. It also outlines a strategy for reallocating resources to maximize ROI in the upcoming quarters."
+    },
+    {
+        id: "memo2",
+        title: "Market Expansion Proposal",
+        image: "../images/memo_thumbnail2.jpg", // Replace with actual thumbnail path
+        description: "Proposal for expanding into new market segments, backed by market research and competitive analysis. Includes a phased implementation plan.",
+        meta: "Tools: Tableau, Word | Date: Feb 2025",
+        pdf: "../pdfs/memo2.pdf", // Replace with actual PDF path
+        expandedText: "The expansion proposal evaluates potential market opportunities, target demographics, and entry barriers. It features a SWOT analysis for each proposed market and a risk assessment, concluding with a timeline and budget for the initial expansion phase."
+    },
+    {
+        id: "memo3",
+        title: "Employee Engagement Strategy",
+        image: "../images/memo_thumbnail3.jpg", // Replace with actual thumbnail path
+        description: "A strategy document outlining initiatives to boost employee engagement and morale, including survey findings and action plans.",
+        meta: "Tools: Qualtrics, Excel | Date: Mar 2025",
+        pdf: "../pdfs/memo3.pdf", // Replace with actual PDF path
+        expandedText: "This memo presents the findings from the recent employee satisfaction survey, identifying key drivers of engagement and areas for improvement. It details specific programs and policy adjustments designed to foster a more positive and productive work environment."
+    },
+    {
+        id: "memo4",
+        title: "IT Infrastructure Upgrade Plan",
+        image: "../images/memo_thumbnail4.jpg", // Replace with actual thumbnail path
+        description: "Plan for upgrading core IT infrastructure to improve system reliability and security. Includes cost-benefit analysis and timeline.",
+        meta: "Tools: Visio, Excel | Date: Apr 2025",
+        pdf: "../pdfs/memo4.pdf", // Replace with actual PDF path
+        expandedText: "The IT upgrade plan details the current system vulnerabilities and proposes solutions for hardware and software modernization. It includes a projected cost analysis, potential ROI from increased efficiency and reduced downtime, and a phased rollout schedule to minimize disruption."
+    },
+    {
+        id: "memo5",
+        title: "Customer Retention Report",
+        image: "../images/memo_thumbnail5.jpg", // Replace with actual thumbnail path
+        description: "Report on customer retention rates, identifying factors influencing churn and proposing strategies for improving customer loyalty.",
+        meta: "Tools: SQL, Power BI | Date: May 2025",
+        pdf: "../pdfs/memo5.pdf", // Replace with actual PDF path
+        expandedText: "This report analyzes customer behavior data to pinpoint common reasons for customer churn. It outlines several proactive retention strategies, including enhanced customer service protocols, personalized engagement campaigns, and loyalty program enhancements, with expected impact metrics."
+    }
+];
+
+let currentMemoIndex = 0; // Index of the prominent memo in the carousel
+const carouselTrack = document.getElementById('memoCarouselTrack');
+const leftArrow = document.getElementById('carouselArrowLeft');
+const rightArrow = document.getElementById('carouselArrowRight');
+const memoLightbox = document.getElementById('memoLightbox');
+const memoPdfViewer = document.getElementById('memoPdfViewer');
+const lightboxClose = document.getElementById('lightboxClose');
+
+// Function to create a memo card HTML element
+function createMemoCard(memo, index) {
+    const memoCard = document.createElement('div');
+    memoCard.classList.add('memo-card');
+    memoCard.dataset.index = index; // Store index for later use
+
+    memoCard.innerHTML = `
+        <img src="${memo.image}" alt="${memo.title} Thumbnail">
+        <div class="memo-card-content">
+            <h3>${memo.title}</h3>
+            <p>${memo.description}</p>
+            <div class="memo-card-meta">${memo.meta}</div>
+        </div>
+        <div class="expand-container-memo">
+            <div class="expand-toggle-memo" onclick="toggleMemoExpandBox(this)">
+                <div style="font-size: 1.5rem;">+</div>
+                <div>Expand for More Details</div>
+            </div>
+            <div class="expand-box-memo">
+                <p>${memo.expandedText}</p>
+            </div>
+        </div>
+    `;
+
+    // Add click listener for lightbox
+    memoCard.addEventListener('click', () => {
+        // Only open lightbox if it's the prominent card
+        if (memoCard.classList.contains('prominent')) {
+            openLightbox(memo.pdf);
+        }
+    });
+
+    return memoCard;
+}
+
+// Function to render memos in the carousel
+function renderMemos() {
+    carouselTrack.innerHTML = ''; // Clear existing memos
+    const numMemos = memos.length;
+
+    // Always create all cards first, then apply classes for visibility/prominence
+    memos.forEach((memo, index) => {
+        const memoCard = createMemoCard(memo, index);
+        carouselTrack.appendChild(memoCard);
+    });
+
+    const allMemoCards = carouselTrack.querySelectorAll('.memo-card');
+
+    allMemoCards.forEach((card, index) => {
+        card.classList.remove('prominent', 'faded', 'hidden'); // Reset classes
+
+        if (index === currentMemoIndex) {
+            card.classList.add('prominent');
+        } else if (index === (currentMemoIndex + 1) % numMemos && numMemos > 1) {
+            card.classList.add('faded');
+        } else {
+            card.classList.add('hidden'); // Hide all other cards
+        }
+    });
+
+    // Update carousel track position
+    updateCarouselPosition();
+    updateArrowVisibility();
+}
+
+// Update carousel position based on currentMemoIndex
+function updateCarouselPosition() {
+    const prominentCard = carouselTrack.querySelector('.memo-card.prominent');
+    if (prominentCard) {
+        // Calculate the offset based on the prominent card's position relative to the track start
+        // This ensures the prominent card is always aligned correctly, regardless of screen size.
+        const cardOffsetLeft = prominentCard.offsetLeft;
+        carouselTrack.style.transform = `translateX(-${cardOffsetLeft}px)`;
+
+        // For small screens where only one card is visible, center it.
+        if (window.innerWidth <= 600) {
+            const trackWidth = carouselTrack.offsetWidth;
+            const centerOffset = (trackWidth / 2) - (prominentCard.offsetWidth / 2);
+            carouselTrack.style.transform = `translateX(${centerOffset - cardOffsetLeft}px)`;
+        }
+    }
+}
+
+
+// Function to navigate carousel
+function navigateCarousel(direction) {
+    const numMemos = memos.length;
+    if (numMemos <= 1) return; // No navigation needed for 0 or 1 memo
+
+    if (direction === 'right') {
+        currentMemoIndex = (currentMemoIndex + 1) % numMemos;
+    } else { // direction === 'left'
+        currentMemoIndex = (currentMemoIndex - 1 + numMemos) % numMemos;
+    }
+
+    renderMemos(); // Re-render to apply new classes and update position
+}
+
+// Update arrow visibility
+function updateArrowVisibility() {
+    if (memos.length <= 1) {
+        leftArrow.style.display = 'none';
+        rightArrow.style.display = 'none';
+    } else {
+        leftArrow.style.display = 'flex'; // Use flex to center the arrow content
+        rightArrow.style.display = 'flex'; // Use flex to center the arrow content
+    }
+}
+
+// Lightbox functions
+function openLightbox(pdfPath) {
+    memoPdfViewer.src = pdfPath;
+    memoLightbox.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Prevent scrolling background
+}
+
+function closeLightbox() {
+    memoPdfViewer.src = ''; // Clear PDF source
+    memoLightbox.style.display = 'none';
+    document.body.style.overflow = ''; // Restore scrolling
+}
+
+// Event Listeners for carousel arrows
+rightArrow.addEventListener('click', () => navigateCarousel('right'));
+leftArrow.addEventListener('click', () => navigateCarousel('left'));
+lightboxClose.addEventListener('click', closeLightbox);
+memoLightbox.addEventListener('click', (e) => {
+    if (e.target === memoLightbox) { // Close if clicked on overlay, not content
+        closeLightbox();
+    }
+});
+
+// Function for individual memo expand/collapse
+function toggleMemoExpandBox(toggleElement) {
+    const expandBox = toggleElement.nextElementSibling;
+    expandBox.classList.toggle('open');
+    const plusSign = toggleElement.querySelector('div:first-child');
+    if (expandBox.classList.contains('open')) {
+        plusSign.textContent = '-';
+    } else {
+        plusSign.textContent = '+';
+    }
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+    animateOnLoad(); // Call existing animation
+    renderMemos(); // Load initial memos and set prominent one
+    // Add event listener for window resize to re-adjust carousel position
+    window.addEventListener('resize', updateCarouselPosition);
+});
 </script>
 
 </body>
