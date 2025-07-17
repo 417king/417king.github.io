@@ -235,13 +235,11 @@
     .carousel-container {
         display: flex; /* Use flexbox for horizontal arrangement and scrolling */
         overflow-x: hidden; /* Hide the scrollbar, we'll control scrolling with JS */
-        scroll-snap-type: x mandatory; /* For smooth snapping when scrolling */
         -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
         scroll-behavior: smooth; /* Smooth scrolling for JS navigation */
         gap: 1.5rem; /* Space between memo items */
         padding: 1.5rem 0; /* Add vertical padding for the top/bottom of items if padding was removed from .mini-memo-item */
         flex-grow: 1; /* Allow container to grow within its wrapper */
-        justify-content: flex-start; /* Align items to the start initially */
         align-items: center; /* Vertically center items */
     }
 
@@ -515,8 +513,8 @@ document.addEventListener('DOMContentLoaded', () => {
   animateOnLoad();
 });
 
-  // Carousel JavaScript
-let currentCarouselIndex = 0; // This will be set to the middle item initially
+ // Carousel JavaScript
+let currentCarouselIndex = 0;
 let carouselItems = [];
 let carouselContainer = null;
 
@@ -530,7 +528,6 @@ function initializeCarousel() {
     }
 
     // Set initial active state to the middle item
-    // Math.floor handles both odd and even numbers gracefully
     currentCarouselIndex = Math.floor(carouselItems.length / 2);
 
     updateCarouselDisplay();
@@ -539,11 +536,9 @@ function initializeCarousel() {
     const readButtons = document.querySelectorAll('.read-memo-button');
     readButtons.forEach(button => {
         button.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default link behavior (e.g., jumping to #)
+            event.preventDefault();
             const memoPath = this.getAttribute('data-memo-path');
             if (memoPath) {
-                // For now, just open the PDF in a new tab.
-                // When you implement a Lightbox, this is where you'd trigger it.
                 window.open(memoPath, '_blank');
                 console.log('Opening memo:', memoPath);
             } else {
@@ -555,38 +550,31 @@ function initializeCarousel() {
 
 function updateCarouselDisplay() {
     carouselItems.forEach((item, index) => {
-        // Remove previous active/faded classes from all items
         item.classList.remove('carousel-item-active', 'carousel-item-faded');
 
         if (index === currentCarouselIndex) {
             item.classList.add('carousel-item-active');
         } else {
-            // All non-active items are faded
             item.classList.add('carousel-item-faded');
         }
     });
 
-    // Scroll to center the currently active item
+    // Scroll to center the currently active item precisely
     if (carouselItems[currentCarouselIndex]) {
         const activeItem = carouselItems[currentCarouselIndex];
-        const itemWidth = activeItem.offsetWidth;
-        const gap = parseFloat(getComputedStyle(carouselContainer).gap) || 0; // Get gap correctly
-
-        // Calculate the total width of items and gaps *before* the active item
-        let sumOfPreviousItemsWidth = 0;
-        for (let i = 0; i < currentCarouselIndex; i++) {
-            sumOfPreviousItemsWidth += carouselItems[i].offsetWidth + gap;
-        }
-
         const containerWidth = carouselContainer.offsetWidth;
+        const scrollWidth = carouselContainer.scrollWidth;
 
-        // Calculate the target scroll position to center the active item
-        // (Sum of widths of items before) + (half of active item's width) - (half of container width)
-        let scrollLeftTarget = sumOfPreviousItemsWidth + (itemWidth / 2) - (containerWidth / 2);
+        // Calculate the center position of the active item relative to the container's scroll start
+        // activeItem.offsetLeft gives the distance from the left edge of the scrollable container
+        const activeItemCenter = activeItem.offsetLeft + (activeItem.offsetWidth / 2);
 
-        // Boundary checks to prevent scrolling too far left or right
-        scrollLeftTarget = Math.max(0, scrollLeftTarget); // Cannot scroll less than 0
-        scrollLeftTarget = Math.min(scrollLeftTarget, carouselContainer.scrollWidth - containerWidth); // Cannot scroll past the end
+        // Calculate the target scroll position to bring the active item's center to the container's center
+        let scrollLeftTarget = activeItemCenter - (containerWidth / 2);
+
+        // Ensure we don't scroll past the limits (0 to max scrollable width)
+        scrollLeftTarget = Math.max(0, scrollLeftTarget);
+        scrollLeftTarget = Math.min(scrollLeftTarget, scrollWidth - containerWidth);
 
         carouselContainer.scrollTo({
             left: scrollLeftTarget,
@@ -598,15 +586,13 @@ function updateCarouselDisplay() {
 function scrollCarousel(direction) {
     let newIndex = currentCarouselIndex + direction;
 
-    // --- No looping around, stop at the ends ---
     if (newIndex < 0) {
-        newIndex = 0; // If trying to go left from the first item, stay at first
+        newIndex = 0;
     } else if (newIndex >= carouselItems.length) {
-        newIndex = carouselItems.length - 1; // If trying to go right from the last item, stay at last
+        newIndex = carouselItems.length - 1;
     }
-    // ------------------------------------------
 
-    if (newIndex !== currentCarouselIndex) { // Only update if the index actually changes
+    if (newIndex !== currentCarouselIndex) {
         currentCarouselIndex = newIndex;
         updateCarouselDisplay();
     }
@@ -615,7 +601,7 @@ function scrollCarousel(direction) {
 // Initialize carousel when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     animateOnLoad();
-    initializeCarousel(); // Call the carousel initialization
+    initializeCarousel();
 });
 
 </script>
