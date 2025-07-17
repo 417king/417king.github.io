@@ -548,6 +548,18 @@ body.dark-mode .lightbox-nav:hover {
     margin-top: 10px;
     padding-left: 80px; 
     padding-right: 80px;
+    max-height: 100px; /* Adjust this value as needed. This sets the maximum height before scrolling. */
+    overflow-y: auto; /* Adds a vertical scrollbar if content overflows */
+    word-wrap: break-word; /* Ensures long words don't overflow */
+    box-sizing: border-box; /* Ensures padding doesn't add to the total width/height */
+}
+
+/* Dark Mode adjustment for scrollbar if you want it to be more visible */
+body.dark-mode .lightbox-caption {
+    color: white;
+    /* Optional: Style scrollbar for dark mode, though browser default is often fine */
+    /* scrollbar-color: #555 #333; */ /* thumb and track */
+}
 }
 
 /* Hide nav buttons if only one item */
