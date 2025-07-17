@@ -283,38 +283,24 @@ body.dark-mode .mini-memo-item {
     box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
 }
 
-.mini-memo-item h4 { /* Changed from h3 to h4 to indicate a sub-heading */
-    font-size: 1.2rem;
-    margin-top: 0;
-    margin-bottom: 0.8rem;
-    color: var(--accent);
 }
 body.dark-mode .mini-memo-item h4 {
     color: white;
 }
 
-.mini-memo-item p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    flex-grow: 1; /* Allows paragraphs to push content down for consistent bottom alignment */
+.mini-memo-item img {
+    width: 100%; /* Make the image fill the width of its container */
+    height: 180px; /* Adjust height as needed to fit the preview well */
+    object-fit: cover; /* Crop if necessary to fill the space without distortion */
+    border-bottom: 1px solid var(--memo-border); /* A subtle separator */
+    border-radius: 8px 8px 0 0; /* Match container border radius on top corners */
+    margin-bottom: 1rem; /* Space between image and text */
 }
 
-.mini-memo-item .read-more-button {
-    background-color: #FFA02F; /* Matching your memo link color */
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border: none;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-    margin-top: auto; /* Pushes the button to the bottom of the box */
+body.dark-mode .mini-memo-item img {
+    border-color: #333; /* Darker border in dark mode */
 }
 
-.mini-memo-item .read-more-button:hover {
-    background-color: #cc8026; /* Darker shade on hover */
-}
 
 .abstract-box {
     max-width: 900px; /* IMPORTANT: Set this to match the max-width of your .expand-container for consistent width */
@@ -405,23 +391,25 @@ body.dark-mode .abstract-box h2 {
 <section class="single-grid-memo-box">
     <div class="mini-memo-item">
         <h4>Project Proposal Overview</h4>
+        <img src="../images/viz-placeholder1.png" alt="Project Proposal Memo Thumbnail">
         <p>A concise summary of a new project proposal, outlining objectives, key deliverables, and expected outcomes.</p>
-        <a href="memo-detail-1.html" class="read-more-button">Read Memo</a>
+        <a href="../documents/memo-project-proposal.pdf" target="_blank" class="read-more-button">Read Memo</a>
     </div>
 
     <div class="mini-memo-item">
         <h4>Quarterly Budget Summary</h4>
+        <img src="../images/viz-placeholder1.png" alt="Quarterly Budget Summary Memo Thumbnail">
         <p>A high-level overview of quarterly expenditures and budget adherence, highlighting key variances.</p>
-        <a href="memo-detail-2.html" class="read-more-button">View Budget</a>
+        <a href="../documents/memo-quarterly-budget.pdf" target="_blank" class="read-more-button">View Budget</a>
     </div>
 
     <div class="mini-memo-item">
         <h4>Performance Analysis Report</h4>
+        <img src="../images/viz-placeholder1.png" alt="Performance Analysis Report Memo Thumbnail">
         <p>An abstract of a report analyzing recent project performance, including success metrics and challenges.</p>
-        <a href="memo-detail-3.html" class="read-more-button">Read Report</a>
+        <a href="../documents/memo-performance-report.pdf" target="_blank" class="read-more-button">Read Report</a>
     </div>
 </section>
-
   
 <section class="expand-container">
   <div class="expand-toggle" onclick="toggleExpandBox()">
