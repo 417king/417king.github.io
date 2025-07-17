@@ -293,6 +293,27 @@ function animateOnLoad() {
   document.querySelector('.hero-box').classList.add('animate-in');
 }
 
+// Add this function:
+function toggleExpandBox() {
+  const expandBox = document.getElementById('expandBox'); // Gets the content box by its ID
+  const togglePlusSign = document.querySelector('.expand-toggle div:first-child'); // Gets the '+' div
+
+  // Toggles the 'open' class on the expand box
+  expandBox.classList.toggle('open');
+
+  // Changes the plus/minus sign
+  if (expandBox.classList.contains('open')) {
+    togglePlusSign.textContent = '-'; // Change to minus when open
+  } else {
+    togglePlusSign.textContent = '+'; // Change back to plus when closed
+  }
+}
+
+// Initialize animations on page load (you should have this)
+document.addEventListener('DOMContentLoaded', () => {
+  animateOnLoad();
+});
+
 </script>
 
 </body>
