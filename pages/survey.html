@@ -452,7 +452,7 @@ function animateOnLoad() {
 </script>
 
 
-<script src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+<script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
 
 
 <script>
@@ -477,31 +477,31 @@ function animateOnLoad() {
 
 // Define your dashboard data
 const dashboardData = [
-  {
+  { // This is the dashboard1 object
     id: "dashboard1",
     buttonLabel: "Survey Standards Dashboard",
     title: "Standardize your Survey Experience",
     description: "The first step to better implementing surveys is understanding the best practices in implementation, methodology, and data processing standards. This visualization offers a comprehensive overview of how you ensure every time that surveys are built to be reliable and actionable.",
-    expandText: "This section would contain more detailed information about the Survey Standards dashboard, its methodology, key metrics, and how to interpret the results for effective survey implementation.", // COMMA ADDED
-    expandToggleTitle: "Expand for Survey Standards Details", // Added this property
+    expandText: "This section would contain more detailed information about the Survey Standards dashboard, its methodology, key metrics, and how to interpret the results for effective survey implementation.",
+    expandToggleTitle: "Expand for Survey Standards Details",
     tableauPath: 'https://public.tableau.com/views/SurveyStandards/LandingPage'
-  },
-  
+  }, 
+  { 
     id: "dashboard2",
     buttonLabel: "Customer Feedback Dashboard",
     title: "Customer Journey Analytics",
     description: "Gain a holistic view of your customer's journey with this interactive dashboard. Track feedback from various touchpoints, identify pain points, and measure overall customer satisfaction.",
-    expandText: "Focuses on user satisfaction, product features, support interactions, and overall brand perception. Feedback drives product development cycles and customer service training. This info is specific to Survey 2.", // COMMA ADDED
-    expandToggleTitle: "Expand for Customer Feedback Details", // Added this property
+    expandText: "Focuses on user satisfaction, product features, support interactions, and overall brand perception. Feedback drives product development cycles and customer service training. This info is specific to Survey 2.",
+    expandToggleTitle: "Expand for Customer Feedback Details",
     tableauPath: 'https://public.tableau.com/views/CustomerFeedbackDashboard/CustomerJourney'
   },
-  {
+  { 
     id: "dashboard3",
     buttonLabel: "Market Research Dashboard",
     title: "Competitive Landscape & Market Trends",
     description: "Analyze market trends, competitor performance, and consumer demographics with this dynamic research dashboard. Inform your strategic planning and identify new opportunities.",
-    expandText: "This dashboard offers insights into market size, growth rates, consumer segmentation, and competitive positioning. It provides geographical breakdowns and industry-specific benchmarks to support strategic decision-making and market entry strategies. Data is updated monthly.", // COMMA ADDED
-    expandToggleTitle: "Expand for Market Research Details", // Added this property
+    expandText: "This dashboard offers insights into market size, growth rates, consumer segmentation, and competitive positioning. It provides geographical breakdowns and industry-specific benchmarks to support strategic decision-making and market entry strategies. Data is updated monthly.",
+    expandToggleTitle: "Expand for Market Research Details",
     tableauPath: 'https://public.tableau.com/views/MarketResearchDashboard/MarketTrends'
   }
 ];
