@@ -391,20 +391,20 @@ body.dark-mode .button-group button.active {
 </div>
 
 
+  <section class="survey-toggles-container">
+  <div class="button-group">
+    <button data-survey-id="dashboard1" class="active">Employee Satisfaction Survey</button>
+    <button data-survey-id="dashboard2">Customer Feedback Survey</button>
+    <button data-survey-id="dashboard3">Market Research Survey</button>
+  </div>
+</section>
+
 <section class="dynamic-content-area">
   <div class="dashboard-box">
     <h2 id="dashboardTitle"></h2>
     <p id="dashboardDescription"></p>
     <div id="tableauVizContainer" class='tableauPlaceholder' style='position: relative'>
       </div>
-  </div>
-</section>
-
-<section class="survey-toggles-container">
-  <div class="button-group">
-    <button data-survey-id="dashboard1" class="active">Employee Satisfaction Survey</button>
-    <button data-survey-id="dashboard2">Customer Feedback Survey</button>
-    <button data-survey-id="dashboard3">Market Research Survey</button>
   </div>
 </section>
 
@@ -474,23 +474,25 @@ function animateOnLoad() {
 const dashboardData = [
   {
     id: "dashboard1",
-    buttonLabel: "Employee Satisfaction Dashboard",
-    title: "Employee Satisfaction Trends",
-    description: "This dashboard visualizes key metrics related to employee satisfaction, engagement, and retention. Explore trends over time and identify areas for improvement in your workforce.",
+    // Renamed button label to reflect the correct dashboard
+    buttonLabel: "Survey Standards Dashboard", 
+    // Updated title and description for Survey Standards
+    title: "Standardize your Survey Experience",
+    description: "The first step to better implementing surveys is understanding the best practices in implementation, methodology, and data processing standards. This visualization offers a comprehensive overview of how you ensure every time that surveys are built to be reliable and actionable.",
     tableauEmbed: `
       <noscript>
         <a href='#'>
-          <img alt='Employee Satisfaction Dashboard ' src='https://public.tableau.com/static/images/Em/EmployeeSatisfactionDashboard/EmployeeSatisfaction/1_rss.png' style='border: none' />
+          <img alt='Landing Page ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Su&#47;SurveyStandards&#47;LandingPage&#47;1_rss.png' style='border: none' />
         </a>
       </noscript>
       <object class='tableauViz' style='display:none;'>
         <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
         <param name='embed_code_version' value='3' />
         <param name='site_root' value='' />
-        <param name='name' value='EmployeeSatisfactionDashboard&#47;EmployeeSatisfaction' />
+        <param name='name' value='SurveyStandards&#47;LandingPage' />
         <param name='tabs' value='no' />
         <param name='toolbar' value='yes' />
-        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Em&#47;EmployeeSatisfactionDashboard&#47;EmployeeSatisfaction&#47;1.png' />
+        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Su&#47;SurveyStandards&#47;LandingPage&#47;1.png' />
         <param name='animate_transition' value='yes' />
         <param name='display_static_image' value='yes' />
         <param name='display_spinner' value='yes' />
