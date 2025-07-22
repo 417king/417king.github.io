@@ -349,7 +349,7 @@ body.dark-mode .button-group button.active {
 </head>
 
 
-<body onload="animateOnLoad()">
+<body>
 
 <header class="new-header">
   <div class="header-left">
@@ -433,6 +433,7 @@ body.dark-mode .button-group button.active {
 </footer>
 
 
+  
 <script>
 function toggleExpandBox() {
   const box = document.getElementById('expandBox');
@@ -516,28 +517,32 @@ const expandToggleTitle = document.getElementById('expandToggleTitle');
 
 let currentViz;
 
-// Function to load Tableau Viz using the Tableau JavaScript API
 function loadTableauViz(containerDiv, selectedDashboard) {
-  // Dispose of the existing viz if it's there
-  if (currentViz) {
-    currentViz.dispose();
-  }
+  // Dispose of the existing viz if it's there
+  if (currentViz) {
+    currentViz.dispose();
+  }
 
-  // Clear the container div before loading a new viz
-  containerDiv.innerHTML = '';
+  // Clear the container div before loading a new viz
+  containerDiv.innerHTML = '';
 
-  const options = {
-    hideTabs: true,
-    hideToolbar: false,
-    onFirstInteractive: function() {
-      console.log('Tableau viz loaded and interactive.');
-    },
-    onFirstVizSizeKnown: function() {
-      console.log('Tableau viz size known.');
+  const options = {
+    hideTabs: true,
+    hideToolbar: false,
+    onFirstInteractive: function() {
+      console.log('Tableau viz loaded and interactive.');
+    },
+    onFirstVizSizeKnown: function() {
+      console.log('Tableau viz size known.');
+    }
+  };
+
+  // Only try to create new tableau.Viz if the 'tableau' object and its 'Viz' property exist
+  if (typeof tableau !== 'undefined' && tableau.Viz) {
+        currentViz = new tableau.Viz(containerDiv, selectedDashboard.tableauPath, options);
+    } else {
+        console.error("Tableau API (tableau.Viz) is not available. Ensure viz_v1.js is loaded correctly and completely.");
     }
-  };
-
-  currentViz = new tableau.Viz(containerDiv, selectedDashboard.tableauPath, options);
 }
 
 // Function to update content based on dashboard ID
