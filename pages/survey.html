@@ -577,7 +577,6 @@ const dashboardTitle = document.getElementById('dashboardTitle');
 const dashboardDescription = document.getElementById('dashboardDescription');
 const expandBoxText = document.getElementById('expandBoxText');
 const surveyButtons = document.querySelectorAll('.button-group button');
-// ADDED THIS LINE:
 const expandToggleTitle = document.getElementById('expandToggleTitle');
 
 let currentViz;
@@ -606,7 +605,7 @@ function loadTableauViz(containerDiv, selectedDashboard) {
   currentViz = new tableau.Viz(containerDiv, selectedDashboard.tableauPath, options);
 }
 
-// Function to update content based on dashboard ID (THIS IS THE CORRECTED ONE)
+// Function to update content based on dashboard ID
 function updateDashboardContent(dashboardId) {
   const selectedDashboard = dashboardData.find(dashboard => dashboard.id === dashboardId);
 
@@ -614,10 +613,10 @@ function updateDashboardContent(dashboardId) {
     dashboardTitle.textContent = selectedDashboard.title;
     dashboardDescription.textContent = selectedDashboard.description;
 
-    loadTableauViz(tableauVizContainer, selectedDashboard); // Correct call
+    loadTableauViz(tableauVizContainer, selectedDashboard);
 
     expandBoxText.textContent = selectedDashboard.expandText;
-    expandToggleTitle.textContent = selectedDashboard.expandToggleTitle; // Correctly setting the expand title
+    expandToggleTitle.textContent = selectedDashboard.expandToggleTitle;
 
     surveyButtons.forEach(button => {
       if (button.dataset.surveyId === dashboardId) {
