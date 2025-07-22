@@ -415,10 +415,11 @@ body.dark-mode .button-group button.active {
 <section class="expand-container">
   <div class="expand-toggle" onclick="toggleExpandBox()">
     <div style="font-size: 1.5rem;">+</div>
-    <div>Expand for More Survey Details</div>
+    <div id="expandToggleTitle">Expand for More Survey Details</div>
   </div>
   <div class="expand-box" id="expandBox">
-    <p id="expandBoxText">Supporting information about survey methods, sampling strategies, analysis frameworks, and additional documentation.</p> </div>
+    <p id="expandBoxText"></p>
+  </div>
 </section>
 
 
@@ -454,7 +455,7 @@ function animateOnLoad() {
 <script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
 
 <script>
-// --- Existing JS Functions ---
+// --- Existing JS Functions (keep these) ---
 function toggleExpandBox() {
   const box = document.getElementById('expandBox');
   box.classList.toggle('open');
@@ -477,9 +478,7 @@ function animateOnLoad() {
 const dashboardData = [
   {
     id: "dashboard1",
-    // Renamed button label to reflect the correct dashboard
-    buttonLabel: "Survey Standards Dashboard", 
-    // Updated title and description for Survey Standards
+    buttonLabel: "Survey Standards Dashboard",
     title: "Standardize your Survey Experience",
     description: "The first step to better implementing surveys is understanding the best practices in implementation, methodology, and data processing standards. This visualization offers a comprehensive overview of how you ensure every time that surveys are built to be reliable and actionable.",
     tableauEmbed: `
@@ -504,7 +503,8 @@ const dashboardData = [
         <param name='language' value='en-US' />
       </object>
     `,
-    expandText: "This dashboard provides a detailed breakdown of satisfaction scores by department, tenure, and management level. It includes drill-down capabilities to analyze specific feedback themes and identify actionable insights for HR and leadership. Data is updated quarterly.",
+    expandText: "This section would contain more detailed information about the Survey Standards dashboard, its methodology, key metrics, and how to interpret the results for effective survey implementation.", // COMMA ADDED
+    expandToggleTitle: "Expand for Survey Standards Details", // Added this property
     tableauPath: 'https://public.tableau.com/views/SurveyStandards/LandingPage'
   },
   {
@@ -534,7 +534,8 @@ const dashboardData = [
         <param name='language' value='en-US' />
       </object>
     `,
-    expandText: "Focuses on user satisfaction, product features, support interactions, and overall brand perception. Feedback drives product development cycles and customer service training. This info is specific to Survey 2.",
+    expandText: "Focuses on user satisfaction, product features, support interactions, and overall brand perception. Feedback drives product development cycles and customer service training. This info is specific to Survey 2.", // COMMA ADDED
+    expandToggleTitle: "Expand for Customer Feedback Details", // Added this property
     tableauPath: 'https://public.tableau.com/views/CustomerFeedbackDashboard/CustomerJourney'
   },
   {
@@ -564,7 +565,8 @@ const dashboardData = [
         <param name='language' value='en-US' />
       </object>
     `,
-    expandText: "This dashboard offers insights into market size, growth rates, consumer segmentation, and competitive positioning. It provides geographical breakdowns and industry-specific benchmarks to support strategic decision-making and market entry strategies. Data is updated monthly.",
+    expandText: "This dashboard offers insights into market size, growth rates, consumer segmentation, and competitive positioning. It provides geographical breakdowns and industry-specific benchmarks to support strategic decision-making and market entry strategies. Data is updated monthly.", // COMMA ADDED
+    expandToggleTitle: "Expand for Market Research Details", // Added this property
     tableauPath: 'https://public.tableau.com/views/MarketResearchDashboard/MarketTrends'
   }
 ];
@@ -575,8 +577,10 @@ const dashboardTitle = document.getElementById('dashboardTitle');
 const dashboardDescription = document.getElementById('dashboardDescription');
 const expandBoxText = document.getElementById('expandBoxText');
 const surveyButtons = document.querySelectorAll('.button-group button');
+// ADDED THIS LINE:
+const expandToggleTitle = document.getElementById('expandToggleTitle');
 
-let currentViz; 
+let currentViz;
 
 // Function to load Tableau Viz using the Tableau JavaScript API
 function loadTableauViz(containerDiv, selectedDashboard) {
@@ -586,18 +590,12 @@ function loadTableauViz(containerDiv, selectedDashboard) {
   }
 
   // Clear the container div before loading a new viz
-  // This is important because Tableau appends to the div,
-  // and we want a clean slate for each load.
-  containerDiv.innerHTML = ''; 
+  containerDiv.innerHTML = '';
 
-  // Define viz options if needed (e.g., width, height, hideTabs, hideToolbar)
-  // For now, we'll let CSS handle sizing, but this is where you'd add more control.
   const options = {
-    // These options will override params in the embed code if present
-    hideTabs: true, // Example: always hide tabs
-    hideToolbar: false, // Example: always show toolbar
+    hideTabs: true,
+    hideToolbar: false,
     onFirstInteractive: function() {
-      // The viz is loaded and ready
       console.log('Tableau viz loaded and interactive.');
     },
     onFirstVizSizeKnown: function() {
@@ -605,33 +603,22 @@ function loadTableauViz(containerDiv, selectedDashboard) {
     }
   };
 
-  // Create a new Tableau Viz object
-  // The 'name' parameter should come from the 'name' param in your original embed code.
-  // Example: 'SurveyStandards/LandingPage'
-  // Or, you can parse it from the embed code's URL if you stored the full URL instead of just the name.
-  // For simplicity, we'll add a 'tableauPath' to your dashboardData.
   currentViz = new tableau.Viz(containerDiv, selectedDashboard.tableauPath, options);
 }
 
-// Function to update content based on dashboard ID
+// Function to update content based on dashboard ID (THIS IS THE CORRECTED ONE)
 function updateDashboardContent(dashboardId) {
   const selectedDashboard = dashboardData.find(dashboard => dashboard.id === dashboardId);
 
   if (selectedDashboard) {
-    // Update dashboard title and description
     dashboardTitle.textContent = selectedDashboard.title;
     dashboardDescription.textContent = selectedDashboard.description;
 
-    // Call the new loadTableauViz function with the container and selected dashboard data
-    loadTableauViz(tableauVizContainer, selectedDashboard); // Pass the container and dashboard object
+    loadTableauViz(tableauVizContainer, selectedDashboard); // Correct call
 
-    // Update Expand Box text
     expandBoxText.textContent = selectedDashboard.expandText;
+    expandToggleTitle.textContent = selectedDashboard.expandToggleTitle; // Correctly setting the expand title
 
-    // Update expand toggle title
-    expandToggleTitle.textContent = selectedDashboard.expandToggleTitle;
-
-    // Update active button state
     surveyButtons.forEach(button => {
       if (button.dataset.surveyId === dashboardId) {
         button.classList.add('active');
@@ -640,42 +627,6 @@ function updateDashboardContent(dashboardId) {
       }
     });
 
-    // Optional: If you want to close the expand box when a new dashboard is selected
-    const expandBox = document.getElementById('expandBox');
-    if (expandBox.classList.contains('open')) {
-      expandBox.classList.remove('open');
-    }
-
-  } else {
-    console.error("Dashboard data not found for ID:", dashboardId);
-  }
-}
-
-// Function to update content based on dashboard ID
-function updateDashboardContent(dashboardId) {
-  const selectedDashboard = dashboardData.find(dashboard => dashboard.id === dashboardId);
-
-  if (selectedDashboard) {
-    // Update dashboard title and description
-    dashboardTitle.textContent = selectedDashboard.title;
-    dashboardDescription.textContent = selectedDashboard.description;
-
-    // Load Tableau dashboard
-    loadTableauViz(selectedDashboard.tableauEmbed);
-
-    // Update Expand Box text
-    expandBoxText.textContent = selectedDashboard.expandText;
-
-    // Update active button state
-    surveyButtons.forEach(button => {
-      if (button.dataset.surveyId === dashboardId) {
-        button.classList.add('active');
-      } else {
-        button.classList.remove('active');
-      }
-    });
-
-    // Optional: If you want to close the expand box when a new dashboard is selected
     const expandBox = document.getElementById('expandBox');
     if (expandBox.classList.contains('open')) {
       expandBox.classList.remove('open');
@@ -695,9 +646,10 @@ surveyButtons.forEach(button => {
 
 // Initialize with the first dashboard on page load
 document.addEventListener('DOMContentLoaded', () => {
-  animateOnLoad(); // Keep your existing animation
+  animateOnLoad();
   updateDashboardContent('dashboard1'); // Load the first dashboard content by default
 });
+</script>
 </script>
 
 </body>
