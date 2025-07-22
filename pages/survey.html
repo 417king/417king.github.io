@@ -205,41 +205,7 @@
   /* margin-right: auto; */
 }
 
-    
-    /* Main Two Column */
-    .two-column {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 4rem auto;
-      padding: 0 2rem;
-      align-items: start;
-    }
-    .left-box, .right-box {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .left-box h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 28px;
-      margin-bottom: 1rem;
-    }
-    .left-box p {
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-    .right-box iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
+ 
     /* Expandable Section */
     .expand-container {
       max-width: 900px;
@@ -323,52 +289,8 @@
       color: white; /* Ensure heading is visible in dark mode */
     }
 
-/* New Introduction Section */
-.introduction-section {
-  max-width: 100vw;
-  margin: 0 auto; /* Set top/bottom margin to 0 for now. We'll control spacing with padding */
-  padding: 0 2rem;   /* Horizontal padding */
-  /* Remove text-align: center here, as the box content will be centered */
-  /* color: var(--text-dark); - No need to specify here, the box will set its own text color */
-}
 
-.intro-content-box {
-  background: white; /* Keep this for the white background */
-  padding: 2.5rem;   /* Internal padding for the text */
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  text-align: center; /* Center the text inside the white box */
-  margin-top: 0;    /* IMPORTANT: CHANGE THIS TO 0 */
-  margin-bottom: 0; /* IMPORTANT: CHANGE THIS TO 0 */
-}
-
-    
-.intro-content-box h2 { /* Targeting h2 directly inside intro-content-box */
-  font-family: 'Poppins', sans-serif;
-  font-size: 32px;
-  margin-bottom: 1.5rem;
-  color: var(--accent); /* Consistent heading color */
-}
-
-.intro-content-box p { /* Targeting p directly inside intro-content-box */
-  font-family: 'Poppins', sans-serif;
-  font-size: 17px;
-  line-height: 1.7;
-  max-width: 800px; /* Limit paragraph width for better readability */
-  margin: 0 auto 1rem auto; /* Center paragraphs within the box */
-}
-
-/* Dark Mode for Introduction Section */
-body.dark-mode .introduction-section .intro-content-box { /* Ensure this targets intro-content-box */
-  background: #1f1f1f; /* Match other dark mode boxes */
-  color: white; /* Ensure text color is white in dark mode */
-}
-
-body.dark-mode .introduction-section .intro-content-box h2 { /* Ensure this targets h2 within intro-content-box */
-  color: white; /* Ensure heading is visible in dark mode */
-}
-
-/* Styling for the new button section */
+/* Styling for the button section */
 .survey-toggles-container {
     max-width: 1200px; /* Aligns with your other main content sections */
     margin: 3rem auto 2rem auto; /* Top margin, centered, bottom margin for spacing */
@@ -458,81 +380,32 @@ body.dark-mode .button-group button.active {
 <section class="hero">
   <div class="hero-box">
     <h1>Surveys</h1>
-    <p>More than just a good question, surveys requires precision and a deep understanding of your audience. Take the first step towards more informed decision-making: explore my 
-strategies for effective survey design</p>
+    <p>More than just a good question, surveys requires a deep understanding of your audience. Explore my strategies for designing effective surveys.</p>
   </div>
 </section>
 
 
   
-<section class="tableau-dashboard-container">
+
+<div class="separator-bar">
+</div>
+
+
+<section class="dynamic-content-area">
   <div class="dashboard-box">
-    <h2>Standardize your Survey Experience</h2>
-    <p>The first step to better implementing surveys is understanding the best practices in implementation, methodology, and data processing standards. This visualization offers a comprehensive overview of how you ensure every time that surveys are built to be reliable and actionable.</p>
-    
-  <div class='tableauPlaceholder' id='viz1748974701347' style='position: relative'>
-      <noscript>
-        <a href='#'>
-          <img alt='Landing Page ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Su&#47;SurveyStandards&#47;LandingPage&#47;1_rss.png' style='border: none' />
-        </a>
-      </noscript>
-      <object class='tableauViz' style='display:none;'>
-        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-        <param name='embed_code_version' value='3' />
-        <param name='site_root' value='' />
-        <param name='name' value='SurveyStandards&#47;LandingPage' />
-        <param name='tabs' value='no' />
-        <param name='toolbar' value='yes' />
-        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Su&#47;SurveyStandards&#47;LandingPage&#47;1.png' />
-        <param name='animate_transition' value='yes' />
-        <param name='display_static_image' value='yes' />
-        <param name='display_spinner' value='yes' />
-        <param name='display_overlay' value='yes' />
-        <param name='display_count' value='yes' />
-        <param name='language' value='en-US' />
-      </object>
-    </div>
-    
-    <script type='text/javascript'>
-      var divElement = document.getElementById('viz1748974701347');
-      var vizElement = divElement.getElementsByTagName('object')[0];
-      // Tableau's default embed script often hardcodes width/height for responsiveness.
-      // To let your CSS (height: 80vh;) control the sizing more effectively,
-      // you can comment out or remove these lines if they cause issues.
-      // vizElement.style.width='1000px';vizElement.style.height='852px';
-      
-      var scriptElement = document.createElement('script');
-      scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-      vizElement.parentNode.insertBefore(scriptElement, vizElement);
-    </script>
+    <h2 id="dashboardTitle"></h2>
+    <p id="dashboardDescription"></p>
+    <div id="tableauVizContainer" class='tableauPlaceholder' style='position: relative'>
+      </div>
   </div>
 </section>
-
-<div class="separator-bar">
-</div>
-
-<section class="introduction-section">
-  <div class="intro-content-box"> <h2>Choose the survey that's right for you</h2>
-    <p>With the right survey, it's easy to collect data that meet your needs.</p>
-    <p>It's essential to choose the right structure and approach to get the most out of your surveys. Below you'll discover how my survey approaches can help you gather the insights you need, whether it's through simple questionnaires or more complex research studies.</p>
-  </div> </section>
-
-<div class="separator-bar">
-</div>
 
 <section class="survey-toggles-container">
   <div class="button-group">
-    <button data-survey-id="survey1" class="active">Employee Satisfaction Survey</button>
-    <button data-survey-id="survey2">Customer Feedback Survey</button>
-    <button data-survey-id="survey3">Market Research Survey</button>
+    <button data-survey-id="dashboard1" class="active">Employee Satisfaction Survey</button>
+    <button data-survey-id="dashboard2">Customer Feedback Survey</button>
+    <button data-survey-id="dashboard3">Market Research Survey</button>
   </div>
-</section>
-
-<section class="two-column">
-  <div class="left-box">
-    <h2 id="surveyOverviewTitle">Survey Overview</h2> <p id="surveyOverviewText">Background, goals, and methodology of survey projects focused on capturing actionable data.</p> </div>
-  <div class="right-box">
-    <iframe id="qualtricsIframe" src="https://youruniversity.qualtrics.com/jfe/form/SV_XXXXX"></iframe> </div>
 </section>
 
 
@@ -573,8 +446,16 @@ function animateOnLoad() {
   document.querySelector('.hero-box').classList.add('animate-in');
 }
 </script>
+
+
+<script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
+
 <script>
 // --- Existing JS Functions ---
+function toggleExpandBox() {
+  const box = document.getElementById('expandBox');
+  box.classList.toggle('open');
+}
 
 function toggleSwitch(el) {
   el.classList.toggle('active');
@@ -587,89 +468,157 @@ function animateOnLoad() {
   document.querySelector('.hero-box').classList.add('animate-in');
 }
 
-// --- NEW JS for Survey Toggles ---
+// --- NEW JS for Dynamic Dashboard and Toggles ---
 
-// Define your survey data
-const surveyData = [
+// Define your dashboard data
+const dashboardData = [
   {
-    id: "survey1",
-    buttonLabel: "Employee Satisfaction Survey", // Not strictly needed here but good for data integrity
-    qualtricsUrl: "https://universityname.qualtrics.com/jfe/form/SV_SAMPLE1", // REPLACE WITH YOUR ACTUAL URLS
-    overviewTitle: "Employee Satisfaction Survey Overview",
-    overviewText: "This survey assesses employee satisfaction, engagement, and work environment factors. Data helps identify areas for improvement in company culture and operational efficiency.",
-    expandText: "Key metrics include job satisfaction, work-life balance, management effectiveness, and career development opportunities. Results are used for HR strategy and policy adjustments. This info is specific to Survey 1."
+    id: "dashboard1",
+    buttonLabel: "Employee Satisfaction Dashboard",
+    title: "Employee Satisfaction Trends",
+    description: "This dashboard visualizes key metrics related to employee satisfaction, engagement, and retention. Explore trends over time and identify areas for improvement in your workforce.",
+    tableauEmbed: `
+      <noscript>
+        <a href='#'>
+          <img alt='Employee Satisfaction Dashboard ' src='https://public.tableau.com/static/images/Em/EmployeeSatisfactionDashboard/EmployeeSatisfaction/1_rss.png' style='border: none' />
+        </a>
+      </noscript>
+      <object class='tableauViz' style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+        <param name='embed_code_version' value='3' />
+        <param name='site_root' value='' />
+        <param name='name' value='EmployeeSatisfactionDashboard&#47;EmployeeSatisfaction' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Em&#47;EmployeeSatisfactionDashboard&#47;EmployeeSatisfaction&#47;1.png' />
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' />
+        <param name='language' value='en-US' />
+      </object>
+    `,
+    expandText: "This dashboard provides a detailed breakdown of satisfaction scores by department, tenure, and management level. It includes drill-down capabilities to analyze specific feedback themes and identify actionable insights for HR and leadership. Data is updated quarterly."
   },
   {
-    id: "survey2",
-    buttonLabel: "Customer Feedback Survey",
-    qualtricsUrl: "https://universityname.qualtrics.com/jfe/form/SV_SAMPLE2", // REPLACE WITH YOUR ACTUAL URLS
-    overviewTitle: "Customer Feedback Survey Overview",
-    overviewText: "Designed to gather insights into customer experience, product satisfaction, and service quality. Essential for improving customer loyalty and product offerings.",
+    id: "dashboard2",
+    buttonLabel: "Customer Feedback Dashboard",
+    title: "Customer Journey Analytics",
+    description: "Gain a holistic view of your customer's journey with this interactive dashboard. Track feedback from various touchpoints, identify pain points, and measure overall customer satisfaction.",
+    tableauEmbed: `
+      <noscript>
+        <a href='#'>
+          <img alt='Customer Feedback Dashboard ' src='https://public.tableau.com/static/images/Cu/CustomerFeedbackDashboard/CustomerJourney/1_rss.png' style='border: none' />
+        </a>
+      </noscript>
+      <object class='tableauViz' style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+        <param name='embed_code_version' value='3' />
+        <param name='site_root' value='' />
+        <param name='name' value='CustomerFeedbackDashboard&#47;CustomerJourney' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cu&#47;CustomerFeedbackDashboard&#47;CustomerJourney&#47;1.png' />
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' />
+        <param name='language' value='en-US' />
+      </object>
+    `,
     expandText: "Focuses on user satisfaction, product features, support interactions, and overall brand perception. Feedback drives product development cycles and customer service training. This info is specific to Survey 2."
   },
   {
-    id: "survey3",
-    buttonLabel: "Market Research Survey",
-    qualtricsUrl: "https://universityname.qualtrics.com/jfe/form/SV_SAMPLE3", // REPLACE WITH YOUR ACTUAL URLS
-    overviewTitle: "Market Research Survey Overview",
-    overviewText: "Explores market trends, consumer behavior, and competitive landscape. Provides data for strategic business decisions and new market entry evaluations.",
-    expandText: "Covers demographics, purchasing habits, brand awareness, and competitor analysis. Insights inform marketing campaigns, product positioning, and business expansion plans. This info is specific to Survey 3."
+    id: "dashboard3",
+    buttonLabel: "Market Research Dashboard",
+    title: "Competitive Landscape & Market Trends",
+    description: "Analyze market trends, competitor performance, and consumer demographics with this dynamic research dashboard. Inform your strategic planning and identify new opportunities.",
+    tableauEmbed: `
+      <noscript>
+        <a href='#'>
+          <img alt='Market Research Dashboard ' src='https://public.tableau.com/static/images/Ma/MarketResearchDashboard/MarketTrends/1_rss.png' style='border: none' />
+        </a>
+      </noscript>
+      <object class='tableauViz' style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+        <param name='embed_code_version' value='3' />
+        <param name='site_root' value='' />
+        <param name='name' value='MarketResearchDashboard&#47;MarketTrends' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ma&#47;MarketResearchDashboard&#47;MarketTrends&#47;1.png' />
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' />
+        <param name='language' value='en-US' />
+      </object>
+    `,
+    expandText: "This dashboard offers insights into market size, growth rates, consumer segmentation, and competitive positioning. It provides geographical breakdowns and industry-specific benchmarks to support strategic decision-making and market entry strategies. Data is updated monthly."
   }
 ];
 
 // Get references to the HTML elements
-const qualtricsIframe = document.getElementById('qualtricsIframe');
-const surveyOverviewTitle = document.getElementById('surveyOverviewTitle');
-const surveyOverviewText = document.getElementById('surveyOverviewText');
+const tableauVizContainer = document.getElementById('tableauVizContainer');
+const dashboardTitle = document.getElementById('dashboardTitle');
+const dashboardDescription = document.getElementById('dashboardDescription');
 const expandBoxText = document.getElementById('expandBoxText');
-const surveyButtons = document.querySelectorAll('.button-group button'); // Select all buttons in the group
+const surveyButtons = document.querySelectorAll('.button-group button');
 
-// Function to update content based on survey ID
-function updateSurveyContent(surveyId) {
-  const selectedSurvey = surveyData.find(survey => survey.id === surveyId);
+// Function to load Tableau Viz
+function loadTableauViz(embedCode) {
+  tableauVizContainer.innerHTML = embedCode; // Set the innerHTML directly
+}
 
-  if (selectedSurvey) {
-    // Update Qualtrics iframe
-    qualtricsIframe.src = selectedSurvey.qualtricsUrl;
+// Function to update content based on dashboard ID
+function updateDashboardContent(dashboardId) {
+  const selectedDashboard = dashboardData.find(dashboard => dashboard.id === dashboardId);
 
-    // Update Survey Overview
-    surveyOverviewTitle.textContent = selectedSurvey.overviewTitle;
-    surveyOverviewText.textContent = selectedSurvey.overviewText;
+  if (selectedDashboard) {
+    // Update dashboard title and description
+    dashboardTitle.textContent = selectedDashboard.title;
+    dashboardDescription.textContent = selectedDashboard.description;
+
+    // Load Tableau dashboard
+    loadTableauViz(selectedDashboard.tableauEmbed);
 
     // Update Expand Box text
-    expandBoxText.textContent = selectedSurvey.expandText;
+    expandBoxText.textContent = selectedDashboard.expandText;
 
     // Update active button state
     surveyButtons.forEach(button => {
-      if (button.dataset.surveyId === surveyId) {
+      if (button.dataset.surveyId === dashboardId) {
         button.classList.add('active');
       } else {
         button.classList.remove('active');
       }
     });
 
-    // Optional: If you want to close the expand box when a new survey is selected
+    // Optional: If you want to close the expand box when a new dashboard is selected
     const expandBox = document.getElementById('expandBox');
     if (expandBox.classList.contains('open')) {
       expandBox.classList.remove('open');
     }
 
   } else {
-    console.error("Survey data not found for ID:", surveyId);
+    console.error("Dashboard data not found for ID:", dashboardId);
   }
 }
 
 // Add event listeners to buttons
 surveyButtons.forEach(button => {
   button.addEventListener('click', () => {
-    updateSurveyContent(button.dataset.surveyId);
+    updateDashboardContent(button.dataset.surveyId);
   });
 });
 
-// Initialize with the first survey on page load
+// Initialize with the first dashboard on page load
 document.addEventListener('DOMContentLoaded', () => {
   animateOnLoad(); // Keep your existing animation
-  updateSurveyContent('survey1'); // Load default survey content
+  updateDashboardContent('dashboard1'); // Load the first dashboard content by default
 });
 </script>
 
