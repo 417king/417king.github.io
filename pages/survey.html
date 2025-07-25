@@ -1,8 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Survey Designs - Christopher King</title>
-  <link rel="icon" href="../images/favicon.png" type="image/png" />
+  <title>Christopher King - Survey Designs</title>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -87,6 +88,7 @@
       border-radius: 6px;
       transition: background-color 0.3s ease;
     }
+
     .color-rect {
       width: 6px;
       height: 30px;
@@ -107,16 +109,16 @@
       justify-content: flex-start;
       align-items: center;
       padding: 8rem 2rem 4rem;
-      background-image: url('../images/banner1.png'); 
+      background-image: url('images/banner1.png');
       background-size: cover;
       background-position: center;
-      opacity: 0;
       transition: opacity 1s ease 0.4s;
+      opacity: 0;
     }
     .hero.animate-in { opacity: 1; }
 
     .hero-box {
-      background: rgba(255, 255, 255, 0.97);
+      background: rgba(255, 255, 255, 0.95);
       padding: 2rem;
       border-radius: 16px;
       margin-left: 10%;
@@ -131,115 +133,15 @@
       opacity: 1;
       transform: translateY(0);
     }
-    .hero-box h1 { 
-      font-size: 36px; margin-bottom: 0.5rem;
-      border-bottom: 6px solid #7F30C4; /* Adjust color and thickness as needed */
+    .hero-box h1 {
+      font-size: 36px;
+      margin-bottom: 0.5rem;
+      border-bottom: 6px solid #D7A8FF; /* Adjust color and thickness as needed */
       padding-bottom: 0.1px; /* Adds space between text and underline */
       display: inline-block; /* Makes the border only as wide as the text */
     }
-
     .hero-box p {
-      font-size: 1.2rem;
-    }
-
-    /* Tableau Dashboard Section */
-    .tableau-dashboard-container {
-      max-width: 1200px; /* Matches .two-column for consistent width */
-      margin: 4rem auto; /* Centers it and provides vertical spacing */
-      padding: 0 2rem;   /* Horizontal padding like .two-column */
-    }
-
-    .dashboard-box {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  margin: 0 auto; /* Keep this to center it */
-  min-height: 40vh; /* Your desired min-height */
-  width: 60vw; 
-  max-width: 1000px;
-}
-
-    .dashboard-box h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 28px; /* Similar to .left-box h2 */
-      margin-bottom: 1rem;
-      color: var(--accent); /* Or var(--text-dark) if preferred */
-    }
-
-    .dashboard-box p {
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    /* Important: The Tableau embed code generates a div with this class. */
-    /* We'll use this to center the actual Tableau viz within its parent dashboard-box. */
-    .tableauPlaceholder {
-      display: flex;       /* Use flexbox */
-      justify-content: center; /* Center horizontally */
-      align-items: center;   /* Center vertically (if height allows) */
-      width: 100%;
-      height: 60vh; /* This should match the desired height of the viz */
-
-      /* Optional: You may want to add overflow if the viz is larger than 80vh */
-      overflow: hidden;
-    }
-
-    /* If Tableau's embed script uses an object or iframe directly inside tableauPlaceholder, ensure it scales */
-    .tableauPlaceholder object,
-    .tableauPlaceholder iframe {
-        display: block; /* Ensure it behaves like a block element */
-        margin: 0 auto; /* This can help center if flexbox isn't enough for specific Tableau quirks */
-        width: 100%; /* Ensure it fills the placeholder width */
-        height: 100%; /* Ensure it fills the placeholder height */
-        border: none; /* Remove any default border */
-    }
-
-.separator-bar {
-  border-bottom: 25px solid #003366; 
-  width: 100%; 
-  margin-top: 0rem; 
-  /* Add some space above it, adjust as needed */
-  /* If you want it to behave like a section and have max-width, uncomment and adjust: */
-  /* max-width: 1200px; */
-  /* margin-left: auto; */
-  /* margin-right: auto; */
-}
-
- 
-    /* Expandable Section */
-    .expand-container {
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 0 2rem;
-    }
-    .expand-toggle {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      cursor: pointer;
-      font-weight: bold;
-      background: white;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .expand-box {
-      margin-top: 1rem;
-      background: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: max-height 0.5s ease, opacity 0.5s ease;
-    }
-    .expand-box.open {
-      max-height: 500px;
-      opacity: 1;
+      font-size: 1rem;
     }
 
     /* Footer */
@@ -275,82 +177,16 @@
     body.dark-mode .hero {
       background-image: url('nightbanner1.jpg');
     }
-    body.dark-mode .hero-box,
-    body.dark-mode .left-box,
-    body.dark-mode .right-box,
-    body.dark-mode .expand-toggle,
-    body.dark-mode .expand-box {
+    body.dark-mode .hero-box {
       background: #1f1f1f;
       color: white;
     }
-    /* Dark Mode for Tableau Section */
-    body.dark-mode .dashboard-box {
-      background: #1f1f1f; /* Matches other dark mode boxes */
-      color: white;
-    }
-    body.dark-mode .dashboard-box h2 {
-      color: white; /* Ensure heading is visible in dark mode */
-    }
-
-
-/* Styling for the button section */
-.survey-toggles-container {
-    max-width: 1200px; /* Aligns with your other main content sections */
-    margin: 3rem auto 2rem auto; /* Top margin, centered, bottom margin for spacing */
-    padding: 0 2rem;   /* Horizontal padding */
-    text-align: center; /* Center the button group */
-}
-
-.button-group {
-    display: flex;
-    flex-wrap: wrap; /* Allows buttons to wrap to the next line on smaller screens */
-    gap: 1rem; /* Space between buttons */
-    justify-content: center; /* Centers buttons within the group */
-}
-
-.button-group button {
-    background-color: var(--accent); /* Dark blue background */
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    flex-shrink: 0; /* Prevent buttons from shrinking if space is tight */
-}
-
-.button-group button:hover:not(.active) { /* Hover effect only for non-active buttons */
-    background-color: #004488; /* Slightly darker on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-}
-
-.button-group button.active {
-    background-color: #002244; /* Even darker to show active state */
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.3); /* Inset shadow for "pressed" look */
-    cursor: default; /* No hover effect when active */
-    transform: none; /* No lift effect when active */
-}
-
-/* Dark mode for buttons */
-body.dark-mode .button-group button {
-    background-color: #333;
-    color: white;
-}
-body.dark-mode .button-group button:hover:not(.active) {
-    background-color: #555;
-}
-body.dark-mode .button-group button.active {
-    background-color: #111;
-}
   </style>
 </head>
 
+<body onload="animateOnLoad()">
 
-<body>
-
+<!-- Header -->
 <header class="new-header">
   <div class="header-left">
     <div class="dark-toggle-switch" onclick="toggleSwitch(this)">
@@ -379,45 +215,15 @@ body.dark-mode .button-group button.active {
   </div>
 </header>
 
-
+<!-- Hero -->
 <section class="hero">
   <div class="hero-box">
-    <h1>Surveys</h1>
-    <p>More than just a good question, surveys requires a deep understanding of your audience. Explore my strategies for designing effective surveys.</p>
+    <h1>Under Construction!</h1>
+    <p></p>
   </div>
 </section>
 
-
-  <section class="survey-toggles-container">
-  <div class="button-group">
-    <button data-survey-id="dashboard1" class="active">Employee Satisfaction Survey</button>
-    <button data-survey-id="dashboard2">Customer Feedback Survey</button>
-    <button data-survey-id="dashboard3">Market Research Survey</button>
-  </div>
-</section>
-
-<section class="dynamic-content-area">
-  <div class="dashboard-box">
-    <h2 id="dashboardTitle"></h2>
-    <p id="dashboardDescription"></p>
-    <div id="tableauVizContainer" class='tableauPlaceholder' style='position: relative'>
-      </div>
-  </div>
-</section>
-
-
-<section class="expand-container">
-  <div class="expand-toggle" onclick="toggleExpandBox()">
-    <div style="font-size: 1.5rem;">+</div>
-    <div id="expandToggleTitle">Expand for More Survey Details</div>
-  </div>
-  <div class="expand-box" id="expandBox">
-    <p id="expandBoxText"></p>
-  </div>
-</section>
-
-
-
+<!-- Footer -->
 <footer id="footer">
   <p>Let's Connect!</p>
   <div class="social-links">
@@ -426,60 +232,8 @@ body.dark-mode .button-group button.active {
   </div>
 </footer>
 
-
-
-<script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
-
-
+<!-- Scripts -->
 <script>
-// --- NEW JS for Dynamic Dashboard and Toggles ---
-
-// Define your dashboard data
-const dashboardData = [
-  { // This is the dashboard1 object
-    id: "dashboard1",
-    buttonLabel: "Survey Standards Dashboard",
-    title: "Standardize your Survey Experience",
-    description: "The first step to better implementing surveys is understanding the best practices in implementation, methodology, and data processing standards. This visualization offers a comprehensive overview of how you ensure every time that surveys are built to be reliable and actionable.",
-    expandText: "This section would contain more detailed information about the Survey Standards dashboard, its methodology, key metrics, and how to interpret the results for effective survey implementation.",
-    expandToggleTitle: "Expand for Survey Standards Details",
-    tableauPath: 'https://public.tableau.com/views/SurveyStandards/LandingPage'
-  }, 
-  { 
-    id: "dashboard2",
-    buttonLabel: "Customer Feedback Dashboard",
-    title: "Customer Journey Analytics",
-    description: "Gain a holistic view of your customer's journey with this interactive dashboard. Track feedback from various touchpoints, identify pain points, and measure overall customer satisfaction.",
-    expandText: "Focuses on user satisfaction, product features, support interactions, and overall brand perception. Feedback drives product development cycles and customer service training. This info is specific to Survey 2.",
-    expandToggleTitle: "Expand for Customer Feedback Details",
-    tableauPath: 'https://public.tableau.com/views/CustomerFeedbackDashboard/CustomerJourney'
-  },
-  { 
-    id: "dashboard3",
-    buttonLabel: "Market Research Dashboard",
-    title: "Competitive Landscape & Market Trends",
-    description: "Analyze market trends, competitor performance, and consumer demographics with this dynamic research dashboard. Inform your strategic planning and identify new opportunities.",
-    expandText: "This dashboard offers insights into market size, growth rates, consumer segmentation, and competitive positioning. It provides geographical breakdowns and industry-specific benchmarks to support strategic decision-making and market entry strategies. Data is updated monthly.",
-    expandToggleTitle: "Expand for Market Research Details",
-    tableauPath: 'https://public.tableau.com/views/MarketResearchDashboard/MarketTrends'
-  }
-];
-
-// Get references to the HTML elements
-const tableauVizContainer = document.getElementById('tableauVizContainer');
-const dashboardTitle = document.getElementById('dashboardTitle');
-const dashboardDescription = document.getElementById('dashboardDescription');
-const expandBoxText = document.getElementById('expandBoxText');
-const surveyButtons = document.querySelectorAll('.button-group button');
-const expandToggleTitle = document.getElementById('expandToggleTitle');
-
-let currentViz;
-
-function toggleExpandBox() {
-  const box = document.getElementById('expandBox');
-  box.classList.toggle('open');
-}
-
 function toggleSwitch(el) {
   el.classList.toggle('active');
   document.body.classList.toggle('dark-mode');
@@ -490,78 +244,6 @@ function animateOnLoad() {
   document.querySelector('.hero').classList.add('animate-in');
   document.querySelector('.hero-box').classList.add('animate-in');
 }
-
-function loadTableauViz(containerDiv, selectedDashboard) {
-  // Dispose of the existing viz if it's there
-  if (currentViz) {
-    currentViz.dispose();
-  }
-
-  // Clear the container div before loading a new viz
-  containerDiv.innerHTML = '';
-
-  const options = {
-    hideTabs: true,
-    hideToolbar: false,
-    onFirstInteractive: function() {
-      console.log('Tableau viz loaded and interactive.');
-    },
-    onFirstVizSizeKnown: function() {
-      console.log('Tableau viz size known.');
-    }
-  };
-
-  // Only try to create new tableau.Viz if the 'tableau' object and its 'Viz' property exist
-  if (typeof tableau !== 'undefined' && tableau.Viz) {
-        currentViz = new tableau.Viz(containerDiv, selectedDashboard.tableauPath, options);
-    } else {
-        console.error("Tableau API (tableau.Viz) is not available. Ensure viz_v1.js is loaded correctly and completely.");
-    }
-}
-
-// Function to update content based on dashboard ID
-function updateDashboardContent(dashboardId) {
-  const selectedDashboard = dashboardData.find(dashboard => dashboard.id === dashboardId);
-
-  if (selectedDashboard) {
-    dashboardTitle.textContent = selectedDashboard.title;
-    dashboardDescription.textContent = selectedDashboard.description;
-
-    loadTableauViz(tableauVizContainer, selectedDashboard);
-
-    expandBoxText.textContent = selectedDashboard.expandText;
-    expandToggleTitle.textContent = selectedDashboard.expandToggleTitle;
-
-    surveyButtons.forEach(button => {
-      if (button.dataset.surveyId === dashboardId) {
-        button.classList.add('active');
-      } else {
-        button.classList.remove('active');
-      }
-    });
-
-    const expandBox = document.getElementById('expandBox');
-    if (expandBox.classList.contains('open')) {
-      expandBox.classList.remove('open');
-    }
-
-  } else {
-    console.error("Dashboard data not found for ID:", dashboardId);
-  }
-}
-
-// Add event listeners to buttons
-surveyButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    updateDashboardContent(button.dataset.surveyId);
-  });
-});
-
-// Initialize with the first dashboard on page load
-document.addEventListener('DOMContentLoaded', () => {
-  animateOnLoad();
-  updateDashboardContent('dashboard1'); // Load the first dashboard content by default
-});
 </script>
 
 </body>
