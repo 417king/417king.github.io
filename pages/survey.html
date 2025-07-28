@@ -178,11 +178,6 @@
         tableauVizContainer.innerHTML = ''; // Clear the container
       }
 
-      // Update Introduction Box text
-      introTitle.textContent = selectedDashboard.introTitle;
-      introParagraph1.textContent = selectedDashboard.introParagraph1;
-      introParagraph2.textContent = selectedDashboard.introParagraph2;
-
       // Create new Tableau Viz
       // Ensure the container is empty before creating a new viz
       tableauViz = new tableau.Viz(
