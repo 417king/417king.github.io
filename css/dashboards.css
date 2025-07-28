@@ -42,7 +42,7 @@
 
 /* Dashboard container box */
 .dashboard-box {
-  max-width: 1200px;
+  max-width: 900px;
   margin: 2rem auto;
   padding: 1rem;
   border-radius: 12px;
@@ -53,7 +53,7 @@
 /* Tableau embed sizing */
 .tableauPlaceholder {
   width: 100%;
-  height: 80vh;
+  height: 400vh;
   overflow: hidden;
 }
 
