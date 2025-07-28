@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/boxes.css">
-  <link rel="stylesheet" href="../css/dashboards.css">
   
   <style>
     .hero-box h1 {
@@ -154,8 +153,31 @@
   src="../js/main.js">
 </script>
 
-  <script 
-  src="../js/dashboards.js">
+<script>
+  // Load Tableau API once
+  const script = document.createElement('script');
+  script.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
+  document.head.appendChild(script);
+
+  // Toggle dashboards display
+  const buttons = document.querySelectorAll('.button-group button');
+  const dashboards = document.querySelectorAll('.dashboard-box');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const targetId = button.getAttribute('data-dashboard');
+
+      // Hide all dashboards
+      dashboards.forEach(d => d.style.display = 'none');
+
+      // Show the selected dashboard
+      document.getElementById(targetId).style.display = 'block';
+
+      // Update button active state
+      buttons.forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
+    });
+  });
 </script>
   
 </body>
