@@ -1,4 +1,4 @@
-
+window.addEventListener('DOMContentLoaded', () => {
   // Load Tableau API once
   const script = document.createElement('script');
   script.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
@@ -23,3 +23,5 @@
       button.classList.add('active');
     });
   });
+});
+
