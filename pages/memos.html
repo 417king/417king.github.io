@@ -145,41 +145,7 @@
     .hero-box p {
       font-size: 1rem;
     }
-
-     /* Expandable Section */
-    .expand-container {
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 0 2rem;
-    }
-    .expand-toggle {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      cursor: pointer;
-      font-weight: bold;
-      background: white;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .expand-box {
-      margin-top: 1rem;
-      background: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: max-height 0.5s ease, opacity 0.5s ease;
-    }
-    .expand-box.open {
-      max-height: 500px;
-      opacity: 1;
-    }
-
-    /* Footer */
+/* Footer */
     footer {
       background: var(--accent);
       padding: 1.5rem;
@@ -216,7 +182,74 @@
       background: #1f1f1f;
       color: white;
     }
+    
+     /* Expandable Section */
+    .expand-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+    .expand-toggle {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .expand-box {
+      margin-top: 1rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+    .expand-box.open {
+      max-height: 500px;
+      opacity: 1;
+    }
 
+    /* Abstract Section */
+    .abstract-box {
+    max-width: 900px; /* IMPORTANT: Set this to match the max-width of your .expand-container for consistent width */
+    margin: 4rem auto 2rem auto; /* Top margin (adjust as needed), auto horizontal, bottom margin for spacing */
+    padding: 2rem; /* Padding inside the box */
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: var(--text-dark); /* Ensure text is readable */
+}
+
+body.dark-mode .abstract-box {
+    background: #1f1f1f;
+    color: white;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+.abstract-box h2 {
+    font-size: 1.8rem;
+    color: var(--accent);
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+body.dark-mode .abstract-box h2 {
+    color: white;
+}
+
+.abstract-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 0; 
+}
 
 /* ----- Carousel Specific CSS ----- */
 
@@ -341,41 +374,6 @@ body.dark-mode .read-memo-button {
 body.dark-mode .read-memo-button:hover {
     background-color: #e68a00;
 }
-.abstract-box {
-    max-width: 900px; /* IMPORTANT: Set this to match the max-width of your .expand-container for consistent width */
-    margin: 4rem auto 2rem auto; /* Top margin (adjust as needed), auto horizontal, bottom margin for spacing */
-    padding: 2rem; /* Padding inside the box */
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    color: var(--text-dark); /* Ensure text is readable */
-}
-
-/* Dark Mode for the Abstract Box */
-body.dark-mode .abstract-box {
-    background: #1f1f1f;
-    color: white;
-    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
-}
-
-.abstract-box h2 { /* Use h2 for the main abstract heading */
-    font-size: 1.8rem;
-    color: var(--accent);
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 1rem;
-}
-body.dark-mode .abstract-box h2 {
-    color: white;
-}
-
-.abstract-box p {
-    font-size: 1rem;
-    line-height: 1.6;
-    text-align: justify;
-    margin-bottom: 0; /* Remove extra margin if it's the last paragraph */
-}
-
 
 /* Lightbox Styles */
 .lightbox-overlay {
@@ -460,9 +458,6 @@ body.dark-mode .lightbox-close:hover { /* Removed lightbox-nav:hover */
 .lightbox-close:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
-
-/* Removed .lightbox-nav, .lightbox-prev, .lightbox-next, and their hover styles */
-/* Also removed: .lightbox-overlay:not(.has-multiple-items) .lightbox-nav { display: none; } */
 
 .lightbox-caption {
     font-size: 1.1rem;
