@@ -57,88 +57,6 @@
   </div>
 </section>
 
-<section class="dashboard-toggles-container">
-  <div class="button-group">
-    <button class="active" data-dashboard="dashboard1">Survey Essentials</button>
-    <button data-dashboard="dashboard2">Customer Churn Analysis</button>
-    <button data-dashboard="dashboard3">Marketing Campaign Results</button>
-  </div>
-</section>
-
-<section class="dashboards-container">
-  <div id="dashboard1" class="dashboard-box">
-    <div class="tableauPlaceholder" id="viz1">
-      <!-- Tableau embed code for Survey Essentials -->
-      <noscript>
-        <a href="#"><img alt="Survey Essentials" src="https://public.tableau.com/static/images/Su/SurveyStandards/LandingPage/1_rss.png" style="border:none;" /></a>
-      </noscript>
-      <object class="tableauViz" style="display:none;">
-        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
-        <param name="embed_code_version" value="3" />
-        <param name="site_root" value="" />
-        <param name="name" value="SurveyStandards/LandingPage" />
-        <param name="tabs" value="no" />
-        <param name="toolbar" value="yes" />
-        <param name="static_image" value="https://public.tableau.com/static/images/Su/SurveyStandards/LandingPage/1.png" />
-        <param name="animate_transition" value="yes" />
-        <param name="display_static_image" value="yes" />
-        <param name="display_spinner" value="yes" />
-        <param name="display_overlay" value="yes" />
-        <param name="display_count" value="yes" />
-        <param name="language" value="en-US" />
-      </object>
-    </div>
-  </div>
-
-  <div id="dashboard2" class="dashboard-box" style="display:none;">
-    <div class="tableauPlaceholder" id="viz2">
-      <!-- Tableau embed code for Customer Churn Analysis -->
-      <noscript>
-        <a href="#"><img alt="Customer Churn Analysis" src="https://public.tableau.com/static/images/Cu/CustomerChurnAnalysis/ChurnDashboard/1_rss.png" style="border:none;" /></a>
-      </noscript>
-      <object class="tableauViz" style="display:none;">
-        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
-        <param name="embed_code_version" value="3" />
-        <param name="site_root" value="" />
-        <param name="name" value="CustomerChurnAnalysis/ChurnDashboard" />
-        <param name="tabs" value="no" />
-        <param name="toolbar" value="yes" />
-        <param name="static_image" value="https://public.tableau.com/static/images/Cu/CustomerChurnAnalysis/ChurnDashboard/1.png" />
-        <param name="animate_transition" value="yes" />
-        <param name="display_static_image" value="yes" />
-        <param name="display_spinner" value="yes" />
-        <param name="display_overlay" value="yes" />
-        <param name="display_count" value="yes" />
-        <param name="language" value="en-US" />
-      </object>
-    </div>
-  </div>
-
-  <div id="dashboard3" class="dashboard-box" style="display:none;">
-    <div class="tableauPlaceholder" id="viz3">
-      <!-- Tableau embed code for Marketing Campaign Results -->
-      <noscript>
-        <a href="#"><img alt="Marketing Campaign Results" src="https://public.tableau.com/static/images/Ma/MarketingCampaignPerformance/CampaignOverview/1_rss.png" style="border:none;" /></a>
-      </noscript>
-      <object class="tableauViz" style="display:none;">
-        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
-        <param name="embed_code_version" value="3" />
-        <param name="site_root" value="" />
-        <param name="name" value="MarketingCampaignPerformance/CampaignOverview" />
-        <param name="tabs" value="no" />
-        <param name="toolbar" value="yes" />
-        <param name="static_image" value="https://public.tableau.com/static/images/Ma/MarketingCampaignPerformance/CampaignOverview/1.png" />
-        <param name="animate_transition" value="yes" />
-        <param name="display_static_image" value="yes" />
-        <param name="display_spinner" value="yes" />
-        <param name="display_overlay" value="yes" />
-        <param name="display_count" value="yes" />
-        <param name="language" value="en-US" />
-      </object>
-    </div>
-  </div>
-</section>
-
 
 <!-- Footer -->
 <footer id="footer">
@@ -152,33 +70,6 @@
 <!-- Scripts -->
 <script 
   src="../js/main.js">
-</script>
-
-<script>
-  // Load Tableau API once
-  const script = document.createElement('script');
-  script.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
-  document.head.appendChild(script);
-
-  // Toggle dashboards display
-  const buttons = document.querySelectorAll('.button-group button');
-  const dashboards = document.querySelectorAll('.dashboard-box');
-
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const targetId = button.getAttribute('data-dashboard');
-
-      // Hide all dashboards
-      dashboards.forEach(d => d.style.display = 'none');
-
-      // Show the selected dashboard
-      document.getElementById(targetId).style.display = 'block';
-
-      // Update button active state
-      buttons.forEach(b => b.classList.remove('active'));
-      button.classList.add('active');
-    });
-  });
 </script>
   
 </body>
