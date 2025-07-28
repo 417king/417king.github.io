@@ -8,3 +8,8 @@ function animateOnLoad() {
     document.querySelector('.hero').classList.add('animate-in');
     document.querySelector('.hero-box').classList.add('animate-in');
 }
+
+function toggleExpandBox() {
+  const box = document.getElementById('expandBox');
+  box.classList.toggle('open');
+}
