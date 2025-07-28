@@ -12,16 +12,10 @@
   <style>
    .hero-box h1 {
      border-bottom: 6px solid #7F30C4;
-   }
-  </style>
-  
-  </head>
+   } 
+</head>
 
-  <body onload="animateOnLoad()">
-
-
-
-  
+<body onload="animateOnLoad()">
 
 <!-- Header -->
 <header class="new-header">
@@ -55,39 +49,93 @@
 <!-- Hero -->
 <section class="hero">
   <div class="hero-box">
-    <h1>Survey Designs</h1>
+    <h1>Under Construction!</h1>
     <p></p>
   </div>
 </section>
 
-<section class="dashboard-toggles-container"> <div class="button-group">
-    <button data-dashboard-id="dashboard1" class="active">Survey Essentials</button>
-    <button data-dashboard-id="dashboard2">Customer Churn Analysis</button>
-    <button data-dashboard-id="dashboard3">Marketing Campaign Results</button>
+<section class="dashboard-toggles-container">
+  <div class="button-group">
+    <button class="active" data-dashboard="dashboard1">Survey Essentials</button>
+    <button data-dashboard="dashboard2">Customer Churn Analysis</button>
+    <button data-dashboard="dashboard3">Marketing Campaign Results</button>
   </div>
 </section>
 
-<section class="tableau-dashboard-container">
-  <div class="dashboard-box">
-    <div class='tableauPlaceholder' id='tableauVizContainer' style='position: relative'>
+<section class="dashboards-container">
+  <div id="dashboard1" class="dashboard-box">
+    <div class="tableauPlaceholder" id="viz1">
+      <!-- Tableau embed code for Survey Essentials -->
       <noscript>
-        <a href='#'>
-          <img alt='Dashboard Placeholder' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Sa&#47;SampleDashboard1&#47;Dashboard1&#47;1_rss.png' style='border: none' />
-        </a>
+        <a href="#"><img alt="Survey Essentials" src="https://public.tableau.com/static/images/Su/SurveyStandards/LandingPage/1_rss.png" style="border:none;" /></a>
       </noscript>
+      <object class="tableauViz" style="display:none;">
+        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+        <param name="embed_code_version" value="3" />
+        <param name="site_root" value="" />
+        <param name="name" value="SurveyStandards/LandingPage" />
+        <param name="tabs" value="no" />
+        <param name="toolbar" value="yes" />
+        <param name="static_image" value="https://public.tableau.com/static/images/Su/SurveyStandards/LandingPage/1.png" />
+        <param name="animate_transition" value="yes" />
+        <param name="display_static_image" value="yes" />
+        <param name="display_spinner" value="yes" />
+        <param name="display_overlay" value="yes" />
+        <param name="display_count" value="yes" />
+        <param name="language" value="en-US" />
+      </object>
+    </div>
+  </div>
+
+  <div id="dashboard2" class="dashboard-box" style="display:none;">
+    <div class="tableauPlaceholder" id="viz2">
+      <!-- Tableau embed code for Customer Churn Analysis -->
+      <noscript>
+        <a href="#"><img alt="Customer Churn Analysis" src="https://public.tableau.com/static/images/Cu/CustomerChurnAnalysis/ChurnDashboard/1_rss.png" style="border:none;" /></a>
+      </noscript>
+      <object class="tableauViz" style="display:none;">
+        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+        <param name="embed_code_version" value="3" />
+        <param name="site_root" value="" />
+        <param name="name" value="CustomerChurnAnalysis/ChurnDashboard" />
+        <param name="tabs" value="no" />
+        <param name="toolbar" value="yes" />
+        <param name="static_image" value="https://public.tableau.com/static/images/Cu/CustomerChurnAnalysis/ChurnDashboard/1.png" />
+        <param name="animate_transition" value="yes" />
+        <param name="display_static_image" value="yes" />
+        <param name="display_spinner" value="yes" />
+        <param name="display_overlay" value="yes" />
+        <param name="display_count" value="yes" />
+        <param name="language" value="en-US" />
+      </object>
+    </div>
+  </div>
+
+  <div id="dashboard3" class="dashboard-box" style="display:none;">
+    <div class="tableauPlaceholder" id="viz3">
+      <!-- Tableau embed code for Marketing Campaign Results -->
+      <noscript>
+        <a href="#"><img alt="Marketing Campaign Results" src="https://public.tableau.com/static/images/Ma/MarketingCampaignPerformance/CampaignOverview/1_rss.png" style="border:none;" /></a>
+      </noscript>
+      <object class="tableauViz" style="display:none;">
+        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+        <param name="embed_code_version" value="3" />
+        <param name="site_root" value="" />
+        <param name="name" value="MarketingCampaignPerformance/CampaignOverview" />
+        <param name="tabs" value="no" />
+        <param name="toolbar" value="yes" />
+        <param name="static_image" value="https://public.tableau.com/static/images/Ma/MarketingCampaignPerformance/CampaignOverview/1.png" />
+        <param name="animate_transition" value="yes" />
+        <param name="display_static_image" value="yes" />
+        <param name="display_spinner" value="yes" />
+        <param name="display_overlay" value="yes" />
+        <param name="display_count" value="yes" />
+        <param name="language" value="en-US" />
+      </object>
     </div>
   </div>
 </section>
 
-<!-- Expandable Section -->
-<section class="expand-container">
-  <div class="expand-toggle" onclick="toggleExpandBox()">
-    <div style="font-size: 1.5rem;">+</div>
-    <div>When is a survey right to use?</div>
-  </div>
-  <div class="expand-box" id="expandBox">
-    <p id="expandBoxText">When you need to gather information from a large group of people quickly and efficiently, or when you need statistically valid data about a population, survey prove to be immensly helpful.</p> </div>
-</section>
 
 <!-- Footer -->
 <footer id="footer">
@@ -104,126 +152,32 @@
 </script>
 
 <script>
-  // Global variable to hold the Tableau Viz object
-  let tableauViz = null;
+  // Load Tableau API once
+  const script = document.createElement('script');
+  script.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
+  document.head.appendChild(script);
 
+  // Toggle dashboards display
+  const buttons = document.querySelectorAll('.button-group button');
+  const dashboards = document.querySelectorAll('.dashboard-box');
 
-  // REMEMBER TO REPLACE 'YOUR_TABLEAU_PUBLIC_URL' WITH YOUR ACTUAL DASHBOARD EMBED URLs
-  const dashboardData = [
-    {
-      id: "dashboard1",
-      buttonLabel: "Survey Essentials",
-      vizUrl: "https://public.tableau.com/views/SurveyStandards/LandingPage?:embed=yes&:showVizHome=no",
-      vizOptions: {
-        hideTabs: true,
-        hideToolbar: true,
-        // You can add more Tableau specific options here
-        // Example: width: '100%', height: '80vh', onFirstInteractive: function() { console.log('Viz loaded!'); }
-      },
-      introTitle: "Survey Essentials",
-      introParagraph1: "This dashboard provides a comprehensive overview of sales performance, allowing you to track revenue, units sold, and profit margins across different regions.",
-      introParagraph2: "Key features include interactive filters for time periods and product categories, alongside trend analysis to identify growth opportunities and areas needing attention."
-    },
-    {
-      id: "dashboard2",
-      buttonLabel: "Customer Churn Analysis",
-      vizUrl: "https://public.tableau.com/views/CustomerChurnAnalysis/ChurnDashboard", // REPLACE with your actual Tableau Public URL
-      vizOptions: {
-        hideTabs: false, // Example: this dashboard might have tabs
-        hideToolbar: false,
-      },
-      introTitle: "Customer Churn Analysis Dashboard",
-      introParagraph1: "Understand the factors driving customer churn with this analytical dashboard. Identify at-risk customer segments and the reasons behind their departure.",
-      introParagraph2: "Leverage insights on customer demographics, engagement patterns, and service interactions to develop effective retention strategies and improve customer lifetime value."
-    },
-    {
-      id: "dashboard3",
-      buttonLabel: "Marketing Campaign Results",
-      vizUrl: "https://public.tableau.com/views/MarketingCampaignPerformance/CampaignOverview", // REPLACE with your actual Tableau Public URL
-      vizOptions: {
-        hideTabs: true,
-        hideToolbar: false,
-      },
-      introTitle: "Marketing Campaign Results",
-      introParagraph1: "Evaluate the effectiveness of your marketing campaigns through key metrics like reach, engagement, conversion rates, and ROI.",
-      introParagraph2: "This dashboard enables you to compare campaign performance, optimize future marketing efforts, and allocate resources more efficiently based on data-driven insights."
-    }
-  ];
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const targetId = button.getAttribute('data-dashboard');
 
-  // Get references to the HTML elements that will be updated
-  const tableauVizContainer = document.getElementById('tableauVizContainer');
-  const dashboardButtons = document.querySelectorAll('.button-group button'); // Select all buttons in the group
+      // Hide all dashboards
+      dashboards.forEach(d => d.style.display = 'none');
 
-  // Function to load the Tableau API script only once
-  function loadTableauApi(callback) {
-    // Check if tableau object already exists (meaning API is loaded)
-    if (typeof tableau !== 'undefined') {
-      callback();
-      return;
-    }
-    const scriptElement = document.createElement('script');
-    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-    scriptElement.onload = callback; // Execute callback once script is loaded
-    document.head.appendChild(scriptElement);
-  }
+      // Show the selected dashboard
+      document.getElementById(targetId).style.display = 'block';
 
-  // Function to update content and load Tableau Viz
-  function updateDashboardContent(dashboardId) {
-    const selectedDashboard = dashboardData.find(dashboard => dashboard.id === dashboardId);
-
-    if (selectedDashboard) {
-      // Dispose of existing viz if it exists
-      if (tableauViz) {
-        tableauViz.dispose();
-        tableauVizContainer.innerHTML = ''; // Clear the container
-      }
-
-      // Create new Tableau Viz
-      // Ensure the container is empty before creating a new viz
-      tableauViz = new tableau.Viz(
-        tableauVizContainer,
-        selectedDashboard.vizUrl,
-        {
-          ...selectedDashboard.vizOptions, // Spread the options from your data object
-          width: '100%', // Important for responsiveness
-          height: '80vh' // Set a consistent height or adjust as needed
-        }
-      );
-
-      // Update active button state
-      dashboardButtons.forEach(button => {
-        if (button.dataset.dashboardId === dashboardId) {
-          button.classList.add('active');
-        } else {
-          button.classList.remove('active');
-        }
-      });
-
-    } else {
-      console.error("Dashboard data not found for ID:", dashboardId);
-    }
-  }
-
-  // Event listener for button clicks
-  document.addEventListener('DOMContentLoaded', () => {
-      dashboardButtons.forEach(button => {
-          button.addEventListener('click', () => {
-              updateDashboardContent(button.dataset.dashboardId);
-          });
-      });
-  });
-
-  // INITIAL LOAD OF TABLEAU CONTENT AND API AFTER ALL OTHER SCRIPTS
-  // This will run when the entire page is loaded.
-  // It's placed here to ensure `loadTableauApi` and `updateDashboardContent`
-  // are defined when `window.onload` (effectively `body.onload`) triggers.
-  window.addEventListener('load', () => {
-      loadTableauApi(() => {
-          updateDashboardContent('dashboard1'); // Load default dashboard content
-      });
+      // Update button active state
+      buttons.forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
+    });
   });
 </script>
-
+  
 </body>
 </html>
 
