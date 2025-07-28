@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Christopher King - [Page Title]</title>
+  <title>Christopher King - Survey Designs</title>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -109,7 +109,7 @@
       justify-content: flex-start;
       align-items: center;
       padding: 8rem 2rem 4rem;
-      background-image: url('images/banner1.png');
+      background-image: url('../images/banner1.png');
       background-size: cover;
       background-position: center;
       transition: opacity 1s ease 0.4s;
@@ -136,12 +136,46 @@
     .hero-box h1 {
       font-size: 36px;
       margin-bottom: 0.5rem;
-      border-bottom: 6px solid #D7A8FF; /* Adjust color and thickness as needed */
+      border-bottom: 6px solid #7F30C4; /* Adjust color and thickness as needed */
       padding-bottom: 0.1px; /* Adds space between text and underline */
       display: inline-block; /* Makes the border only as wide as the text */
     }
     .hero-box p {
       font-size: 1rem;
+    }
+
+
+         /* Expandable Section */
+    .expand-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+    .expand-toggle {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .expand-box {
+      margin-top: 1rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+    .expand-box.open {
+      max-height: 500px;
+      opacity: 1;
     }
 
     /* Footer */
@@ -186,6 +220,10 @@
 
 <body onload="animateOnLoad()">
 
+
+
+  
+
 <!-- Header -->
 <header class="new-header">
   <div class="header-left">
@@ -221,6 +259,16 @@
     <h1>Under Construction!</h1>
     <p></p>
   </div>
+</section>
+
+<!-- Expandable Section -->
+<section class="expand-container">
+  <div class="expand-toggle" onclick="toggleExpandBox()">
+    <div style="font-size: 1.5rem;">+</div>
+    <div>Expand for More Survey Details</div>
+  </div>
+  <div class="expand-box" id="expandBox">
+    <p id="expandBoxText">Supporting information about survey methods, sampling strategies, analysis frameworks, and additional documentation.</p> </div>
 </section>
 
 <!-- Footer -->
