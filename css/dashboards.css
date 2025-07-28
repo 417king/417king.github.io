@@ -1,1 +1,67 @@
 
+/* Container for the buttons */
+.dashboard-toggles-container {
+  max-width: 1200px;
+  margin: 3rem auto 2rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+/* Button group layout */
+.button-group {
+  display: inline-flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Buttons styling */
+.button-group button {
+  background-color: #7F30C4; /* your accent color */
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Hover effect for non-active buttons */
+.button-group button:hover:not(.active) {
+  background-color: #5e2398;
+}
+
+/* Active button style */
+.button-group button.active {
+  background-color: #4a1c71;
+  cursor: default;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Dashboard container box */
+.dashboard-box {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background: white;
+}
+
+/* Tableau embed sizing */
+.tableauPlaceholder {
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+}
+
+/* Responsive iframe/object inside Tableau container */
+.tableauPlaceholder object,
+.tableauPlaceholder iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
