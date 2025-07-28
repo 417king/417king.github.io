@@ -10,7 +10,9 @@
   <link rel="stylesheet" href="../css/boxes.css">
   <link rel="stylesheet" href="../css/dashboards&buttons.css">
   <style>
-
+.hero-box h1 {
+  border-bottom: 6px solid #00C7B2
+}
   </style>
 </head>
 
@@ -91,22 +93,8 @@
   // Global variable to hold the Tableau Viz object
   let tableauViz = null;
 
-  // Existing functions from other pages
-  function toggleSwitch(el) {
-    el.classList.toggle('active');
-    document.body.classList.toggle('dark-mode');
-  }
 
-  // --- Animation function (this is what's called by onload) ---
-  function animateOnLoad() {
-    document.querySelector('.new-header').classList.add('animate-in');
-    document.querySelector('.hero').classList.add('animate-in');
-    document.querySelector('.hero-box').classList.add('animate-in');
-  }
 
-  // --- NEW JS for Dashboard Toggles ---
-
-  // Define your dashboard data
   // REMEMBER TO REPLACE 'YOUR_TABLEAU_PUBLIC_URL' WITH YOUR ACTUAL DASHBOARD EMBED URLs
   const dashboardData = [
     {
