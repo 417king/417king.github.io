@@ -88,11 +88,11 @@
 
   <!-- Expandable Section (unique to this dashboard) -->
   <section class="expand-container">
-    <div class="expand-toggle" onclick="toggleExpandBox(this)">
+    <div class="expand-toggle" onclick="toggleExpandBox('expandBox1')">
       <div style="font-size: 1.5rem;">+</div>
       <div>When are survey essentials?</div>
     </div>
-    <div class="expand-box">
+    <div class="expand-box" id="expandBox1">
       <p>When you need to gather information from a large group of people quickly and efficiently, or when you need statistically valid data about a population, surveys prove to be immensely helpful.</p>
     </div>
   </section>
@@ -190,10 +190,11 @@
   });
 
   // Expand box toggle logic
-  function toggleExpandBox(toggle) {
-    const box = toggle.nextElementSibling;
-    box.classList.toggle('open');
-  }
+  function toggleExpandBox(id) {
+  const box = document.getElementById(id);
+  box.classList.toggle('open');
+}
+
 </script>
 
   
