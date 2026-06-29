@@ -4,908 +4,303 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Christopher King</title>
-  <link rel="icon" href="../images/favicon.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --bg-light: #0059b3;
-      --text-dark: #333;
-      --accent: #003366;
-    }
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="css/styles.css" />
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-dark);
-    }
-
-    h1 {
-      font-size: 28px;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-    }
-
-    h2 {
-      font-size: 22px;
-      font-family: 'Merriweather', serif;
-      font-weight: 400;
-    }
-
-    h3 {
-      font-size: 20px;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-    }
-
-    p {
-      font-size: 10px;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    /* === Animation Styles === */
-    .fade-in-top {
-      opacity: 0;
-      transform: translateY(-20px);
-      transition: all 0.6s ease;
-    }
-
-    .fade-in-banner {
-      opacity: 0;
-      transition: opacity 1s ease 0.4s;
-    }
-
-    .slide-up-delayed {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.6s ease 1s;
-    }
-
-    .animate-in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    footer {
-      padding: 2rem;
-      text-align: center;
-      background-color: #003366; /* dark blue footer */
-      color: white;
-    }
-
-    footer p {
-      margin-bottom: 1rem;
-      font-weight: 400;
-      font-size: 1.2rem;
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-    }
-
-    .social-links a {
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
-    }
-
-    .social-links a:hover {
-      text-decoration: underline;
-    }
-
-    /* === Header === */
-   /* === Header === */
-.new-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: var(--accent);
-  padding: 0.75rem 2rem;
-  display: flex;
-  justify-content: space-between; /* Keep this to push left/right sections apart */
-  align-items: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  box-sizing: border-box;
-  z-index: 999;
-  /* Ensure flex-wrap: wrap; is NOT on .new-header itself if you want it to behave like other pages */
-  /* If you want the items to wrap within the header, add flex-wrap: wrap; here and adjust justify-content as discussed previously for wide screens */
-}
-
-.header-left, .header-right {
-  display: flex; /* <-- IMPORTANT: Add this */
-  align-items: center; /* <-- IMPORTANT: Add this */
-}
-
-.header-left {
-  gap: 1rem;
-}
-
-.header-right {
-  gap: 0.5rem;
-  margin-left: auto;
-  flex-wrap: wrap;
-}
-
-.site-name a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem; /* Keep this for "Christopher King" */
-  font-weight: 600;
-}
-
-.dark-toggle-switch {
-  width: 40px;
-  height: 20px;
-  background: #ccc;
-  border-radius: 50px;
-  position: relative;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.dark-toggle-switch .circle {
-  width: 16px;
-  height: 16px;
-  background: white;
-  border-radius: 50%;
-  position: absolute;
-  top: 2px; /* <-- IMPORTANT: Change this to 2px */
-  left: 3px;
-  transition: left 0.3s;
-}
-
-.dark-toggle-switch.active {
-  background: #444;
-}
-
-.dark-toggle-switch.active .circle {
-  left: 22px;
-}
-
- .survey-link-box {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 600;
-      color: white;
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-    }
-
-
-    /* Hover colors */
-    .survey-link-surveys:hover { background-color: #7F30C4; }
-    .survey-link-memos:hover { background-color: #FFA02F; }
-    .survey-link-dashboards:hover { background-color: #00C7B2; }
-    .survey-link-visualizations:hover { background-color: #00549F; }
-    .survey-link-gallery:hover { background-color: #D7A8FF; }
-
-
-.color-rect {
-  width: 6px;
-  height: 30px;
-  border-radius: 3px;
-  background-color: #7F30C4;
-  z-index: 1;
-}
-
-/* Also, update your general 'p' tag style to match your other pages for consistency */
-p {
-  font-size: 16px; /* Change from 10px to 16px */
-  font-family: 'Poppins', sans-serif;
-}
-    /* === Hero Section === */
-    .hero {
-      height: 50vh;
-      position: relative;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      padding: 15rem 2rem;
-      background-image: url('images/banner1.png');
-      background-size: cover;
-      background-position: center;
-      transition: background-image 0.5s ease-in-out, background-color 0.5s ease-in-out;
-    }
-
-    .hero-box {
-      background: rgba(255, 255, 255, 0.95);
-      text-align: left;
-      margin-top: 1rem;
-      padding: 1.5rem 2rem;
-      border-radius: 16px;
-      max-width: 700px;
-      margin-left: 10%;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      z-index: 1;
-      color: #003366;
-      transform: translateX(3%) translateY(30px); 
-      opacity: 0; 
-      transition: all 0.6s ease 1s; 
-    }
-
-
-    .hero-box p {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 0.65rem 1.2rem;
-      border-radius: 50px;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 0.9rem;
-      text-align: center;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .button-primary {
-      background-color: #7F30C4;
-      color: white;
-      border: none;
-    }
-
-    .button-primary:hover {
-      background-color: #5c2392;
-    }
-
-    .button-outline {
-      background: transparent;
-      color: #7F30C4;
-      border: 2px solid #7F30C4;
-    }
-
-    .button-outline:hover {
-      background-color: #7F30C4;
-      color: white;
-    }
-
-    .button-dashboards {
-      background: transparent;
-      color: #00C7B2; /* Teal like Dashboard ribbon */
-      border: 2px solid #00C7B2;
-    }
-
-    .button-dashboards:hover {
-      background-color: #00C7B2;
-      color: white;
-    }
-
-    .button-memos {
-      background: transparent;
-      color: #FFA02F; /* Orange like Memos ribbon */
-      border: 2px solid #FFA02F;
-    }
-
-    .button-memos:hover {
-      background-color: #FFA02F;
-      color: white;
-    }
-
-    .underline {
-      width: 50px;
-      height: 6px;
-      margin-top: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .scroll-down-arrow {
-      position: absolute;
-      top: 80vh;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 4.5rem;
-      color: #FCFCF7 ;
-      opacity: 0; /* start hidden for fade-in */
-      animation: bounce 1.5s ease-in-out 4;
-      z-index: 10;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .fade-in-banner.animate-in {
-      opacity: 1;
-      transition: opacity 1s ease;
-    }
-
-    .hero-box.animate-in {
-      opacity: 1;
-      transform: translateX(3%) translateY(0);
-    }
-
-
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateX(-50%) translateY(0);
-      }
-      50% {
-        transform: translateX(-50%) translateY(-10px);
-      }
-    }
-
-    /* === Grid Section === */
-    .grid-2x2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 45vh 45vh;
-      gap: 0;
-      margin-bottom: 4rem;
-    }
-
-    .grid-2x2 img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .grid-item {
-      background: white;
-      height: 100%;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 2rem;
-      box-sizing: border-box;
-      transition: background-color 0.5s ease, color 0.5s ease;
-    }
-
-    .grid-text-block {
-      text-align: left;
-      max-width: 650px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-
-    .grid-text-block h2 {
-      font-size: 36px;
-    }
-
-    .grid-text-block p {
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .image-top-left,
-    .image-bottom-right {
-      min-height: 300px;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: #ccc;
-    }
-
-    .image-top-left {
-      background-image: url('images/indeximage1.png');
-    }
-
-    .image-bottom-right {
-      background-image: url('images/indeximage2.png');
-    }
-
-    /* === Center Section (4 Circles) === */
-    .center-card {
-      background: white;
-      max-width: 1200px;
-      margin: 0 auto;
-      border-radius: 12px;
-      padding: 4rem 2rem;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .circle-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .circle-item {
-      text-align: center;
-    }
-
-    .circle-item .circle {
-      width: 60px;
-      height: 60px;
-      background: black;
-      border-radius: 50%;
-      margin: 0 auto 1rem;
-    }
-
-    /* === Side-by-Side Section === */
-    .side-image-text {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 0rem;
-      padding: 2rem 10rem;
-      background: #f5f5f5;
-      transition: background-color 0.5s ease, color 0.5s ease;
-    }
-
-    .about-image {
-      height: 300px;
-      border-radius: 2px;
-      object-fit: cover;
-    }
-
-    .about-text {
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: left;
-    }
-
-    .about-text h2 {
-      font-family: 'Merriweather', serif;
-      font-size: 24px;
-      margin-bottom: 1rem;
-    }
-
-    .about-text p {
-      font-family: 'Poppins', sans-serif;
-      font-size: 14px;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    /* === Dark Mode Styles === */
-    body.dark-mode {
-      background-color: #003366;
-      color: white;
-    }
-
-    body.dark-mode .new-header {
-      background: #003366;
-    }
-
-    body.dark-mode .hero {
-      background-image: url('nightbanner1.jpg');
-    }
-
-    body.dark-mode .hero-box,
-    body.dark-mode .center-card,
-    body.dark-mode .project-card {
-      background: #1f1f1f;
-      color: white;
-    }
-
-    body.dark-mode .hero-box h1,
-    body.dark-mode .hero-box p {
-      color: white;
-    }
-
-    body.dark-mode .grid-item {
-      background-color: #1f1f1f; /* dark gray background in dark mode */
-      color: white;
-    }
-
-    body.dark-mode .grid-item p {
-      color: white;
-    }
-
-    body.dark-mode .grid-item h2 {
-      color: white;
-    }
-
-    body.dark-mode .side-image-text {
-      background-color: #1f1f1f; /* match other dark sections */
-    }
-
-    body.dark-mode .about-text h2,
-    body.dark-mode .about-text p,
-    body.dark-mode .social-links a {
-      color: white;
-    }
-
-    #snake-game {
-      margin-top: 2rem;
-      display: none; 
-      opacity: 0;
-      transition: opacity 0.6s ease;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 2rem;
-    }
-
-    #snake-game.show {
-      display: flex;
-      opacity: 1;
-    }
-
-
-/* dial back the really large fixed pixel fonts on ultra-wide screens */
-    @media (min-width: 1600px) {
-      h1  { font-size: 36px; }
-      h2  { font-size: 32px; }
-      h3  { font-size: 22px; }
-      p,
-      .grid-text-block p { font-size: 16px; }
-    }
-
-/* let phones / small tablets keep breathing room  */
-    @media (max-width: 768px) {
-      .hero-box      { margin: 0 1rem; padding: 2rem 1rem; }
-      .hero-box h1   { font-size: 30px; }
-      .hero-box p    { font-size: 16px; }
-
-      .grid-text-block h2 { font-size: 28px; }
-      .grid-text-block p  { font-size: 16px; }
-    }
-    
-      .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    .image-grid-section .grid-2x2 {
-      width: 100%;
-      max-width: 100%;
-      margin: 0;
-      padding: 0;
-    }
-
-    .image-grid-section {
-      border-bottom: 25px solid #003366;
-    }
-
-    .side-image-text,
-    .project-section,
-    .footer {
-      padding-left: 2rem;
-      padding-right: 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
-      box-sizing: border-box;
-    }
-
-.leaderboard-box {
-  background: white;
-  color: #003366;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  padding: 1rem;
-  width: 260px;
-  font-family: 'Poppins', sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-
-.leaderboard-title {
-  font-weight: 600;
-  font-size: 1.2rem;
-  background: #003366;
-  color: white;
-  padding: 0.5rem;
-  border-radius: 8px 8px 0 0;
-  text-align: center;
-  margin-bottom: 0.5rem;
-}
-
-.leaderboard-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.95rem;
-}
-
-.leaderboard-table th,
-.leaderboard-table td {
-  padding: 0.5rem;
-  text-align: center;
-  border-bottom: 1px solid #ccc;
-}
-
-.leaderboard-table th {
-  font-weight: 600;
-  background-color: #f0f0f0;
-}
-
-.leaderboard-table td {
-  font-weight: 400;
-}
-
-  </style>
-  
+  <!-- Microsoft Clarity -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "sr6cfa0a7d");
-</script>
-  
+  </script>
 </head>
 
-<body onload="animateOnLoad()">
+<body>
 
-<!-- === Header === -->
-<header class="new-header">
-  <div class="header-left">
-    <div class="dark-toggle-switch" onclick="toggleSwitch(this)">
-      <div class="circle"></div>
-    </div>
-    <div class="site-name">
-      <a href="/index.html">Christopher King</a>
-    </div>
+<!-- === Navigation === -->
+<nav class="nav" id="main-nav">
+  <span class="nav-name">Christopher King</span>
+  <div class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#footer">Contact</a>
   </div>
-  <div class="header-right">
-    <a href="../pages/survey.html" class="survey-link-box survey-link-surveys">
-      <div class="color-rect" style="background-color: #7F30C4;"></div><span>Survey Designs</span>
-    </a>
-    <a href="../pages/memos.html" class="survey-link-box survey-link-memos">
-      <div class="color-rect" style="background-color: #FFA02F;"></div><span>Memos & Reports</span>
-    </a>
-    <a href="../pages/dashboards.html" class="survey-link-box survey-link-dashboards">
-      <div class="color-rect" style="background-color: #00C7B2;"></div><span>Dashboards</span>
-    </a>
-    <a href="../pages/visualizations.html" class="survey-link-box survey-link-visualizations">
-      <div class="color-rect" style="background-color: #00549F;"></div><span>Data Visualizations</span>
-    </a>
-    <a href="../pages/gallery.html" class="survey-link-box survey-link-gallery">
-      <div class="color-rect" style="background-color: #D7A8FF;"></div><span>Gallery</span>
-    </a>
-    </div>
-</header>
+</nav>
 
-
-
-<!-- === Hero Section === -->
-<section class="hero fade-in-banner">
-
-    <div class="hero-box slide-up-delayed">
-      <h1>Hi, I'm Christopher King</h1>
-      <p>I design and build a variety of solutions that are suited for policy professionals. Explore these solutions and see how I've helped push smarter system outcomes on my online portfolio.</p>
-      <a href="#work" class="button button-primary">View my Work</a>
-      <a href="#footer" class="button button-outline">About Me</a>
-    </div>
-  
+<!-- === Hero === -->
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-eyebrow">Policy · Data · GIS</div>
+    <h1>I turn public data into <em>decisions.</em></h1>
+    <p class="hero-sub">Analyst and researcher focused on public policy, geographic data, and making complex systems legible to the people who run them.</p>
+  </div>
 </section>
 
-  <div class="scroll-down-arrow fade-in-banner">
-     ⌄
+<!-- === About === -->
+<div class="about-strip" id="about">
+  <div class="about-strip-inner">
+    <h2>About Me</h2>
+    <p>I'm Christopher King, a policy analyst based in San Diego. I design dashboards, write data-driven reports, and build visualizations that help public agencies and organizations make better decisions. My work spans GIS analysis, survey methodology, and statistical modeling — always from publicly available data, always in service of a real question.</p>
   </div>
+</div>
 
+<!-- === Work === -->
+<div class="section" id="work">
+  <div class="section-label">Selected work</div>
 
-<!-- === Grid Section === -->
-<section class="image-grid-section" id="work">
+  <!-- Featured project -->
+  <a href="pages/trickortreat.html" class="project-featured">
+    <div class="project-featured-img">
+      <div class="grid-lines"></div>
+      <div class="map-dot" style="top:38%;left:44%;"></div>
+      <div class="map-dot" style="top:55%;left:58%;width:5px;height:5px;"></div>
+      <div class="map-dot" style="top:30%;left:62%;width:5px;height:5px;"></div>
+      <div class="map-dot" style="top:65%;left:35%;width:6px;height:6px;"></div>
+      <span class="img-caption">GIS map — San Diego neighborhoods</span>
+    </div>
+    <div class="project-featured-body">
+      <div class="project-cat">Analysis · GIS</div>
+      <h2>Where Should You Trick or Treat in San Diego?</h2>
+      <p>A neighborhood-level regression model predicting candy yield from housing density, income, walkability, and parcel data. Built entirely from public sources.</p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">GIS</span>
+        <span class="tag">Regression</span>
+        <span class="tag">Census</span>
+      </div>
+    </div>
+  </a>
 
-    <div class="grid-2x2">
-    
-      <div class="grid-item image-top-left"></div> <!-- Top Left Image -->
-    
-      <!-- Top Right - Dashboards -->
-      <div class="grid-item">
-        <div class="grid-text-block">
-          <h2>Dashboards</h2>
-          <div class="underline" style="background-color: #00C7B2;"></div>
-          <p>I design performance dashboards to present critical policy, program, and operational data in clean, actionable formats that improve decision-making.</p>
-          <div class="grid-button-container">
-            <a href="pages/dashboards.html" class="button button-dashboards">Go to Dashboards</a>
-          </div>
+  <!-- Three-column cards -->
+  <div class="project-row">
+    <a href="pages/docket.html" class="project-card">
+      <div class="project-card-img" style="background:#1C2B3A;">
+        <span style="font-size:0.7rem;color:rgba(255,255,255,0.3);">chart preview</span>
+      </div>
+      <div class="project-card-body">
+        <div class="project-cat">Analysis</div>
+        <h3>San Diego Docket Analysis</h3>
+        <p>Patterns in case filing, disposition, and delay across the county court system.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">NLP</span>
         </div>
       </div>
+    </a>
 
-      <!-- Bottom Left - Memos -->
-      <div class="grid-item">
-        <div class="grid-text-block">
-          <h2>Memos and Reports</h2>
-          <div class="underline" style="background-color: #FFA02F;"></div>
-          <p>I prepare written analyses, memos, and reports focused on translating complex issues into accessible, decision-ready formats for policy and operational leaders.</p>
-          <div class="grid-button-container">
-            <a href="pages/memos.html" class="button button-memos">Go to Memos & Reports</a>
-          </div>
+    <a href="pages/cop.html" class="project-card">
+      <div class="project-card-img" style="background:#2a1c3a;">
+        <span style="font-size:0.7rem;color:rgba(255,255,255,0.3);">chart preview</span>
+      </div>
+      <div class="project-card-body">
+        <div class="project-cat">Analysis</div>
+        <h3>COP Analysis</h3>
+        <p>Description of the cop analysis — 1–2 sentences about the work and its findings.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Statistics</span>
         </div>
       </div>
+    </a>
 
-      <div class="grid-item image-bottom-right"></div> <!-- Bottom Right Image -->
+    <a href="pages/visualizations.html" class="project-card">
+      <div class="project-card-img" style="background:#e8eef5;">
+        <span style="font-size:0.7rem;color:#9A9A9A;">Tableau preview</span>
+      </div>
+      <div class="project-card-body">
+        <div class="project-cat">Dashboard · Visualization</div>
+        <h3>Semiconductor Supply Chain</h3>
+        <p>California's chip design, fabrication, and assembly ecosystem visualized.</p>
+        <div class="tags">
+          <span class="tag">Tableau</span>
+          <span class="tag">Policy</span>
+        </div>
+      </div>
+    </a>
+  </div>
 
-    </div> <!-- End .grid-2x2 -->
-
-</section>
-
-  <!-- === About Me Section === -->
-<section class="side-image-text" id="about">
-
-    <div class="about-image" style="background-image: url('images/headshot.png'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
-
-    <div class="about-text">
-      <h2>About Me</h2>
-      <p>I'm Christopher King, a designer and builder of smart solutions for public policy challenges. With a passion for data, systems thinking, and human-centered design, I help teams make better decisions through effective tools and insights.</p>
-      <p>Explore my work to see how I translate complex problems into practical outcomes.</p>
-    </div>
-
-</section>
-
+  <!-- More work list -->
+  <div class="section-label" style="margin-top:2.5rem;">More work</div>
+  <div class="more-section">
+    <a href="pages/dashboards.html" class="project-list-item">
+      <span class="list-num">01</span>
+      <div class="project-list-text">
+        <h3>Survey Essentials Dashboard</h3>
+        <p>Tableau · Dashboard</p>
+      </div>
+      <span class="list-arrow">→</span>
+    </a>
+    <a href="pages/dashboards.html" class="project-list-item">
+      <span class="list-num">02</span>
+      <div class="project-list-text">
+        <h3>Customer Churn Analysis</h3>
+        <p>Tableau · Dashboard</p>
+      </div>
+      <span class="list-arrow">→</span>
+    </a>
+    <a href="pages/dashboards.html" class="project-list-item">
+      <span class="list-num">03</span>
+      <div class="project-list-text">
+        <h3>Marketing Campaign Performance</h3>
+        <p>Tableau · Dashboard</p>
+      </div>
+      <span class="list-arrow">→</span>
+    </a>
+    <a href="pages/visualizations.html" class="project-list-item">
+      <span class="list-num">04</span>
+      <div class="project-list-text">
+        <h3>Building the Semiconductor Workforce</h3>
+        <p>Tableau · Visualization</p>
+      </div>
+      <span class="list-arrow">→</span>
+    </a>
+  </div>
+</div>
 
 <!-- === Footer === -->
 <footer id="footer">
-  <div id="footer-content">
-    <p>Let's Connect!</p>
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/christopherd-king" target="_blank">LinkedIn</a>
-      <a href="mailto:cdking417@gmail.com">Email</a>
-      <a href="#" onclick="startSnakeGame(); return false;" style="cursor: pointer;">Snake</a>
-    </div>
+  <span class="footer-name">Christopher King</span>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/christopherd-king" target="_blank">LinkedIn</a>
+    <a href="mailto:cdking417@gmail.com">Email</a>
+    <button class="footer-snake" onclick="startSnakeGame()">↳ Snake</button>
   </div>
+</footer>
 
- <div id="snake-game" class="snake-container">
-  <canvas id="snakeCanvas" width="600" height="270" style="background: #004080; border: 2px solid #001a33; border-radius: 12px;"></canvas>
-
-  <div id="leaderboard" class="leaderboard-box">
+<!-- Snake game -->
+<div class="snake-wrapper" id="snake-wrapper">
+  <canvas id="snakeCanvas" width="560" height="280" style="background:#1C2B3A;border-radius:6px;border:0.5px solid rgba(255,255,255,0.1);"></canvas>
+  <div class="leaderboard-box">
     <div class="leaderboard-title">Leaderboard</div>
     <table class="leaderboard-table">
       <thead>
-        <tr>
-          <th>Top</th>
-          <th>Company</th>
-          <th>Score</th>
-        </tr>
+        <tr><th>#</th><th>Company</th><th>Score</th></tr>
       </thead>
       <tbody id="leaderboard-list">
-        <tr><td>1</td><td>Deilotte</td><td>81</td></tr>
+        <tr><td>1</td><td>Deloitte</td><td>81</td></tr>
         <tr><td>2</td><td>Qualcomm</td><td>48</td></tr>
-        <tr><td>3</td><td>City of San Diego</td><td>44</td></tr>
+        <tr><td>3</td><td>City of SD</td><td>44</td></tr>
       </tbody>
     </table>
   </div>
 </div>
 
-</footer>
-
-
-<!-- === Scripts === -->
+<script src="js/main.js"></script>
 <script>
-function toggleSwitch(el) {
-  el.classList.toggle('active');
-  document.body.classList.toggle('dark-mode');
-}
+  // Nav shadow on scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 10);
+  });
 
-function animateOnLoad() {
-  document.querySelector('.new-header').classList.add('animate-in');
-  document.querySelector('.hero').classList.add('animate-in');
-  document.querySelector('.hero-box').classList.add('animate-in');
-  document.querySelector('.scroll-down-arrow').classList.add('animate-in');
-}
-</script>
+  // Snake game
+  function startSnakeGame() {
+    const wrapper = document.getElementById('snake-wrapper');
+    wrapper.classList.add('show');
+    wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-  <script>
-function startSnakeGame() {
-  document.getElementById('footer-content').style.display = 'none';
+    const canvas = document.getElementById('snakeCanvas');
+    const ctx = canvas.getContext('2d');
+    const box = 20;
+    let snake = [{ x: 9 * box, y: 7 * box }];
+    let food = randomFood();
+    let score = 0;
+    let d;
+    let game;
 
-  const snakeGame = document.getElementById('snake-game');
-  snakeGame.classList.add('show');
-
-  const canvas = document.getElementById('snakeCanvas');
-  const ctx = canvas.getContext('2d');
-
-  const box = 20;
-  let snake = [];
-  snake[0] = { x: 9 * box, y: 10 * box };
-  let food = {
-    x: Math.floor(Math.random() * (canvas.width / box)) * box,
-    y: Math.floor(Math.random() * (canvas.height / box)) * box
-  };
-  let score = 0;
-  let d;
-
-  document.addEventListener("keydown", direction);
-  document.addEventListener("keydown", function(e) {
-    if(["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
-      e.preventDefault();
-    }
-  }, { passive: false });
-
-  function direction(event) {
-    if (event.keyCode == 37 && d != "RIGHT") d = "LEFT";
-    else if (event.keyCode == 38 && d != "DOWN") d = "UP";
-    else if (event.keyCode == 39 && d != "LEFT") d = "RIGHT";
-    else if (event.keyCode == 40 && d != "UP") d = "DOWN";
-  }
-
-  function draw() {
-    ctx.fillStyle = "#004080";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    for (let i = 0; i < snake.length; i++) {
-      ctx.fillStyle = (i == 0) ? "#00FF00" : "#00C7B2";
-      ctx.fillRect(snake[i].x, snake[i].y, box, box);
-      ctx.strokeStyle = "#003366";
-      ctx.strokeRect(snake[i].x, snake[i].y, box, box);
-    }
-
-    ctx.fillStyle = "#FFA02F";
-    ctx.fillRect(food.x, food.y, box, box);
-
-    let snakeX = snake[0].x;
-    let snakeY = snake[0].y;
-
-    if (d == "LEFT") snakeX -= box;
-    if (d == "UP") snakeY -= box;
-    if (d == "RIGHT") snakeX += box;
-    if (d == "DOWN") snakeY += box;
-
-    if (snakeX == food.x && snakeY == food.y) {
-      score++;
-      food = {
+    function randomFood() {
+      return {
         x: Math.floor(Math.random() * (canvas.width / box)) * box,
         y: Math.floor(Math.random() * (canvas.height / box)) * box
       };
-    } else {
-      snake.pop();
     }
 
-    let newHead = {
-      x: snakeX,
-      y: snakeY
-    };
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft'  && d !== 'RIGHT') d = 'LEFT';
+      if (e.key === 'ArrowUp'    && d !== 'DOWN')  d = 'UP';
+      if (e.key === 'ArrowRight' && d !== 'LEFT')  d = 'RIGHT';
+      if (e.key === 'ArrowDown'  && d !== 'UP')    d = 'DOWN';
+      if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key)) e.preventDefault();
+    });
 
-    if (
-      snakeX < 0 || snakeX >= canvas.width ||
-      snakeY < 0 || snakeY >= canvas.height ||
-      collision(newHead, snake)
-    ) {
-      clearInterval(game);
+    function draw() {
+      ctx.fillStyle = '#1C2B3A';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      if (score > 43) { // If they beat the third place
-        let newName = prompt('Wow! New Top 3 Score! Enter your Company Name:');
-        if (newName) {
-          updateLeaderboard(newName, score);
-        }
+      snake.forEach((seg, i) => {
+        ctx.fillStyle = i === 0 ? '#B8742A' : 'rgba(184,116,42,0.55)';
+        ctx.beginPath();
+        ctx.roundRect(seg.x + 1, seg.y + 1, box - 2, box - 2, 3);
+        ctx.fill();
+      });
+
+      ctx.fillStyle = '#F7F5F0';
+      ctx.beginPath();
+      ctx.roundRect(food.x + 2, food.y + 2, box - 4, box - 4, 2);
+      ctx.fill();
+
+      let hx = snake[0].x, hy = snake[0].y;
+      if (d === 'LEFT')  hx -= box;
+      if (d === 'UP')    hy -= box;
+      if (d === 'RIGHT') hx += box;
+      if (d === 'DOWN')  hy += box;
+
+      if (hx === food.x && hy === food.y) {
+        score++;
+        food = randomFood();
       } else {
-        alert('Thanks for Playing! Your Score: ' + score);
+        snake.pop();
       }
+
+      const newHead = { x: hx, y: hy };
+
+      if (hx < 0 || hx >= canvas.width || hy < 0 || hy >= canvas.height ||
+          snake.some(s => s.x === hx && s.y === hy)) {
+        clearInterval(game);
+        if (score > 43) {
+          const name = prompt('New top 3! Enter your company name:');
+          if (name) updateLeaderboard(name, score);
+        } else {
+          ctx.fillStyle = 'rgba(28,43,58,0.85)';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.fillStyle = '#F7F5F0';
+          ctx.font = '500 18px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText('Score: ' + score, canvas.width / 2, canvas.height / 2 - 10);
+          ctx.font = '400 13px Inter, sans-serif';
+          ctx.fillStyle = 'rgba(255,255,255,0.4)';
+          ctx.fillText('Refresh to play again', canvas.width / 2, canvas.height / 2 + 18);
+        }
+        return;
+      }
+
+      snake.unshift(newHead);
+
+      ctx.fillStyle = 'rgba(255,255,255,0.35)';
+      ctx.font = '400 12px Inter, sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText('Score: ' + score, 10, 18);
     }
 
-
-    snake.unshift(newHead);
-
-    ctx.fillStyle = "white";
-    ctx.font = "18px Poppins";
-    ctx.fillText("Score: " + score, 10, 20);
-  }
-
-  function collision(head, array) {
-    for (let i = 0; i < array.length; i++) {
-      if (head.x == array[i].x && head.y == array[i].y) {
-        return true;
-      }
+    function updateLeaderboard(name, sc) {
+      const tbody = document.getElementById('leaderboard-list');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const scores = rows.map(r => ({
+        name: r.cells[1].textContent,
+        score: parseInt(r.cells[2].textContent)
+      }));
+      scores.push({ name, score: sc });
+      scores.sort((a, b) => b.score - a.score);
+      scores.slice(0, 3);
+      tbody.innerHTML = scores.slice(0, 3).map((s, i) =>
+        `<tr><td>${i+1}</td><td>${s.name}</td><td>${s.score}</td></tr>`
+      ).join('');
     }
-    return false;
-  }
 
-  let game = setInterval(draw, 100);
-}
-    
+    game = setInterval(draw, 100);
+  }
 </script>
 
 </body>
 </html>
-
-
-
-
-
