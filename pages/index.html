@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Christopher King</title>
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "sr6cfa0a7d");
+  </script>
+</head>
+
+<body>
+
+<!-- === Navigation === -->
+<nav class="nav" id="main-nav">
+  <span class="nav-name">Christopher King</span>
+  <div class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#footer">Contact</a>
+  </div>
+</nav>
+
+<!-- === Hero === -->
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-eyebrow">Policy · Data · GIS</div>
+    <h1>I turn public data into <em>decisions.</em></h1>
+    <p class="hero-sub">Analyst and researcher focused on public policy, geographic data, and making complex systems legible to the people who run them.</p>
+  </div>
+</section>
+
+<!-- === About === -->
+<div class="about-strip" id="about">
+  <div class="about-strip-inner">
+    <h2>About Me</h2>
+    <p>I'm Christopher King, a policy analyst based in San Diego. I design dashboards, write data-driven reports, and build visualizations that help public agencies and organizations make better decisions. My work spans GIS analysis, survey methodology, and statistical modeling — always from publicly available data, always in service of a real question.</p>
+  </div>
+</div>
+
+<!-- === Work === -->
+<div class="section" id="work">
+  <div class="section-label">Selected work</div>
+
+  <!-- Featured project -->
+  <a href="pages/trickortreat.html" class="project-featured">
+    <div class="project-featured-img">
+      <div class="grid-lines"></div>
+      <div class="map-dot" style="top:38%;left:44%;"></div>
+      <div class="map-dot" style="top:55%;left:58%;width:5px;height:5px;"></div>
+      <div class="map-dot" style="top:30%;left:62%;width:5px;height:5px;"></div>
+      <div class="map-dot" style="top:65%;left:35%;width:6px;height:6px;"></div>
+      <span class="img-caption">GIS map — San Diego neighborhoods</span>
+    </div>
+    <div class="project-featured-body">
+      <div class="project-cat">Analysis · GIS</div>
+      <h2>Where Should You Trick or Treat in San Diego?</h2>
+      <p>A neighborhood-level regression model predicting candy yield from housing density, income, walkability, and parcel data. Built entirely from public sources.</p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">GIS</span>
+        <span class="tag">Regression</span>
+        <span class="tag">Census</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- Three-column cards -->
+  <div class="project-row">
+    <a href="pages/docket.html" class="project-card">
+      <div class="project-card-img" style="background:#1C2B3A;">
+        <span style="font-size:0.7rem;color:rgba(255,255,255,0.3);">chart preview</span>
+      </div>
+      <div class="project-card-body">
+        <div class="project-cat">Analysis</div>
+        <h3>San Diego City Docket Analysis</h3>
+        <p>GPT-4o classification of 673 city staff reports finds PA2 cited in 30% of all items — while housing, Priority Area 1, appears in just 7%.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">GPT-4o</span>
+          <span class="tag">Policy</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="pages/cop.html" class="project-card">
+      <div class="project-card-img" style="background:#2a1c3a;">
+        <span style="font-size:0.7rem;color:rgba(255,255,255,0.3);">chart preview</span>
+      </div>
+      <div class="project-card-body">
+        <div class="project-cat">Analysis · Criminal Justice</div>
+        <h3>SDPD Traffic Stops & Racial Disparities</h3>
+        <p>Replicating Chanin et al. (2018) with full RIPA data. Black drivers are searched at a 44.6% higher rate after propensity score matching — unchanged from 2014.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">PSM</span>
+          <span class="tag">RIPA</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="pages/semiconductor.html" class="project-card">
+      <div class="project-card-img" style="background:#e8eef5;">
+        <span style="font-size:0.7rem;color:#9A9A9A;">Tableau preview</span>
+      </div>
+      <div class="project-card-body">
+        <div class="project-cat">Dashboard · Visualization</div>
+        <h3>Semiconductor Supply Chain</h3>
+        <p>California's chip design, fabrication, and assembly ecosystem visualized.</p>
+        <div class="tags">
+          <span class="tag">Tableau</span>
+          <span class="tag">Policy</span>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- More work list -->
+  <div class="section-label" style="margin-top:2.5rem;">More work</div>
+  <div class="more-section">
+    <a href="pages/survey.html" class="project-list-item">
+      <span class="list-num">01</span>
+      <div class="project-list-text">
+        <h3>Survey Essentials Dashboard</h3>
+        <p>Tableau · Dashboard</p>
+      </div>
+      <span class="list-arrow">→</span>
+    </a>
+    <a href="pages/churn.html" class="project-list-item">
+      <span class="list-num">02</span>
+      <div class="project-list-text">
+        <h3>Customer Churn Analysis</h3>
+        <p>Tableau · Dashboard</p>
+      </div>
+      <span class="list-arrow">→</span>
+    </a>
+    <a href="pages/marketing.html" class="project-list-item">
+      <span class="list-num">03</span>
+      <div class="project-list-text">
+        <h3>Marketing Campaign Performance</h3>
+        <p>Tableau · Dashboard</p>
+      </div>
+      <span class="list-arrow">→</span>
+    </a>
+    <a href="pages/semiconductor.html" class="project-list-item">
+      <span class="list-num">04</span>
+      <div class="project-list-text">
+        <h3>Building the Semiconductor Workforce</h3>
+        <p>Tableau · Visualization</p>
+      </div>
+      <span class="list-arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<!-- === Footer === -->
+<footer id="footer">
+  <span class="footer-name">Christopher King</span>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/christopherd-king" target="_blank">LinkedIn</a>
+    <a href="mailto:cdking417@gmail.com">Email</a>
+    <button class="footer-snake" onclick="startSnakeGame()">↳ Snake</button>
+  </div>
+</footer>
+
+<!-- Snake game -->
+<div class="snake-wrapper" id="snake-wrapper">
+  <canvas id="snakeCanvas" width="560" height="280" style="background:#1C2B3A;border-radius:6px;border:0.5px solid rgba(255,255,255,0.1);"></canvas>
+  <div class="leaderboard-box">
+    <div class="leaderboard-title">Leaderboard</div>
+    <table class="leaderboard-table">
+      <thead>
+        <tr><th>#</th><th>Company</th><th>Score</th></tr>
+      </thead>
+      <tbody id="leaderboard-list">
+        <tr><td>1</td><td>Deloitte</td><td>81</td></tr>
+        <tr><td>2</td><td>Qualcomm</td><td>48</td></tr>
+        <tr><td>3</td><td>City of SD</td><td>44</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  // Nav shadow on scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // Snake game
+  function startSnakeGame() {
+    const wrapper = document.getElementById('snake-wrapper');
+    wrapper.classList.add('show');
+    wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    const canvas = document.getElementById('snakeCanvas');
+    const ctx = canvas.getContext('2d');
+    const box = 20;
+    let snake = [{ x: 9 * box, y: 7 * box }];
+    let food = randomFood();
+    let score = 0;
+    let d;
+    let game;
+
+    function randomFood() {
+      return {
+        x: Math.floor(Math.random() * (canvas.width / box)) * box,
+        y: Math.floor(Math.random() * (canvas.height / box)) * box
+      };
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft'  && d !== 'RIGHT') d = 'LEFT';
+      if (e.key === 'ArrowUp'    && d !== 'DOWN')  d = 'UP';
+      if (e.key === 'ArrowRight' && d !== 'LEFT')  d = 'RIGHT';
+      if (e.key === 'ArrowDown'  && d !== 'UP')    d = 'DOWN';
+      if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key)) e.preventDefault();
+    });
+
+    function draw() {
+      ctx.fillStyle = '#1C2B3A';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      snake.forEach((seg, i) => {
+        ctx.fillStyle = i === 0 ? '#B8742A' : 'rgba(184,116,42,0.55)';
+        ctx.beginPath();
+        ctx.roundRect(seg.x + 1, seg.y + 1, box - 2, box - 2, 3);
+        ctx.fill();
+      });
+
+      ctx.fillStyle = '#F7F5F0';
+      ctx.beginPath();
+      ctx.roundRect(food.x + 2, food.y + 2, box - 4, box - 4, 2);
+      ctx.fill();
+
+      let hx = snake[0].x, hy = snake[0].y;
+      if (d === 'LEFT')  hx -= box;
+      if (d === 'UP')    hy -= box;
+      if (d === 'RIGHT') hx += box;
+      if (d === 'DOWN')  hy += box;
+
+      if (hx === food.x && hy === food.y) {
+        score++;
+        food = randomFood();
+      } else {
+        snake.pop();
+      }
+
+      const newHead = { x: hx, y: hy };
+
+      if (hx < 0 || hx >= canvas.width || hy < 0 || hy >= canvas.height ||
+          snake.some(s => s.x === hx && s.y === hy)) {
+        clearInterval(game);
+        if (score > 43) {
+          const name = prompt('New top 3! Enter your company name:');
+          if (name) updateLeaderboard(name, score);
+        } else {
+          ctx.fillStyle = 'rgba(28,43,58,0.85)';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.fillStyle = '#F7F5F0';
+          ctx.font = '500 18px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText('Score: ' + score, canvas.width / 2, canvas.height / 2 - 10);
+          ctx.font = '400 13px Inter, sans-serif';
+          ctx.fillStyle = 'rgba(255,255,255,0.4)';
+          ctx.fillText('Refresh to play again', canvas.width / 2, canvas.height / 2 + 18);
+        }
+        return;
+      }
+
+      snake.unshift(newHead);
+
+      ctx.fillStyle = 'rgba(255,255,255,0.35)';
+      ctx.font = '400 12px Inter, sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText('Score: ' + score, 10, 18);
+    }
+
+    function updateLeaderboard(name, sc) {
+      const tbody = document.getElementById('leaderboard-list');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const scores = rows.map(r => ({
+        name: r.cells[1].textContent,
+        score: parseInt(r.cells[2].textContent)
+      }));
+      scores.push({ name, score: sc });
+      scores.sort((a, b) => b.score - a.score);
+      scores.slice(0, 3);
+      tbody.innerHTML = scores.slice(0, 3).map((s, i) =>
+        `<tr><td>${i+1}</td><td>${s.name}</td><td>${s.score}</td></tr>`
+      ).join('');
+    }
+
+    game = setInterval(draw, 100);
+  }
+</script>
+
+</body>
+</html>
